@@ -16,6 +16,30 @@ This language explodes(compiles) into JavaScript, now go get M A D, M A A N.
 * higher-order functions
 * pattern matching
 
+## If-else statments
+````
+if boolean then                             if (boolean) {
+  print "First condition true"!               console.log("First condition true");
+else if boolean then                        } else if (boolean) {
+  print "Second condition true"!              console.log("Second condition true");
+else                                        else {
+  !                                           ;
+                                            }
+````
+## While Loops
+````
+while boolean                               while (boolean) {
+  print "This is a gr8 language!"!            console.log("You should try madmaan!");
+                                            }
+````
+
+## For Loops
+````
+rerun i = 0! i < 10! i++!                     for (var i = 0; i < 10; i++) {
+  print "This loops 10 times"!                  console.log("This loops 10 times");
+                                              }
+````
+
 # Examples
 ## Comments
 ````
