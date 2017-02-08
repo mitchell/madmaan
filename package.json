@@ -1,0 +1,30 @@
+{
+  "name": "madmaan",
+  "version": "1.0.0",
+  "description": "A programming language.",
+  "main": "madmaan.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mitchelljfs/madmaan.git"
+  },
+  "keywords": [
+    "language"
+  ],
+  "author": "Anthony Escobar, Arash Lari, Mitchell Simon, Daniel Sjarif, Nick Sunga, Mondo Yamaguchi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mitchelljfs/madmaan/issues"
+  },
+  "homepage": "https://github.com/mitchelljfs/madmaan#readme",
+  "devDependencies": {
+    "eslint": "^3.15.0",
+    "eslint-config-airbnb-base": "^11.1.0",
+    "eslint-plugin-import": "^2.2.0"
+  },
+  "dependencies": {
+    "ohm-js": "^0.12.3"
+  }
+}
