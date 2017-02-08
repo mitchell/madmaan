@@ -16,3 +16,15 @@ This language explodes(compiles) into JavaScript, now go get M A D, M A A N.
 * first-class functions
 * higher-order functions
 * pattern matching
+
+# Example
+## Comments
+````
+// Single-line Comments                      // Single-line Comments    
+/* Multi-line Comments */                    /* Multi-line Comments */
+````
+
+## Hello World
+````
+print "Hello, World"!                         console.log(“Hello, world!”);
+````
