@@ -18,9 +18,9 @@ This language explodes(compiles) into JavaScript, now go get M A D, M A A N.
 
 ## If-else statments
 ````
-if boolean then                             if (boolean) {
+check boolean then                             if (boolean) {
   print "First condition true"!               console.log("First condition true");
-else if boolean then                        } else if (boolean) {
+else check boolean then                        } else if (boolean) {
   print "Second condition true"!              console.log("Second condition true");
 else                                        else {
   !                                           ;
