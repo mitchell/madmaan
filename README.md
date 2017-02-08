@@ -1,4 +1,3 @@
-![alt tag](https://github.com/mitchelljfs/madmaan/blob/master/madmaan.jpg)
 # Introduction
 Madmaan is a dynamically and strong typed language that simplifies JavaScript's
 syntax and looks M A D S I C K, man. Hate semi-colons? Well, try out exclamation marks!
@@ -17,7 +16,7 @@ This language explodes(compiles) into JavaScript, now go get M A D, M A A N.
 * higher-order functions
 * pattern matching
 
-# Example
+# Examples
 ## Comments
 ````
 // Single-line Comments                      // Single-line Comments    
