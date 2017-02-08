@@ -1,7 +1,7 @@
 # madmaan
 # Introduction
 Madmaan is a dynamically and strong typed language that simplifies JavaScript's
-syntax and looks M A D  S I C K, man. Hate semi-colons? Well, try out exclamation marks!
+syntax and looks M A D S I C K, man. Hate semi-colons? Well, try out exclamation marks!
 Does using "!" for "not" not make sense? Okay, use "NOT" instead, M A N. Plus,
-we know how ugly {} can be. S O  N O  C U R L Y  B R A C K E T S, M A N.
+we know how ugly {} can be. S O. N O. C U R L Y. B R A C K E T S, M A N.
 This language explodes(compiles) into JavaScript, now go get M A D, M A A N.
