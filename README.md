@@ -17,7 +17,7 @@ This language explodes(compiles) into JavaScript, now go get M A D, M A A N.
 * higher-order functions
 * pattern matching
 
-# Example
+# Examples
 ## Comments
 ````
 // Single-line Comments                      // Single-line Comments    
