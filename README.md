@@ -16,11 +16,13 @@ This language explodes(compiles) into JavaScript, now go get M A D, M A A N.
 * higher-order functions
 * pattern matching
 
+For all intents and purposes, the left is madmaan, and the right is JavaScript.
+
 ## If-else statments
 ````
-check boolean then                             if (boolean) {
+check boolean then                          if (boolean) {
   print "First condition true"!               console.log("First condition true");
-else check boolean then                        } else if (boolean) {
+else check boolean then                     } else if (boolean) {
   print "Second condition true"!              console.log("Second condition true");
 else                                        else {
   !                                           ;
@@ -39,8 +41,15 @@ rerun i = 0! i < 10! i++!                     for (var i = 0; i < 10; i++) {
   print "This loops 10 times"!                  console.log("This loops 10 times");
                                               }
 ````
-
-# Examples
+## Classes and instantiation
+````
+mad Apple(type, color)                        function Apple(type, color) {
+  this.type = type!                              this.type = type;
+  this.color = color!                            this.color = color;
+                                              }
+apple = create Apple("Macbook", "red")!       var apple = new Apple("Macintosh", "yellow");
+````
+# Programming examples
 ## Comments
 ````
 // Single-line Comments                      // Single-line Comments    
@@ -57,12 +66,11 @@ mad multiply(a, b)                          function multiply(a, b) {
     send (a * b)!                                return (a * b);
                                             }                      
 ````
-
-##Variable Declarations
-Left is madmaan, right is JavaScript
+## Variable Declarations
 ````
 a = 1!                                                       var a = 1;
 b = "dog"!                                                   var b = "dog";
 c = true!                                                    var c = true;
 d = false!                                                   var d = false;
-`````
+````
+##
