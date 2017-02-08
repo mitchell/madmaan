@@ -28,3 +28,12 @@ This language explodes(compiles) into JavaScript, now go get M A D, M A A N.
 ````
 print "Hello, World"!                         console.log(“Hello, world!”);
 ````
+
+##Variable Declarations
+Left is madmaan, right is JavaScript
+````
+a = 1!                                                       var a = 1;
+b = "dog"!                                                   var b = "dog";
+c = true!                                                    var c = true;
+d = false!                                                   var d = false;
+`````
