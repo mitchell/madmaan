@@ -27,6 +27,12 @@ This language explodes(compiles) into JavaScript, now go get M A D, M A A N.
 ````
 print "Hello, World"!                         console.log(“Hello, world!”);
 ````
+## Function Declaration
+````
+mad multiply(a, b)                          function multiply(a, b) {
+    send (a * b)!                                return (a * b);
+                                            }                      
+````
 
 ##Variable Declarations
 Left is madmaan, right is JavaScript
