@@ -70,17 +70,35 @@ mad multiply(a, b)                          function multiply(a, b) {
     send (a * b)!                                return (a * b);
                                             }                      
 ````
+<<<<<<< Updated upstream
+=======
+##Comparison operators
+````
+Equal (==)
+a == b!                                                     a == b;
+
+Not equal (!=)
+a ~ b!                                                      a != b;
+
+Greater than (>)
+a > b!                                                       a > b;
+
+Less than or equal to (<=)
+a <= b!                                                      a <= b;
+````
+
+>>>>>>> Stashed changes
 ## Variable Declarations
 ````
-a = 1!                                                       var a = 1;
-b = "dog"!                                                   var b = "dog";
-c = true!                                                    var c = true;
-d = false!                                                   var d = false;
+a is 1!                                                       var a = 1;
+b is "dog"!                                                   var b = "dog";
+c is true!                                                    var c = true;
+d is false!                                                   var d = false;
 ````
 ##Arrays
 ````
 cars = ["Saab, "Volvo", "BMW"]!                               var cars = ["Saab", "Volvo", "BMW"];
-points = empty (40)!                                    var points = new Array(40); 
+points = empty (40)!                                    var points = new Array(40);
 cars[0] = "Opel"!                                             cars[0] = "Opel";
 name = cars[0]!                                               var name = cars[0];
 ````
