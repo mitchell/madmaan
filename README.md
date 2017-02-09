@@ -33,16 +33,16 @@ else                                        else {
 ````
 ## While Loops
 ````
-while boolean                               while (boolean) {
+while boolean do                            while (boolean) {
   showMe "This is a gr8 language!"!            console.log("You should try madmaan!");
-                                            }
+!!                                          }
 ````
 
 ## For Loops
 ````
-for i = 0! i < 10! i++!                     for (var i = 0; i < 10; i++) {
+for i is 0! i < 10! i++!                     for (var i = 0; i < 10; i++) {
   showMe "This loops 10 times"!                  console.log("This loops 10 times");
-                                              }
+!!                                          }
 ````
 ## Classes, instantiation, super classes, implements
 ````
