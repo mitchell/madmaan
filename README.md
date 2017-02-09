@@ -1,3 +1,4 @@
+![alt tag](https://github.com/mitchelljfs/madmaan/blob/master/madmaan.jpg)
 # Introduction
 Madmaan is a dynamically and strong typed language that simplifies JavaScript's
 syntax and looks M A D S I C K, man. Hate semi-colons? Well, try out exclamation marks!
@@ -20,9 +21,9 @@ For all intents and purposes, the left is madmaan, and the right is JavaScript.
 
 ## If-else statments
 ````
-check boolean then                          if (boolean) {
+if boolean then                             if (boolean) {
   print "First condition true"!               console.log("First condition true");
-else check boolean then                     } else if (boolean) {
+elif boolean then                           } else if (boolean) {
   print "Second condition true"!              console.log("Second condition true");
 else                                        else {
   !                                           ;
@@ -37,15 +38,18 @@ while boolean                               while (boolean) {
 
 ## For Loops
 ````
-rerun i = 0! i < 10! i++!                     for (var i = 0; i < 10; i++) {
+for i = 0! i < 10! i++!                     for (var i = 0; i < 10; i++) {
   print "This loops 10 times"!                  console.log("This loops 10 times");
                                               }
 ````
-## Classes and instantiation
+## Classes, instantiation, super classes, implements
 ````
-mad Apple(type, color)                        function Apple(type, color) {
-  this.type = type!                              this.type = type;
-  this.color = color!                            this.color = color;
+mad Fruit()                                   function Fruit() {
+  this.isEdible = true!                          this.isEdible = true;
+                                              }
+mad Apple inherits Fruit()                    function Apple extends Fruit() {
+  this.type = "Macbook"!                         this.type = "Macbook";
+  this.color = "red"!                            this.color = "red";
                                               }
 apple = create Apple("Macbook", "red")!       var apple = new Apple("Macintosh", "yellow");
 ````
@@ -73,4 +77,10 @@ b = "dog"!                                                   var b = "dog";
 c = true!                                                    var c = true;
 d = false!                                                   var d = false;
 ````
-##
+##Arrays
+````
+cars = ["Saab, "Volvo", "BMW"]!                               var cars = ["Saab", "Volvo", "BMW"];
+points = empty (40)!                                    var points = new Array(40); 
+cars[0] = "Opel"!                                             cars[0] = "Opel";
+name = cars[0]!                                               var name = cars[0];
+````
