@@ -87,21 +87,6 @@ a > b!                                                       a > b;
 Less than or equal to (<=)
 a <= b!                                                       a <= b;
 ````
-
-##Comparison Operators
-````
-Equal (==)
-a == b!                                                       a == b;
-
-Not equal (!=)
-a ~= b!                                                       a != b;
-
-Greater than (>)
-a > b!                                                        a > b;
-
-Less than or equal to (<=)
-a <= b!                                                       a <= b;
-````
 ##Logical Operators
 ````
 NOT (~)
