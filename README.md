@@ -80,7 +80,7 @@ d = false!                                                   var d = false;
 ##Arrays
 ````
 cars = ["Saab, "Volvo", "BMW"]!                               var cars = ["Saab", "Volvo", "BMW"];
-points = empty(40)!                                    var points = new Array(40); 
+points = create Array(40)!                                    var points = new Array(40); 
 cars[0] = "Opel"!                                             cars[0] = "Opel";
 name = cars[0]!                                               var name = cars[0];
 ````
