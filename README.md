@@ -22,9 +22,9 @@ For all intents and purposes, the left is madmaan, and the right is JavaScript.
 ## If-else statments
 ````
 if boolean then                             if (boolean) {
-  print "First condition true"!               console.log("First condition true");
+  showMe "First condition true"!               console.log("First condition true");
 elif boolean then                           } else if (boolean) {
-  print "Second condition true"!              console.log("Second condition true");
+  showMe "Second condition true"!              console.log("Second condition true");
 else                                        else {
   !                                           ;
                                             }
@@ -32,14 +32,14 @@ else                                        else {
 ## While Loops
 ````
 while boolean                               while (boolean) {
-  print "This is a gr8 language!"!            console.log("You should try madmaan!");
+  showMe "This is a gr8 language!"!            console.log("You should try madmaan!");
                                             }
 ````
 
 ## For Loops
 ````
 for i = 0! i < 10! i++!                     for (var i = 0; i < 10; i++) {
-  print "This loops 10 times"!                  console.log("This loops 10 times");
+  showMe "This loops 10 times"!                  console.log("This loops 10 times");
                                               }
 ````
 ## Classes, instantiation, super classes, implements
@@ -62,28 +62,27 @@ apple = create Apple("Macbook", "red")!       var apple = new Apple("Macintosh",
 
 ## Hello World
 ````
-print "Hello, World"!                         console.log(“Hello, world!”);
+showMe "Hello, World"!                         console.log(“Hello, world!”);
 ````
 ## Function Declaration
 ````
 mad multiply(a, b)                          function multiply(a, b) {
-    send (a * b)!                                return (a * b);
+    yell (a * b)!                                return (a * b);
                                             }                      
 ````
-
 ##Comparison operators
 ````
 Equal (==)
 a == b!                                                     a == b;
 
 Not equal (!=)
-a ~ b!                                                      a != b;
+a ~= b!                                                      a != b;
 
 Greater than (>)
 a > b!                                                       a > b;
 
 Less than or equal to (<=)
-a <= b!                                                      a <= b;
+a <= b!                                                       a <= b;
 ````
 
 ## Variable Declarations
@@ -96,7 +95,7 @@ d is false!                                                   var d = false;
 ##Arrays
 ````
 cars = ["Saab, "Volvo", "BMW"]!                               var cars = ["Saab", "Volvo", "BMW"];
-points = empty (40)!                                    var points = new Array(40);
+points = create Array(40)!                                    var points = new Array(40);
 cars[0] = "Opel"!                                             cars[0] = "Opel";
 name = cars[0]!                                               var name = cars[0];
 ````
