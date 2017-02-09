@@ -7,48 +7,39 @@
 
 const ohm = require('ohm-js');
 
-const madmaanGrammar = ohm.grammar(`Iki {
-  Program     =  Block
-  Block       =  (Stmt "!")+
-  Stmt        =  id                              -- decl
-              |  VarExp "is" Exp                  -- assignment
-              |  "showMe" Exp                     -- print
-              |  "while" Exp "  " Block          -- while
-              |  "for" Exp "  " Block            -- for
-              |  "if" Exp "then" Block ("elif" Exp "then" Block)* ("else" Block)*  -- if
-              |  "yell" Exp                      -- return
-  Exp         =  Exp "or" Exp1                   -- binary
-              |  Exp1
-  Exp1        =  Exp1 "and" Exp2                 -- binary
-              |  Exp2
-  Exp2        =  Exp3 relop Exp3                 -- binary
-              |  Exp3
-  Exp3        =  Exp3 addop Exp4                 -- binary
-              |  Exp4
-  Exp4        =  Exp4 mulop Exp5                 -- binary
-              |  Exp5
-  Exp5        =  prefixop Exp6                   -- unary
-              |  Exp6
-  Exp6        =  boollit
-              |  intlit
-              |  VarExp
-              |  "(" Exp ")"                     -- parens
-  VarExp      = id
-
-  keyword     =  ("showMe" | "while" | "for" | "if"
-              |  "then" | "else" | "elif" | "yell" | "true" | "false") ~idrest
-  id          =  ~keyword letter idrest*
-  idrest      =  "_" | alnum
-  intlit      =  digit+
-  boollit     =  "true" | "false"
-  addop       =  "+" | "-"
-  relop       =  "<=" | "<" | "==" | "~=" | ">=" | ">"
-  mulop       =  "*" | "/" | "%"
-  prefixop    =  ~"--" "-" | "not"
-
-  space      +=  comment
-  comment     =  "--" (~"\n" any)* "\n"
+/* eslint-disable no-unused-vars, no-useless-escape */
+const madmaanGrammar = ohm.grammar(`madmaan {
+  Program   = Body
+  Body      = (Stmt "!")+
+  Stmt      = VarDec | IfStmt | WhileStmt | ExpStmt | ForStmt
+  ExpStmt   = Exp
+  ForStmt   = "for" VarDec "!" Exp "!" Exp "!" Body "!"
+  IfStmt    = "if" Exp "then" Body ("elif" Exp "then" Body)* ("else" Body)* "!"
+  WhileStmt = "while" Exp "do" Body "!"
+  VarDec    = id "is" Exp
+  Exp       = BinExp | FuncExp | UnExp | CallExp | Literal | id
+  FuncExp   = "(" (id ("," id)*)* ")" "=>" Body "!"
+  BinExp    = Exp binop Exp  -- binop
+            | Exp relop Exp  -- relop
+            | Exp mulop Exp  -- mulop
+            | Exp addop Exp  -- addop
+  UnExp     = unaop Exp  -- neg
+            = id unaop   -- inc
+  CallExp   = Exp
+  Literal   = boollit | intlit | stringlit
+  keywords  = ("if" | "else" | "elif" | "or" | "is"
+               | "and" | "false" | "true" | "while" | "do")
+  id        = ~keywords alnum+
+  binop     = "or" | "and"
+  mulop     = "*" | "/" | "%"
+  addop     = "+" | "-"
+  relop     = "==" | ">" | "<" | "<=" | ">=" | "~="
+  unaop     = "-" | "~" | "++" | "--"
+  boollit   = "false" | "true"
+  intlit    = digit+
+  stringlit = "\"" (~"\"" any)* "\""
 }`);
+/* eslint-enable no-unused-vars, no-useless-escape */
 
 // This language is so simple, we don't need an AST.
 /* const semantics = aelGrammar.createSemantics().addOperation('eval', {
