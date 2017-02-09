@@ -12,10 +12,11 @@ const madmaanGrammar = ohm.grammar(`Iki {
   Block       =  (Stmt "!")+
   Stmt        =  id                              -- decl
               |  VarExp "is" Exp                  -- assignment
-              |  "show me" Exp                     -- print
+              |  "showMe" Exp                     -- print
               |  "while" Exp "  " Block          -- while
               |  "for" Exp "  " Block            -- for
               |  "if" Exp "then" Block ("elif" Exp "then" Block)* ("else" Block)*  -- if
+              |  "yell" Exp                      -- return
   Exp         =  Exp "or" Exp1                   -- binary
               |  Exp1
   Exp1        =  Exp1 "and" Exp2                 -- binary
