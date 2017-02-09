@@ -19,28 +19,30 @@ This language explodes(compiles) into JavaScript, now go get M A D, M A A N.
 
 For all intents and purposes, the left is madmaan, and the right is JavaScript.
 
-## If-else statments
+# Programming examples
+## If-else statements
 ````
 if boolean then                             if (boolean) {
   showMe "First condition true"!               console.log("First condition true");
 elif boolean then                           } else if (boolean) {
   showMe "Second condition true"!              console.log("Second condition true");
 else                                        else {
-  !                                           ;
+  !  
+!!                                           ;
                                             }
 ````
 ## While Loops
 ````
-while boolean                               while (boolean) {
+while boolean do                            while (boolean) {
   showMe "This is a gr8 language!"!            console.log("You should try madmaan!");
-                                            }
+!!                                          }
 ````
 
 ## For Loops
 ````
-for i = 0! i < 10! i++!                     for (var i = 0; i < 10; i++) {
+for i is 0! i < 10! i++!                     for (var i = 0; i < 10; i++) {
   showMe "This loops 10 times"!                  console.log("This loops 10 times");
-                                              }
+!!                                          }
 ````
 ## Classes, instantiation, super classes, implements
 ````
@@ -53,7 +55,7 @@ mad Apple inherits Fruit()                    function Apple extends Fruit() {
                                               }
 apple = create Apple("Macbook", "red")!       var apple = new Apple("Macintosh", "yellow");
 ````
-# Programming examples
+
 ## Comments
 ````
 // Single-line Comments                      // Single-line Comments    
@@ -66,11 +68,12 @@ showMe "Hello, World"!                         console.log(“Hello, world!”);
 ````
 ## Function Declaration
 ````
-mad multiply(a, b)                          function multiply(a, b) {
-    yell (a * b)!                                return (a * b);
-                                            }                      
+multiply is (a, b) =>                          let multiply = (a, b) => {
+    yell (a * b)!                                  return (a * b);
+!!                                             }   
+
 ````
-##Comparison operators
+##Comparison Operators
 ````
 Equal (==)
 a == b!                                                     a == b;
@@ -85,6 +88,31 @@ Less than or equal to (<=)
 a <= b!                                                       a <= b;
 ````
 
+##Comparison Operators
+````
+Equal (==)
+a == b!                                                       a == b;
+
+Not equal (!=)
+a ~= b!                                                       a != b;
+
+Greater than (>)
+a > b!                                                        a > b;
+
+Less than or equal to (<=)
+a <= b!                                                       a <= b;
+````
+##Logical Operators
+````
+NOT (~)
+~x!                                                             !x;
+
+AND (and)
+a and b!                                                      a && b;
+
+OR (or)
+a or b!                                                       a || b;
+````
 ## Variable Declarations
 ````
 a is 1!                                                       var a = 1;
