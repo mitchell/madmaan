@@ -42,11 +42,14 @@ rerun i = 0! i < 10! i++!                     for (var i = 0; i < 10; i++) {
   print "This loops 10 times"!                  console.log("This loops 10 times");
                                               }
 ````
-## Classes and instantiation
+## Classes, instantiation, and super classes
 ````
-mad Apple(type, color)                        function Apple(type, color) {
-  this.type = type!                              this.type = type;
-  this.color = color!                            this.color = color;
+mad Fruit()                                   function Fruit() {
+  this.isEdible = true!                          this.isEdible = true;
+                                              }
+mad Apple inherits Fruit()                    function Apple extends Fruit() {
+  this.type = "Macbook"!                         this.type = "Macbook";
+  this.color = "red"!                            this.color = "red";
                                               }
 apple = create Apple("Macbook", "red")!       var apple = new Apple("Macintosh", "yellow");
 ````
