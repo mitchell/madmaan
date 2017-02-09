@@ -67,9 +67,10 @@ showMe "Hello, World"!                         console.log(“Hello, world!”);
 ````
 ## Function Declaration
 ````
-mad multiply(a, b)                          function multiply(a, b) {
-    yell (a * b)!                                return (a * b);
-                                            }                      
+mad multiply = (a, b) =>                         function multiply = (a, b) => {
+    yell (a * b)!                                    return (a * b);
+!!                                                }   
+
 ````
 ##Comparison operators
 ````
