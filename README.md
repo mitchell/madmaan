@@ -21,9 +21,9 @@ For all intents and purposes, the left is madmaan, and the right is JavaScript.
 
 ## If-else statments
 ````
-check boolean then                          if (boolean) {
+if boolean then                             if (boolean) {
   print "First condition true"!               console.log("First condition true");
-else check boolean then                     } else if (boolean) {
+elif boolean then                           } else if (boolean) {
   print "Second condition true"!              console.log("Second condition true");
 else                                        else {
   !                                           ;
@@ -38,11 +38,11 @@ while boolean                               while (boolean) {
 
 ## For Loops
 ````
-rerun i = 0! i < 10! i++!                     for (var i = 0; i < 10; i++) {
+for i = 0! i < 10! i++!                     for (var i = 0; i < 10; i++) {
   print "This loops 10 times"!                  console.log("This loops 10 times");
                                               }
 ````
-## Classes, instantiation, and super classes
+## Classes, instantiation, super classes, implements
 ````
 mad Fruit()                                   function Fruit() {
   this.isEdible = true!                          this.isEdible = true;
