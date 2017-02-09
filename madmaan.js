@@ -11,8 +11,8 @@ const madmaanGrammar = ohm.grammar(`Iki {
   Program     =  Block
   Block       =  (Stmt "!")+
   Stmt        =  id                              -- decl
-              |  VarExp "=" Exp                  -- assignment
-              |  "print" Exp                     -- print
+              |  VarExp "is" Exp                  -- assignment
+              |  "show me" Exp                     -- print
               |  "while" Exp "  " Block          -- while
               |  "for" Exp "  " Block            -- for
               |  "if" Exp "then" Block ("elif" Exp "then" Block)* ("else" Exp "then" Block)*  -- if
