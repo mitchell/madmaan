@@ -35,14 +35,14 @@ const madmaanGrammar = ohm.grammar(`Iki {
               |  "(" Exp ")"                     -- parens
   VarExp      = id
 
-  keyword     =  ("var" | "read" | "write" | "while" | "loop"
-              |  "end" | "int" | "bool" | "true" | "false") ~idrest
+  keyword     =  ("showMe" | "while" | "for" | "if"
+              |  "then" | "else" | "elif" | "yell" | "true" | "false") ~idrest
   id          =  ~keyword letter idrest*
   idrest      =  "_" | alnum
   intlit      =  digit+
   boollit     =  "true" | "false"
   addop       =  "+" | "-"
-  relop       =  "<=" | "<" | "==" | "!=" | ">=" | ">"
+  relop       =  "<=" | "<" | "==" | "~=" | ">=" | ">"
   mulop       =  "*" | "/" | "%"
   prefixop    =  ~"--" "-" | "not"
 
