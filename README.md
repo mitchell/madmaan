@@ -19,6 +19,7 @@ This language explodes(compiles) into JavaScript, now go get M A D, M A A N.
 
 For all intents and purposes, the left is madmaan, and the right is JavaScript.
 
+# Programming examples
 ## If-else statments
 ````
 if boolean then                             if (boolean) {
@@ -53,7 +54,7 @@ mad Apple inherits Fruit()                    function Apple extends Fruit() {
                                               }
 apple = create Apple("Macbook", "red")!       var apple = new Apple("Macintosh", "yellow");
 ````
-# Programming examples
+
 ## Comments
 ````
 // Single-line Comments                      // Single-line Comments    
@@ -85,6 +86,31 @@ Less than or equal to (<=)
 a <= b!                                                       a <= b;
 ````
 
+##Comparison Operators
+````
+Equal (==)
+a == b!                                                       a == b;
+
+Not equal (!=)
+a ~= b!                                                       a != b;
+
+Greater than (>)
+a > b!                                                        a > b;
+
+Less than or equal to (<=)
+a <= b!                                                       a <= b;
+````
+##Logical Operators
+````
+NOT (~)
+~x!                                                             !x;
+
+AND (and)
+a and b!                                                      a && b;
+
+OR (or)
+a or b!                                                       a || b;
+````
 ## Variable Declarations
 ````
 a is 1!                                                       var a = 1;
