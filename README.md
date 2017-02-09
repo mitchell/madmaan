@@ -20,14 +20,15 @@ This language explodes(compiles) into JavaScript, now go get M A D, M A A N.
 For all intents and purposes, the left is madmaan, and the right is JavaScript.
 
 # Programming examples
-## If-else statments
+## If-else statements
 ````
 if boolean then                             if (boolean) {
   showMe "First condition true"!               console.log("First condition true");
 elif boolean then                           } else if (boolean) {
   showMe "Second condition true"!              console.log("Second condition true");
 else                                        else {
-  !                                           ;
+  !  
+!!                                           ;
                                             }
 ````
 ## While Loops
@@ -72,7 +73,7 @@ multiply is (a, b) =>                          let multiply = (a, b) => {
 !!                                             }   
 
 ````
-##Comparison operators
+##Comparison Operators
 ````
 Equal (==)
 a == b!                                                     a == b;
