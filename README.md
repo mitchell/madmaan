@@ -70,8 +70,7 @@ mad multiply(a, b)                          function multiply(a, b) {
     send (a * b)!                                return (a * b);
                                             }                      
 ````
-<<<<<<< Updated upstream
-=======
+
 ##Comparison operators
 ````
 Equal (==)
@@ -87,7 +86,6 @@ Less than or equal to (<=)
 a <= b!                                                      a <= b;
 ````
 
->>>>>>> Stashed changes
 ## Variable Declarations
 ````
 a is 1!                                                       var a = 1;
