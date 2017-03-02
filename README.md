@@ -12,7 +12,6 @@ This language explodes(compiles) into JavaScript, now go get M A D, M A A N.
 * object-oriented
 * imperative
 * functional
-* event-driven
 * first-class functions
 * higher-order functions
 * pattern matching
