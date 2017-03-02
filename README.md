@@ -1,4 +1,5 @@
 ![alt tag](https://github.com/mitchelljfs/madmaan/blob/master/madmaan.jpg)
+
 # Introduction
 Madmaan is a dynamically and strong typed language that simplifies JavaScript's
 syntax and looks M A D S I C K, man. Hate semi-colons? Well, try out exclamation marks!
@@ -17,6 +18,47 @@ This language explodes(compiles) into JavaScript, now go get M A D, M A A N.
 * pattern matching
 
 For all intents and purposes, the left is madmaan, and the right is JavaScript.
+
+# Default keywords
+````
+elif                                       else if
+
+while boolean do                           while (boolean)
+
+mad                                        function
+
+inherits                                   extends
+
+create                                     new
+
+yell                                       return
+
+Anything unlisted, is the same as JavaScript.
+````
+
+# Keyword Parameters
+````
+for variable initialization! condition! increment!
+
+if condition then                         if (condition)
+    !                                         ;
+elif condition then                       else if (condition)
+    !                                         ;
+else                                      else
+    !                                         ;
+!!
+
+while condition do                         while (condition);
+
+mad Object(paramX,...,paramY)              function() Object(paramX,...,paramY)
+
+showMe strlit!                             console.log(strlit);
+
+condition or condition                     condition || condition
+
+condition and condition                    condition && condition
+
+````
 
 # Programming examples
 ## If-else statements
@@ -89,13 +131,13 @@ a <= b!                                                       a <= b;
 ##Logical Operators
 ````
 NOT (~)
-~x!                                                             !x;
+~x                                                             !x
 
 AND (and)
-a and b!                                                      a && b;
+a and b                                                      a && b
 
 OR (or)
-a or b!                                                       a || b;
+a or b                                                       a || b
 ````
 ## Variable Declarations
 ````
@@ -107,7 +149,7 @@ d is false!                                                   var d = false;
 ##Arrays
 ````
 cars = ["Saab, "Volvo", "BMW"]!                               var cars = ["Saab", "Volvo", "BMW"];
-points = create Array(40)!                                    var points = new Array(40);
+points = create Array(40)!                                    var points =  new Array(40);
 cars[0] = "Opel"!                                             cars[0] = "Opel";
 name = cars[0]!                                               var name = cars[0];
 ````
