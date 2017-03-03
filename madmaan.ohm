@@ -2,24 +2,34 @@ madmaan {
   Program   = Body
   Body      = (Stmt "!")+
   Stmt      = VarDec | IfStmt | WhileStmt | ExpStmt | ForStmt
-  ExpStmt   = Exp
-  ForStmt   = "for" VarDec "!" Exp "!" Exp "!" Body "!"
-  IfStmt    = "if" Exp "then" Body ("elif" Exp "then" Body)* ("else" Body)* "!"
-  WhileStmt = "while" Exp "do" Body "!"
-  VarDec    = id "is" Exp
-  Exp       = BinExp | FuncExp | UnExp | CallExp | Literal | id
-  FuncExp   = "(" (id ("," id)*)* ")" "=>" Body "!"
-  BinExp    = Exp binop Exp  -- binop
-            | Exp relop Exp  -- relop
-            | Exp mulop Exp  -- mulop
-            | Exp addop Exp  -- addop
-  UnExp     = unaop Exp  -- neg
-            = id unaop   -- inc
-  CallExp   = Exp
-  Literal   = boollit | intlit | stringlit
-  keywords  = ("if" | "else" | "elif" | "or" | "is"
-               | "and" | "false" | "true" | "while" | "do")
-  id        = ~keywords alnum+
+  ExpStmt   = BinExp | FuncExp | UnExp | CallExp | Literal | id
+  ForStmt   = "for" VarDec "!" ExpStmt "!" ExpStmt "!" Body "!"
+  IfStmt    = "if" ExpStmt "then" Body ("elif" ExpStmt "then" Body)* ("else" Body)? "!"
+  WhileStmt = "while" ExpStmt "do" Body "!"
+  VarDec    = id "is" ExpStmt
+  FuncExp   = Params "=>" Body "!"
+  BinExp    = BinExp binop BinExp    -- binop
+            | BinExp2
+  BinExp2   = BinExp3 relop BinExp3  -- relop
+            | BinExp3
+  BinExp3   = BinExp3 addop BinExp3  -- addop
+            | BinExp4
+  BinExp4   = BinExp4 mulop BinExp4  -- mulop
+  			    | UnExp
+  UnExp     = unaop ExpStmt  -- neg
+            | BinExp
+            | FuncExp
+            | UnExp
+            | CallExp
+            | Literal
+            | id
+  CallExp   = id(Params)
+  Params    = "(" (id ("," id)*)* ")"
+  Literal   = boollit | intlit | strlit
+  keywords  = ("if" | "else" | "elif" | "or" | "is" | "for"
+            | "and" | "false" | "true" | "while" | "do") ~idrest
+  idrest    = "_" | alnum
+  id        = ~keywords letter idrest*
   binop     = "or" | "and"
   mulop     = "*" | "/" | "%"
   addop     = "+" | "-"
@@ -27,5 +37,8 @@ madmaan {
   unaop     = "-" | "~" | "++" | "--"
   boollit   = "false" | "true"
   intlit    = digit+
-  stringlit = "\"" (~"\"" any)* "\""
+  strlit    = "\"" char* "\""
+  char      = ~"'" ~"\"" (escape | any)
+  escape    = "\\" ("r" | "n" | "'" | "\"" | coded)
+  coded     = "u" hexDigit hexDigit hexDigit hexDigit
 }
