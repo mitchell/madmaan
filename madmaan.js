@@ -95,7 +95,14 @@ class BinExp {
     return `(BinExp ${this.left} ${this.op} ${this.right})`;
   }
 }
-class UnExp {}
+class UnExp {
+  constructor(unary) {
+    this.unary = unary;
+  }
+  toString(){
+    return `(UnExp ${this.unary})`;
+  }
+}
 
 class CallExp {
   constructor(id, parms) {
