@@ -15,7 +15,7 @@ class Body {
     this.statements = statements;
   }
   toString() {
-    return `(Block ${this.statements})`;
+    return `(Block ${this.statements.join(' ')})`;
   }
 }
 
@@ -63,6 +63,13 @@ class BinExp {}
 class UnExp {}
 class CallExp {}
 class Literal {}
-
+class Params {
+  constructor(ids) {
+    this.ids = ids;
+  }
+  toString() {
+    return `(Params ${this.ids.join(' ')})`;
+  }
+}
 /* eslint-disable no-unused-vars, no-useless-escape */
 const grammar = ohm.grammar(fs.readFile('./madmaan.ohm'));
