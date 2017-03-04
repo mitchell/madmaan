@@ -64,7 +64,15 @@ class VarDec {
 class FuncExp {}
 class BinExp {}
 class UnExp {}
-class CallExp {}
+class CallExp {
+  constructor(id, parms) {
+    this.id = id;
+    this.parms = parms;
+  }
+  toString() {
+    return `(CallExp ${this.id} ${this.parms})`;
+  }
+}
 class Literal {}
 class Params {
   constructor(ids) {
