@@ -18,7 +18,7 @@ class Body {
     this.statements = statements;
   }
   toString() {
-    return `(Block ${this.statements.join(' ')})`;
+    return `(Body ${this.statements.join(' ')})`;
   }
 }
 
@@ -27,10 +27,17 @@ class Stmt {
     this.statements = statements;
   }
   toString() {
-    return `(Block ${this.statements})`;
+    return `(Stmt ${this.statements})`;
   }
 }
-class ExpStmt {}
+class ExpStmt {
+  contructor(statements) {
+    this.statements = statements;
+  }
+  toString() {
+    return `(ExpStmt ${this.statements})`;
+  }
+}
 class ForStmt {
   constructor(decl, condition, incDec, body) {
     this.decl = decl;
@@ -42,7 +49,15 @@ class ForStmt {
     return `(For ${this.decl} ${this.condition} ${this.incDec} ${this.body})`;
   }
 }
-class IfStmt {}
+class IfStmt {
+  constructor(expStmt, body) {
+    this.expStmt = expStmt;
+    this.body = body;
+  }
+  toString() {
+    return `(IfStmt ${this.expStmt} ${this.body})`;
+  }
+}
 class WhileStmt {
   constructor(expStmt, body) {
     this.expStmt = expStmt;
@@ -61,9 +76,27 @@ class VarDec {
     return `(Var ${this.id} ${this.expStmt})`;
   }
 }
-class FuncExp {}
-class BinExp {}
+class FuncExp {
+  constructor(params, body) {
+    this.params = params;
+    this.body = body;
+  }
+  toString() {
+    return `(FuncExp ${this.params} ${this.body})`;
+  }
+}
+class BinExp {
+  constructor(left, op, right) {
+    this.left = left;
+    this.op = op;
+    this.right = right;
+  }
+  toString() {
+    return `(BinExp ${this.left} ${this.op} ${this.right})`;
+  }
+}
 class UnExp {}
+
 class CallExp {
   constructor(id, parms) {
     this.id = id;
@@ -73,7 +106,17 @@ class CallExp {
     return `(CallExp ${this.id} ${this.parms})`;
   }
 }
-class Literal {}
+
+class Literal {
+    contructor(value) {
+      this.value = value;
+    }
+    toString() {
+      return `(Literal ${this.value})`;
+    }
+
+}
+
 class Params {
   constructor(ids) {
     this.ids = ids;
