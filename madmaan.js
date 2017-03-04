@@ -9,7 +9,6 @@ class Program {
     return `(Program ${this.block})`;
   }
 }
-<<<<<<< Updated upstream
 
 class Body {
   contructor(statements) {
@@ -20,39 +19,26 @@ class Body {
   }
 }
 
-class Stmt {}
-class ExpStmt {}
-class ForStmt {}
-=======
-class Body {}
 class Stmt {
-  constructor(statements) {
+  contructor(statements) {
     this.statements = statements;
   }
   toString() {
-    return `(Stmt ${this.statements})`;
+    return `(Block ${this.statements})`;
   }
 }
-class ExpStmt {
-  constructor(statements) {
-    this.statements = statements;
-  }
-  toString() {
-    return `(Stmt ${this.statements})`;
-  }
-}
+class ExpStmt {}
 class ForStmt {
   constructor(decl, condition, incDec, body) {
     this.decl = decl;
-    this.condition1 = condition;
+    this.condition = condition;
     this.incDec = incDec;
     this.body = body;
   }
   toString() {
-    return `(For ${this.decl} ${this.condition} ${this.incDec} ${this.body})`
+    return `(For ${this.decl} ${this.condition} ${this.incDec} ${this.body})`;
   }
 }
->>>>>>> Stashed changes
 class IfStmt {}
 class WhileStmt {
   constructor(expStmt, body) {
