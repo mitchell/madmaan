@@ -103,3 +103,13 @@ const semantics = grammar.createSemantics().addOperation('ast', {
   Params(ids) { return new Params(ids.ast()); },
   Literal(lit) { return new Literal(lit); },
 });
+
+fs.readFile(argv._, (err, data) => {
+  if (err) throw err;
+  const match = grammar.match(data);
+  if (match.succeeded()) {
+    semantics(match).ast();
+  } else {
+    console.log(match.message); // eslint-disable-line no-console
+  }
+});
