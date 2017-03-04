@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars, no-useless-escape */
 const ohm = require('ohm-js');
 const fs = require('fs');
 const argv = require('yargs').usage('$0 filename')
@@ -99,7 +98,7 @@ class UnExp {
   constructor(unary) {
     this.unary = unary;
   }
-  toString(){
+  toString() {
     return `(UnExp ${this.unary})`;
   }
 }
@@ -115,12 +114,12 @@ class CallExp {
 }
 
 class Literal {
-    contructor(value) {
-      this.value = value;
-    }
-    toString() {
-      return `(Literal ${this.value})`;
-    }
+  contructor(value) {
+    this.value = value;
+  }
+  toString() {
+    return `(Literal ${this.value})`;
+  }
 
 }
 
@@ -132,34 +131,44 @@ class Params {
     return `(Params ${this.ids.join(' ')})`;
   }
 }
-/* eslint-disable no-unused-vars, no-useless-escape */
-const grammar = ohm.grammar(fs.readFile('./madmaan.ohm'));
+/* eslint-disable no-unused-vars */
+const grammar = ohm.grammar(fs.readFileSync('./madmaan.ohm'));
 
 const semantics = grammar.createSemantics().addOperation('ast', {
   Program(body) { return new Program(body.ast()); },
-  Body(stmts, _) { return new Body(stmts.ast()); },
+  Body(stmts, ba) { return new Body(stmts.ast()); },
   Stmt(stmt) { return new Stmt(stmt.ast()); },
   ExpStmt(stmt) { return new ExpStmt(stmt.ast()); },
-  ForStmt(vd, es, es2, body) { return new ForStmt(vd.ast(), es.ast(), es2.ast(), body.ast()); },
-  IfStmt(es, body) { return new IfStmt(es.ast(), body.ast()); },
-  WhileStmt(es, body) { return new WhileStmt(es.ast(), body.ast()); },
-  VarDec(id, es) { return new VarDec(id.sourceString, es.ast()); },
-  FuncExp(parms, body) { return new FuncExp(parms.ast(), body.ast()); },
+  ForStmt(f, vd, b, es, b2, es2, b3, body, b4) {
+    return new ForStmt(vd.ast(), es.ast(), es2.ast(), body.ast());
+  },
+  IfStmt(f, es, th, body, bang) { return new IfStmt(es.ast(), body.ast()); },
+  WhileStmt(wh, es, d, body, bang) { return new WhileStmt(es.ast(), body.ast()); },
+  VarDec(id, is, es) { return new VarDec(id.sourceString, es.ast()); },
+  FuncExp(parms, ar, body, bang) { return new FuncExp(parms.ast(), body.ast()); },
   BinExp_binop(left, op, right) { return new BinExp(left.ast(), op.sourceString, right.ast()); },
   BinExp2_relop(left, op, right) { return new BinExp(left.ast(), op.sourceString, right.ast()); },
   BinExp3_addop(left, op, right) { return new BinExp(left.ast(), op.sourceString, right.ast()); },
   BinExp4_mulop(left, op, right) { return new BinExp(left.ast(), op.sourceString, right.ast()); },
+  UnExp_neg(op, right) { return new UnExp(op.sourceString, right.ast()); },
   CallExp(id, parms) { return new CallExp(id.sourceString, parms.ast()); },
-  Params(ids) { return new Params(ids.ast()); },
-  Literal(lit) { return new Literal(lit); },
+  Params(parn, id, comm, ids, rparn) { return new Params(id.sourceString, ids.ast()); },
+  Literal(lit) { return new Literal(lit.ast()); },
+  intlit(lit) { return new Literal(lit.sourceString); },
 });
 
-fs.readFile(argv._, (err, data) => {
-  if (err) throw err;
-  const match = grammar.match(data);
-  if (match.succeeded()) {
-    semantics(match).ast();
-  } else {
-    console.log(match.message); // eslint-disable-line no-console
-  }
-});
+const parse = (infile) => {
+  fs.readFile(infile, (err, data) => {
+    if (err) throw err;
+    const match = grammar.match(data);
+    if (match.succeeded()) {
+      console.log(semantics(match).ast().toString()); // eslint-disable-line no-console
+    } else {
+      console.log(match.message); // eslint-disable-line no-console
+    }
+  });
+};
+
+module.exports.parse = parse;
+
+parse(argv._[0]);
