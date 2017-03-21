@@ -13,28 +13,11 @@ class Program {
 }
 
 class Body {
-  contructor(statements) {
+  constructor(statements) {
     this.statements = statements;
   }
   toString() {
     return `(Body ${this.statements.join(' ')})`;
-  }
-}
-
-class Stmt {
-  contructor(statements) {
-    this.statements = statements;
-  }
-  toString() {
-    return `(Stmt ${this.statements})`;
-  }
-}
-class ExpStmt {
-  contructor(statements) {
-    this.statements = statements;
-  }
-  toString() {
-    return `(ExpStmt ${this.statements})`;
   }
 }
 class ForStmt {
@@ -114,7 +97,7 @@ class CallExp {
 }
 
 class Literal {
-  contructor(value) {
+  constructor(value) {
     this.value = value;
   }
   toString() {
@@ -136,9 +119,7 @@ const grammar = ohm.grammar(fs.readFileSync('./madmaan.ohm'));
 
 const semantics = grammar.createSemantics().addOperation('ast', {
   Program(body) { return new Program(body.ast()); },
-  Body(stmts, ba) { return new Body(stmts.ast()); },
-  Stmt(stmt) { return new Stmt(stmt.ast()); },
-  ExpStmt(stmt) { return new ExpStmt(stmt.ast()); },
+  Body(stmts, _) { return new Body(stmts.ast()); },
   ForStmt(f, vd, b, es, b2, es2, b3, body, b4) {
     return new ForStmt(vd.ast(), es.ast(), es2.ast(), body.ast());
   },
@@ -153,8 +134,9 @@ const semantics = grammar.createSemantics().addOperation('ast', {
   UnExp_neg(op, right) { return new UnExp(op.sourceString, right.ast()); },
   CallExp(id, parms) { return new CallExp(id.sourceString, parms.ast()); },
   Params(parn, id, comm, ids, rparn) { return new Params(id.sourceString, ids.ast()); },
-  Literal(lit) { return new Literal(lit.ast()); },
-  intlit(lit) { return new Literal(lit.sourceString); },
+  intlit(_) { return new Literal(this.sourceString); },
+  boollit(_) { return new Literal(this.sourceString); },
+  strlit(_) { return new Literal(this.sourceString); },
 });
 
 const parse = (infile) => {

@@ -1,6 +1,6 @@
 madmaan {
   Program   = Body
-  Body      = (Stmt "!")
+  Body      = (Stmt "!")+
   Stmt      = VarDec | IfStmt | WhileStmt | ExpStmt | ForStmt
   ExpStmt   = BinExp | FuncExp | UnExp | CallExp | Literal | id
   ForStmt   = "for" VarDec "!" ExpStmt "!" ExpStmt "!" Body "!"
