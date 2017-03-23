@@ -25,13 +25,11 @@ elif                                       else if
 
 while boolean do                           while (boolean)
 
-mad                                        function
-
 inherits                                   extends
 
-create                                     new
+mad                                        class
 
-yell                                       return
+create                                     new
 
 Anything unlisted, is the same as JavaScript.
 ````
@@ -87,10 +85,10 @@ for i is 0! i < 10! i++!                     for (var i = 0; i < 10; i++) {
 ````
 ## Classes, instantiation, super classes, implements
 ````
-mad Fruit()                                   function Fruit() {
+mad Fruit()                                   class Fruit() {
   this.isEdible = true!                          this.isEdible = true;
                                               }
-mad Apple inherits Fruit()                    function Apple extends Fruit() {
+mad Apple inherits Fruit()                    class Apple extends Fruit() {
   this.type = "Macbook"!                         this.type = "Macbook";
   this.color = "red"!                            this.color = "red";
                                               }
@@ -110,7 +108,7 @@ showMe "Hello, World"!                         console.log(“Hello, world!”);
 ## Function Declaration
 ````
 multiply is (a, b) =>                          let multiply = (a, b) => {
-    yell (a * b)!                                  return (a * b);
+    return (a * b)!                                  return (a * b);
 !!                                             }   
 
 ````

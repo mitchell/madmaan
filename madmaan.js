@@ -1,6 +1,6 @@
 const ohm = require('ohm-js');
 const fs = require('fs');
-const argv = require('yargs').usage('$0 filename')
+const argv = require('yargs').usage('$0 filename') // eslint-disable-line no-unused-vars
   .argv;
 
 class Program {
@@ -55,7 +55,7 @@ class VarDec {
     this.expStmt = expStmt;
   }
   toString() {
-    return `(Var ${this.id} ${this.expStmt})`;
+    return `(VarDec ${this.id} ${this.expStmt})`;
   }
 }
 class FuncExp {
@@ -136,21 +136,18 @@ const semantics = grammar.createSemantics().addOperation('ast', {
   Params(parn, id, comm, ids, rparn) { return new Params(id.sourceString, ids.ast()); },
   intlit(_) { return new Literal(this.sourceString); },
   boollit(_) { return new Literal(this.sourceString); },
-  strlit(_) { return new Literal(this.sourceString); },
+  strlit(q1, _, q2) { return new Literal(this.sourceString); },
 });
 
 const parse = (infile) => {
-  fs.readFile(infile, (err, data) => {
-    if (err) throw err;
-    const match = grammar.match(data);
-    if (match.succeeded()) {
-      console.log(semantics(match).ast().toString()); // eslint-disable-line no-console
-    } else {
-      console.log(match.message); // eslint-disable-line no-console
-    }
-  });
+  const program = fs.readFileSync(infile);
+  const match = grammar.match(program);
+  if (match.succeeded()) {
+    return semantics(match).ast().toString();
+  }
+  return match.message;
 };
 
 module.exports.parse = parse;
 
-parse(argv._[0]);
+// console.log(parse(argv._[0])); // eslint-disable-line no-console
