@@ -7,7 +7,7 @@ madmaan {
   IfStmt    = "if" ExpStmt "then" Body "!"
   WhileStmt = "while" ExpStmt "do" Body "!"
   VarDec    = id "is" ExpStmt
-  FuncExp   = Params "=>" Body "!"
+  FuncExp   = id Params "=>" Body
   BinExp    = BinExp binop BinExp    -- binop
             | BinExp2
   BinExp2   = BinExp3 relop BinExp3  -- relop
