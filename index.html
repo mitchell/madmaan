@@ -8,12 +8,42 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
   <link rel="icon" type="image/png" href="images/favicon.png">
-
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+  <style type ="text/css">
+  img {
+    text-align: center;
+    max-width: 100%;
+    height: auto;
+    width: auto;
+  }
+  .nav-tabs{
+  background-color:#161616;
+  color: white;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  }
+  </style>
 </head>
+
 <body>
+  <div>
+    <!-- Nav Tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+      <li role="presentation"><a href="#about" aria-controls="about" role="tab" data-toggle="tab">About</a></li>
+      <li role="presentation"><a href="#example" aria-controls="example" role="tab" data-toggle="tab">Example Programs</a></li>
+      <li role="presentation"><a href="#syntax" aria-controls="syntax" role="tab" data-toggle="tab">Syntax Diagrams</a></li>
+    </ul>
+  </div>
+
   <div class="container" style="max-width: 800px">
     <div class="row">
-      <div class="twelve columns" style="margin-top: 25%">
+      <div class="twelve columns" style="margin-top: 0%">
+        <h1><img src= "images/madmaan.jpg" img id=madmaan alt ="madmaanlogo"></img></h1>
         <h2>madmaan</h2>
         <p>
           Madmaan is a dynamically and strong typed language that simplifies JavaScript's
