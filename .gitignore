@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Logs
 logs
 *.log
@@ -203,4 +202,3 @@ pip-log.txt
 .DS_Store
 
 testpy.html
->>>>>>> 616901ac1a461a268c6fd8ddcc9cf9225f0a7ed3
