@@ -184,6 +184,18 @@
               '!')).addTo();
               </script>
 
+              <b><div>VarDec:</div></b>
+              <script>
+              Diagram(
+              Sequence(NonTerminal('id'), 'is', NonTerminal('ExpStmt'))).addTo();
+              </script>
+
+              <b><div>FuncExp:</div></b>
+              <script>
+              Diagram(
+              Sequence(NonTerminal('id'), NonTerminal('Params'), '=>', NonTerminal('Body'))).addTo();
+              </script>
+
               <b><div>BinExp:</div></b>
               <script>
               Diagram(OneOrMore(NonTerminal('binop'),
@@ -208,16 +220,15 @@
               NonTerminal('UnExp'))).addTo();
               </script>
 
-              <b><div>VarDec:</div></b>
+              <b><div>UnExp:</div></b>
               <script>
-              Diagram(
-              Sequence(NonTerminal('id'), 'is', NonTerminal('ExpStmt'))).addTo();
-              </script>
-
-              <b><div>FuncExp:</div></b>
-              <script>
-              Diagram(
-              Sequence(NonTerminal('id'), NonTerminal('Params'), '=>', NonTerminal('Body'))).addTo();
+              Diagram(Choice(0, Sequence('unaop',NonTerminal('true')),
+              NonTerminal('BinExp'),
+              NonTerminal('FuncExp'),
+              NonTerminal('UnExp'),
+              NonTerminal('CallExp'),
+              NonTerminal('Literal'),
+              NonTerminal('id'))).addTo();
               </script>
 
               <b><div>CallExp:</div></b>
@@ -235,24 +246,30 @@
               Diagram(Choice(1, NonTerminal('boolit'), NonTerminal('intlit'), NonTerminal('strlit'))).addTo();
               </script>
 
-              <b><div>strlit:</div></b>
+              <b><div>keywords:</div></b>
               <script>
-              Diagram(Sequence('"', ZeroOrMore('char'), '"')).addTo();
-              </script>
-
-              <b><div>escape:</div></b>
-              <script>
-              Diagram(Sequence('\\', Choice(0, 'r', 'n', '\'', '\\', 'coded'))).addTo();
-              </script>
-
-              <b><div>coded:</div></b>
-              <script>
-              Diagram(Sequence('u', 'hexDigit', 'hexDigit', 'hexDigit', 'hexDigit')).addTo();
+              Diagram(Choice(0,
+              Sequence(('if')),
+              Sequence(('else')),
+              Sequence(('elif')),
+              Sequence(('or')),
+              Sequence(('is')),
+              Sequence(('for')),
+              Sequence(('and')),
+              Sequence(('false')),
+              Sequence(('true')),
+              Sequence(('while')),
+              Sequence(('do')))).addTo();
               </script>
 
               <b><div>idrest:</div></b>
               <script>
               Diagram(Choice(0, '_','alnum')).addTo();
+              </script>
+
+              <b><div>id:</div></b>
+              <script>
+              Diagram(Sequence('letter',(ZeroOrMore('idrest')))).addTo();
               </script>
 
               <b><div>binop:</div></b>
@@ -288,6 +305,27 @@
               <b><div>intlit:</div></b>
               <script>
               Diagram(OneOrMore('digit')).addTo();
+              </script>
+
+              <b><div>strlit:</div></b>
+              <script>
+              Diagram(Sequence('"', ZeroOrMore('char'), '"')).addTo();
+              </script>
+
+              <b><div>char:</div></b>
+              <script>
+              Diagram(Choice(0, NonTerminal('escape'),
+              NonTerminal('true'))).addTo();
+              </script>
+
+              <b><div>escape:</div></b>
+              <script>
+              Diagram(Sequence('\\', Choice(0, 'r', 'n', '\'', '\\', 'coded'))).addTo();
+              </script>
+
+              <b><div>coded:</div></b>
+              <script>
+              Diagram(Sequence('u', 'hexDigit', 'hexDigit', 'hexDigit', 'hexDigit')).addTo();
               </script>
 
           </div>
