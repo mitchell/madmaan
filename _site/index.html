@@ -155,6 +155,58 @@
               Sequence(NonTerminal('id')))).addTo();
               </script>
 
+              <b><div>ForStmt:</div></b>
+              <script>
+              Diagram(Sequence('for',
+              NonTerminal('VarDec'),
+              '!',
+              NonTerminal('ExpStmt'),
+              '!',
+              NonTerminal('ExpStmt'),
+              '!',
+              NonTerminal('Body'),
+              '!')).addTo();
+              </script>
+
+              <b><div>IfStmt:</div></b>
+              <script>
+              Diagram(Sequence('if',
+              NonTerminal('ExpStmt'), 'then',
+              Optional(Sequence(NonTerminal('Body'),'!')))).addTo();
+              </script>
+
+              <b><div>WhileStmt:</div></b>
+              <script>
+              Diagram(Sequence('while',
+              NonTerminal('ExpStmt'),
+              'do',
+              Optional('Body'),
+              '!')).addTo();
+              </script>
+
+              <b><div>BinExp:</div></b>
+              <script>
+              Diagram(OneOrMore(NonTerminal('binop'),
+              NonTerminal('BinExp2'))).addTo();
+              </script>
+
+              <b><div>BinExp2:</div></b>
+              <script>
+              Diagram(OneOrMore(NonTerminal('relop'),
+              NonTerminal('BinExp3'))).addTo();
+              </script>
+
+              <b><div>BinExp3:</div></b>
+              <script>
+              Diagram(OneOrMore(NonTerminal('addop'),
+              NonTerminal('BinExp4'))).addTo();
+              </script>
+
+              <b><div>BinExp4:</div></b>
+              <script>
+              Diagram(OneOrMore(NonTerminal('mulop'),
+              NonTerminal('UnExp'))).addTo();
+              </script>
 
           </div>
         </div>
