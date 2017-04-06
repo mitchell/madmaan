@@ -124,12 +124,12 @@
         <div class="row">
           <div class="twelve columns" style="margin-top: 0%">
 
-              <b><div style="margin-top: 3%">Body:</div></b>
+              <b><div style="margin-top: 3%">Program:</div></b>
               <script>
               Diagram(NonTerminal('Body')).addTo();
               </script>
 
-              <b><div>Block:</div><b>
+              <b><div>Body:</div><b>
               <script>
               Diagram(OneOrMore(Sequence(NonTerminal('Stmt'), '!'))).addTo();
               </script>
