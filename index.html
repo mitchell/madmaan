@@ -63,7 +63,7 @@
                 <area shape="rect" coords="29,1,79,33" href="#Body" title="Body">
             </map>
             <p>
-                <div class="ebnf"><pre><a href="#Program" title="Program" shape="rect">Program</a>  ::= <a href="#Body" title="Body" shape="rect">Body</a></pre></div>
+                <pre><a href="#Program" title="Program" shape="rect">Program</a>  ::= <a href="#Body" title="Body" shape="rect">Body</a></pre>
             </p>
             <hr>
 
@@ -73,7 +73,7 @@
                 <area shape="rect" coords="49,17,99,49" href="#Stmt" title="Stmt">
             </map>
             <p>
-                <div class="ebnf"><pre><a href="#Body" title="Body" shape="rect">Body</a>     ::= ( <a href="#Stmt" title="Stmt" shape="rect">Stmt</a> '!' )+</pre></div>
+                <pre><a href="#Body" title="Body" shape="rect">Body</a>     ::= ( <a href="#Stmt" title="Stmt" shape="rect">Stmt</a> '!' )+</pre>
             </p>
             referenced by:
             <a href="#ForStmt" title="ForStmt">ForStmt</a>
@@ -93,12 +93,11 @@
                 <area shape="rect" coords="49,177,119,209" href="#ForStmt" title="ForStmt">
             </map>
             <p>
-                <div class="ebnf"><pre><a href="#Stmt" title="Stmt" shape="rect">Stmt</a>     ::= <a href="#Decl" title="Decl" shape="rect">Decl</a>
+                <pre><a href="#Stmt" title="Stmt" shape="rect">Stmt</a>     ::= <a href="#Decl" title="Decl" shape="rect">Decl</a>
                     | <a href="#IfStmt" title="IfStmt" shape="rect">IfStmt</a>
                     | <a href="#WhileStmt" title="WhileStmt" shape="rect">WhileStmt</a>
                     | <a href="#ExpStmt" title="ExpStmt" shape="rect">ExpStmt</a>
                     | <a href="#ForStmt" title="ForStmt" shape="rect">ForStmt</a></pre>
-                </div>
             </p>
             referenced by:
             <a href="#Body" title="Body">Body</a>
@@ -111,9 +110,8 @@
                 <area shape="rect" coords="49,45,111,77" href="#VarDec" title="VarDec">
             </map>
             <p>
-                <div class="ebnf"><pre><a href="#Decl" title="Decl" shape="rect">Decl</a>     ::= <a href="#FuncDec" title="FuncDec" shape="rect">FuncDec</a>
+                <pre><a href="#Decl" title="Decl" shape="rect">Decl</a>     ::= <a href="#FuncDec" title="FuncDec" shape="rect">FuncDec</a>
                     | <a href="#VarDec" title="VarDec" shape="rect">VarDec</a></pre>
-                </div>
             </p>
             referenced by:
             <a href="#Stmt" title="Stmt">Stmt</a>
@@ -129,12 +127,11 @@
                 <area shape="rect" coords="49,177,79,209" href="#id" title="id">
             </map>
             <p>
-                <div class="ebnf"><pre><a href="#ExpStmt" title="ExpStmt" shape="rect">ExpStmt</a>  ::= <a href="#BinExp" title="BinExp" shape="rect">BinExp</a>
+                <pre><a href="#ExpStmt" title="ExpStmt" shape="rect">ExpStmt</a>  ::= <a href="#BinExp" title="BinExp" shape="rect">BinExp</a>
                     | <a href="#UnExp" title="UnExp" shape="rect">UnExp</a>
                     | <a href="#CallExp" title="CallExp" shape="rect">CallExp</a>
                     | <a href="#Literal" title="Literal" shape="rect">Literal</a>
                     | <a href="#id" title="id" shape="rect">id</a></pre>
-                </div>
             </p>
             referenced by:
             <a href="#IfStmt" title="IfStmt">IfStmt</a>
@@ -152,8 +149,7 @@
                 <area shape="rect" coords="473,1,523,33" href="#Body" title="Body">
             </map>
             <p>
-                <div class="ebnf"><pre><a href="#ForStmt" title="ForStmt" shape="rect">ForStmt</a>  ::= 'for' <a href="#VarDec" title="VarDec" shape="rect">VarDec</a> '!' <a href="#BinExp2" title="BinExp2" shape="rect">BinExp2</a> '!' <a href="#BinExp3" title="BinExp3" shape="rect">BinExp3</a> '!' <a href="#Body" title="Body" shape="rect">Body</a></pre>
-                </div>
+                <pre><a href="#ForStmt" title="ForStmt" shape="rect">ForStmt</a>  ::= 'for' <a href="#VarDec" title="VarDec" shape="rect">VarDec</a> '!' <a href="#BinExp2" title="BinExp2" shape="rect">BinExp2</a> '!' <a href="#BinExp3" title="BinExp3" shape="rect">BinExp3</a> '!' <a href="#Body" title="Body" shape="rect">Body</a></pre>
             </p>
             referenced by:
             <a href="#Stmt" title="Stmt">Stmt</a>
@@ -166,7 +162,7 @@
                 <area shape="rect" coords="237,1,287,33" href="#Body" title="Body">
             </map>
             <p>
-                <div class="ebnf"><pre><a href="#IfStmt" title="IfStmt" shape="rect">IfStmt</a>   ::= 'if' <a href="#ExpStmt" title="ExpStmt" shape="rect">ExpStmt</a> 'then' <a href="#Body" title="Body" shape="rect">Body</a></pre></div>
+                <pre><a href="#IfStmt" title="IfStmt" shape="rect">IfStmt</a>   ::= 'if' <a href="#ExpStmt" title="ExpStmt" shape="rect">ExpStmt</a> 'then' <a href="#Body" title="Body" shape="rect">Body</a></pre>
             </p>
             referenced by:
             <a href="#Stmt" title="Stmt">Stmt</a>
@@ -179,497 +175,367 @@
                 <area shape="rect" coords="249,1,299,33" href="#Body" title="Body">
             </map>
             <p>
-                <div class="ebnf"><pre><a href="#WhileStmt" title="WhileStmt" shape="rect">WhileStmt</a>
-                    ::= 'while' <a href="#ExpStmt" title="ExpStmt" shape="rect">ExpStmt</a> 'do' <a href="#Body" title="Body" shape="rect">Body</a></pre></div>
-                </p>
-                referenced by:
-                <a href="#Stmt" title="Stmt">Stmt</a>
-                <hr>
+                <pre><a href="#WhileStmt" title="WhileStmt" shape="rect">WhileStmt</a>
+                    ::= 'while' <a href="#ExpStmt" title="ExpStmt" shape="rect">ExpStmt</a> 'do' <a href="#Body" title="Body" shape="rect">Body</a></pre>
+            </p>
+            referenced by:
+            <a href="#Stmt" title="Stmt">Stmt</a>
+            <hr>
 
-                <a name="VarDec">VarDec:</a>
-                <img src="diagram/VarDec.png" usemap="#VarDec.map">
-                <map name="VarDec.map">
-                    <area shape="rect" coords="29,1,59,33" href="#id" title="id">
-                    <area shape="rect" coords="129,1,199,33" href="#ExpStmt" title="ExpStmt">
-                </map>
-                <p>
-                    <div class="ebnf"><pre><a href="#VarDec" title="VarDec" shape="rect">VarDec</a>   ::= <a href="#id" title="id" shape="rect">id</a> 'is' <a href="#ExpStmt" title="ExpStmt" shape="rect">ExpStmt</a></pre></div>
-                </p>
-                referenced by:
-                <a href="#Decl" title="Decl">Decl</a>
-                <a href="#ForStmt" title="ForStmt">ForStmt</a>
-                <hr>
-
-
-                <a name="FuncDec">FuncDec:</a>
-                <img src="diagram/FuncDec.png" usemap="#FuncDec.map">
-                <map name="FuncDec.map">
-                    <area shape="rect" coords="29,1,59,33" href="#id" title="id">
-                    <area shape="rect" coords="79,1,143,33" href="#Params" title="Params">
-                    <area shape="rect" coords="223,1,273,33" href="#Body" title="Body">
-                </map>
-                <p>
-                    <div class="ebnf"><pre><a href="#FuncDec" title="FuncDec" shape="rect">FuncDec</a>  ::= <a href="#id" title="id" shape="rect">id</a> <a href="#Params" title="Params" shape="rect">Params</a> '=&gt;' <a href="#Body" title="Body" shape="rect">Body</a></pre></div>
-                </p>
-                referenced by:
-                <a href="#Decl" title="Decl">Decl</a>
-                <hr>
-
-                <a name="BinExp">BinExp:</a>
-                <img src="diagram/BinExp.png" usemap="#BinExp.map">
-                <map name="BinExp.map">
-                    <area shape="rect" coords="49,1,107,33" href="#BinExp" title="BinExp">
-                    <area shape="rect" coords="127,1,179,33" href="#binop" title="binop">
-                    <area shape="rect" coords="199,1,257,33" href="#BinExp" title="BinExp">
-                    <area shape="rect" coords="49,45,115,77" href="#BinExp2" title="BinExp2">
-                </map>
-                <p>
-                    <div class="ebnf"><pre><a href="#BinExp" title="BinExp" shape="rect">BinExp</a>   ::= <a href="#BinExp" title="BinExp" shape="rect">BinExp</a> <a href="#binop" title="binop" shape="rect">binop</a> <a href="#BinExp" title="BinExp" shape="rect">BinExp</a>
-                        | <a href="#BinExp2" title="BinExp2" shape="rect">BinExp2</a></pre></div>
-                </p>
-                    referenced by:
-                    <a href="#BinExp" title="BinExp">BinExp</a>
-                    <a href="#ExpStmt" title="ExpStmt">ExpStmt</a>
-                    <hr>
+            <a name="VarDec">VarDec:</a>
+            <img src="diagram/VarDec.png" usemap="#VarDec.map">
+            <map name="VarDec.map">
+                <area shape="rect" coords="29,1,59,33" href="#id" title="id">
+                <area shape="rect" coords="129,1,199,33" href="#ExpStmt" title="ExpStmt">
+            </map>
+            <p>
+                <div class="ebnf"><pre><a href="#VarDec" title="VarDec" shape="rect">VarDec</a>   ::= <a href="#id" title="id" shape="rect">id</a> 'is' <a href="#ExpStmt" title="ExpStmt" shape="rect">ExpStmt</a></pre></div>
+            </p>
+            referenced by:
+            <a href="#Decl" title="Decl">Decl</a>
+            <a href="#ForStmt" title="ForStmt">ForStmt</a>
+            <hr>
 
 
-                    <a name="BinExp2">BinExp2:</a>
-                    <img src="diagram/BinExp2.png" usemap="#BinExp2.map">
-                    <map name="BinExp2.map">
-                        <area shape="rect" coords="29,1,95,33" href="#BinExp3" title="BinExp3">
-                        <area shape="rect" coords="135,33,185,65" href="#relop" title="relop">
-                        <area shape="rect" coords="205,33,271,65" href="#BinExp3" title="BinExp3">
-                    </map>
-                    <p>
-                        <div class="ebnf"><pre><a href="#BinExp2" title="BinExp2" shape="rect">BinExp2</a>  ::= <a href="#BinExp3" title="BinExp3" shape="rect">BinExp3</a> ( <a href="#relop" title="relop" shape="rect">relop</a> <a href="#BinExp3" title="BinExp3" shape="rect">BinExp3</a> )?</pre></div>
-                    </p>
-                    referenced by:
-                    <a href="#BinExp" title="BinExp">BinExp</a>
-                    <a href="#ForStmt" title="ForStmt">ForStmt</a>
-                    <hr>
+            <a name="FuncDec">FuncDec:</a>
+            <img src="diagram/FuncDec.png" usemap="#FuncDec.map">
+            <map name="FuncDec.map">
+                <area shape="rect" coords="29,1,59,33" href="#id" title="id">
+                <area shape="rect" coords="79,1,143,33" href="#Params" title="Params">
+                <area shape="rect" coords="223,1,273,33" href="#Body" title="Body">
+            </map>
+            <p>
+                <pre><a href="#FuncDec" title="FuncDec" shape="rect">FuncDec</a>  ::= <a href="#id" title="id" shape="rect">id</a> <a href="#Params" title="Params" shape="rect">Params</a> '=&gt;' <a href="#Body" title="Body" shape="rect">Body</a></pre>
+            </p>
+            referenced by:
+            <a href="#Decl" title="Decl">Decl</a>
+            <hr>
 
-                    <a name="BinExp3">BinExp3:</a>
-                    <img src="diagram/BinExp3.png" usemap="#BinExp3.map">
-                    <map name="BinExp3.map">
-                        <area shape="rect" coords="49,1,115,33" href="#BinExp3" title="BinExp3">
-                        <area shape="rect" coords="135,1,191,33" href="#addop" title="addop">
-                        <area shape="rect" coords="211,1,277,33" href="#BinExp3" title="BinExp3">
-                        <area shape="rect" coords="49,45,115,77" href="#BinExp4" title="BinExp4">
-                    </map>
-                    <p>
-                        <div class="ebnf"><pre><a href="#BinExp3" title="BinExp3" shape="rect">BinExp3</a>  ::= <a href="#BinExp3" title="BinExp3" shape="rect">BinExp3</a> <a href="#addop" title="addop" shape="rect">addop</a> <a href="#BinExp3" title="BinExp3" shape="rect">BinExp3</a>
-                            | <a href="#BinExp4" title="BinExp4" shape="rect">BinExp4</a></pre></div>
-                        </p>
-                        referenced by:
-                        <a href="#BinExp2" title="BinExp2">BinExp2</a>
-                        <a href="#BinExp3" title="BinExp3">BinExp3</a>
-                        <a href="#ForStmt" title="ForStmt">ForStmt</a>
-                        <hr>
-
-                        <a name="BinExp4">BinExp4:</a>
-                        <img src="diagram/BinExp4.png" usemap="#BinExp4.map">
-                        <map name="BinExp4.map">
-                            <area shape="rect" coords="49,1,115,33" href="#BinExp4" title="BinExp4">
-                            <area shape="rect" coords="135,1,191,33" href="#mulop" title="mulop">
-                            <area shape="rect" coords="211,1,277,33" href="#BinExp4" title="BinExp4">
-                            <area shape="rect" coords="49,45,107,77" href="#UnExp" title="UnExp">
-                        </map>
-                        <p>
-                            <div class="ebnf"><pre><a href="#BinExp4" title="BinExp4" shape="rect">BinExp4</a>  ::= <a href="#BinExp4" title="BinExp4" shape="rect">BinExp4</a> <a href="#mulop" title="mulop" shape="rect">mulop</a> <a href="#BinExp4" title="BinExp4" shape="rect">BinExp4</a>
-                                | <a href="#UnExp" title="UnExp" shape="rect">UnExp</a></pre></div>
-                            </p>
-                            referenced by:
-                            <a href="#BinExp3" title="BinExp3">BinExp3</a>
-                            <a href="#BinExp4" title="BinExp4">BinExp4</a>
-                            <hr>
-
-                            <a name="UnExp">UnExp:</a>
-                            <img border="0" src="diagram/UnExp.png" height="156" width="244" usemap="#UnExp.map">
-                            <map name="UnExp.map">
-                                <area shape="rect" coords="49,1,111,33" href="#CallExp" title="CallExp">
-                                <area shape="rect" coords="49,45,103,77" href="#Literal" title="Literal">
-                                <area shape="rect" coords="69,121,125,153" href="#unaop" title="unaop">
-                                <area shape="rect" coords="165,89,195,121" href="#id" title="id">
-                            </map>
-                            <p>
-                                <div class="ebnf"><pre><a href="#UnExp" title="UnExp" shape="rect">UnExp</a>    ::= <a href="#CallExp" title="CallExp" shape="rect">CallExp</a>
-                                    | <a href="#Literal" title="Literal" shape="rect">Literal</a>
-                                    | <a href="#unaop" title="unaop" shape="rect">unaop</a>? <a href="#id" title="id" shape="rect">id</a></pre></div>
-
-                                </p>
-                                referenced by:
-                                <a href="#BinExp4" title="BinExp4">BinExp4</a>
-                                <a href="#ExpStmt" title="ExpStmt">ExpStmt</a>
-                                <hr>
+            <a name="BinExp">BinExp:</a>
+            <img src="diagram/BinExp.png" usemap="#BinExp.map">
+            <map name="BinExp.map">
+                <area shape="rect" coords="49,1,107,33" href="#BinExp" title="BinExp">
+                <area shape="rect" coords="127,1,179,33" href="#binop" title="binop">
+                <area shape="rect" coords="199,1,257,33" href="#BinExp" title="BinExp">
+                <area shape="rect" coords="49,45,115,77" href="#BinExp2" title="BinExp2">
+            </map>
+            <p>
+                <pre><a href="#BinExp" title="BinExp" shape="rect">BinExp</a>   ::= <a href="#BinExp" title="BinExp" shape="rect">BinExp</a> <a href="#binop" title="binop" shape="rect">binop</a> <a href="#BinExp" title="BinExp" shape="rect">BinExp</a>
+                    | <a href="#BinExp2" title="BinExp2" shape="rect">BinExp2</a></pre>
+            </p>
+            referenced by:
+            <a href="#BinExp" title="BinExp">BinExp</a>
+            <a href="#ExpStmt" title="ExpStmt">ExpStmt</a>
+            <hr>
 
 
-<p style="font-size: 14px; font-weight:bold"><a name="CallExp">CallExp:</a></p>
-            <img border="0" src="diagram/CallExp.png" height="36" width="172" usemap="#CallExp.map"><map name="CallExp.map">
-               <area shape="rect" coords="29,1,59,33" href="#id" title="id">
-               <area shape="rect" coords="79,1,143,33" href="#Params" title="Params"></map>
+            <a name="BinExp2">BinExp2:</a>
+            <img src="diagram/BinExp2.png" usemap="#BinExp2.map">
+            <map name="BinExp2.map">
+                <area shape="rect" coords="29,1,95,33" href="#BinExp3" title="BinExp3">
+                <area shape="rect" coords="135,33,185,65" href="#relop" title="relop">
+                <area shape="rect" coords="205,33,271,65" href="#BinExp3" title="BinExp3">
+            </map>
+            <p>
+                <pre><a href="#BinExp2" title="BinExp2" shape="rect">BinExp2</a>  ::= <a href="#BinExp3" title="BinExp3" shape="rect">BinExp3</a> ( <a href="#relop" title="relop" shape="rect">relop</a> <a href="#BinExp3" title="BinExp3" shape="rect">BinExp3</a> )?</pre>
+            </p>
+            referenced by:
+            <a href="#BinExp" title="BinExp">BinExp</a>
+            <a href="#ForStmt" title="ForStmt">ForStmt</a>
+            <hr>
 
+            <a name="BinExp3">BinExp3:</a>
+            <img src="diagram/BinExp3.png" usemap="#BinExp3.map">
+            <map name="BinExp3.map">
+                <area shape="rect" coords="49,1,115,33" href="#BinExp3" title="BinExp3">
+                <area shape="rect" coords="135,1,191,33" href="#addop" title="addop">
+                <area shape="rect" coords="211,1,277,33" href="#BinExp3" title="BinExp3">
+                <area shape="rect" coords="49,45,115,77" href="#BinExp4" title="BinExp4">
+            </map>
+            <p>
+                <pre><a href="#BinExp3" title="BinExp3" shape="rect">BinExp3</a>  ::= <a href="#BinExp3" title="BinExp3" shape="rect">BinExp3</a> <a href="#addop" title="addop" shape="rect">addop</a> <a href="#BinExp3" title="BinExp3" shape="rect">BinExp3</a>
+                    | <a href="#BinExp4" title="BinExp4" shape="rect">BinExp4</a></pre>
+            </p>
+            referenced by:
+            <a href="#BinExp2" title="BinExp2">BinExp2</a>
+            <a href="#BinExp3" title="BinExp3">BinExp3</a>
+            <a href="#ForStmt" title="ForStmt">ForStmt</a>
+            <hr>
+
+            <a name="BinExp4">BinExp4:</a>
+            <img src="diagram/BinExp4.png" usemap="#BinExp4.map">
+            <map name="BinExp4.map">
+                <area shape="rect" coords="49,1,115,33" href="#BinExp4" title="BinExp4">
+                <area shape="rect" coords="135,1,191,33" href="#mulop" title="mulop">
+                <area shape="rect" coords="211,1,277,33" href="#BinExp4" title="BinExp4">
+                <area shape="rect" coords="49,45,107,77" href="#UnExp" title="UnExp">
+            </map>
+            <p>
+                <pre><a href="#BinExp4" title="BinExp4" shape="rect">BinExp4</a>  ::= <a href="#BinExp4" title="BinExp4" shape="rect">BinExp4</a> <a href="#mulop" title="mulop" shape="rect">mulop</a> <a href="#BinExp4" title="BinExp4" shape="rect">BinExp4</a>
+                    | <a href="#UnExp" title="UnExp" shape="rect">UnExp</a></pre>
+            </p>
+            referenced by:
+            <a href="#BinExp3" title="BinExp3">BinExp3</a>
+            <a href="#BinExp4" title="BinExp4">BinExp4</a>
+            <hr>
+
+            <a name="UnExp">UnExp:</a>
+            <img border="0" src="diagram/UnExp.png" height="156" width="244" usemap="#UnExp.map">
+            <map name="UnExp.map">
+                <area shape="rect" coords="49,1,111,33" href="#CallExp" title="CallExp">
+                <area shape="rect" coords="49,45,103,77" href="#Literal" title="Literal">
+                <area shape="rect" coords="69,121,125,153" href="#unaop" title="unaop">
+                <area shape="rect" coords="165,89,195,121" href="#id" title="id">
+            </map>
+            <p>
+                <pre><a href="#UnExp" title="UnExp" shape="rect">UnExp</a>    ::= <a href="#CallExp" title="CallExp" shape="rect">CallExp</a>
+                    | <a href="#Literal" title="Literal" shape="rect">Literal</a>
+                    | <a href="#unaop" title="unaop" shape="rect">unaop</a>? <a href="#id" title="id" shape="rect">id</a></pre>
+            </p>
+            referenced by:
+            <a href="#BinExp4" title="BinExp4">BinExp4</a>
+            <a href="#ExpStmt" title="ExpStmt">ExpStmt</a>
+            <hr>
+
+            <a name="CallExp">CallExp:</a></p>
+            <img src="diagram/CallExp.png" usemap="#CallExp.map">
+            <map name="CallExp.map">
+                <area shape="rect" coords="29,1,59,33" href="#id" title="id">
+                <area shape="rect" coords="79,1,143,33" href="#Params" title="Params">
+            </map>
+            <p>
+                <pre><a href="#CallExp" title="CallExp" shape="rect">CallExp</a>  ::= <a href="#id" title="id" shape="rect">id</a> <a href="#Params" title="Params" shape="rect">Params</a></pre>
+            </p>
+            referenced by:
+            <a href="#ExpStmt" title="ExpStmt">ExpStmt</a>
+            <a href="#UnExp" title="UnExp">UnExp</a>
+            <hr>
+
+            <a name="Params">Params:</a>
+            <img src="diagram/Params.png" usemap="#Params.map">
+            <map name="Params.map">
+                <area shape="rect" coords="135,61,165,93" href="#id" title="id">
+            </map>
+            <p>
+                <pre><a href="#Params" title="Params" shape="rect">Params</a>   ::= '(' ( <a href="#id" title="id" shape="rect">id</a> ( ',' <a href="#id" title="id" shape="rect">id</a> )* )* ')'</pre>
+            </p>
+            referenced by:
+            <a href="#CallExp" title="CallExp">CallExp</a>
+            <a href="#FuncDec" title="FuncDec">FuncDec</a>
+            <hr>
+
+            <a name="Literal">Literal:</a>
+            <img src="diagram/Literal.png" usemap="#Literal.map">
+            <map name="Literal.map">
+                <area shape="rect" coords="49,1,103,33" href="#boollit" title="boollit">
+                <area shape="rect" coords="49,45,93,77" href="#intlit" title="intlit">
+                <area shape="rect" coords="49,89,95,121" href="#strlit" title="strlit">
+            </map>
+            <p>
+                <pre><a href="#Literal" title="Literal" shape="rect">Literal</a>  ::= <a href="#boollit" title="boollit" shape="rect">boollit</a>
+                    | <a href="#intlit" title="intlit" shape="rect">intlit</a>
+                    | <a href="#strlit" title="strlit" shape="rect">strlit</a></pre>
+            </p>
+            referenced by:
+            <a href="#ExpStmt" title="ExpStmt">ExpStmt</a>
+            <a href="#UnExp" title="UnExp">UnExp</a>
+            <hr>
+
+            <a name="keywords">keywords:</a>
+            <img src="diagram/keywords.png">
+            <p>
+                <pre><a href="#keywords" title="keywords" shape="rect">keywords</a> ::= 'if'
+                    | 'else'
+                    | 'elif'
+                    | 'or'
+                    | 'is'
+                    | 'for'
+                    | 'and'
+                    | 'false'
+                    | 'true'
+                    | 'while'
+                    | 'do'</pre>
+            </p>
+            <hr>
+
+
+            <a name="idrest">idrest:</a>
+            <img src="diagram/idrest.png" usemap="#idrest.map">
+            <map name="idrest.map">
+                <area shape="rect" coords="49,45,105,77" href="#alnum" title="alnum">
+            </map>
             <p>
 
-               <div class="ebnf"><pre><a href="#CallExp" title="CallExp" shape="rect">CallExp</a>  ::= <a href="#id" title="id" shape="rect">id</a> <a href="#Params" title="Params" shape="rect">Params</a></pre></div>
-
+                <pre><a href="#idrest" title="idrest" shape="rect">idrest</a>   ::= '_'
+                    | <a href="#alnum" title="alnum" shape="rect">alnum</a></pre>
             </p>
+            referenced by:
+            <a href="#id" title="id">id</a>
+            <hr>
 
-            <p>referenced by:
-
-               <ul>
-
-                  <li><a href="#ExpStmt" title="ExpStmt">ExpStmt</a></li>
-
-                  <li><a href="#UnExp" title="UnExp">UnExp</a></li>
-
-               </ul>
-
-            </p><br><p style="font-size: 14px; font-weight:bold"><a name="Params">Params:</a></p>
-            <img border="0" src="diagram/Params.png" height="112" width="300" usemap="#Params.map"><map name="Params.map">
-               <area shape="rect" coords="135,61,165,93" href="#id" title="id"></map>
-
+            <a name="id">id:</a>
+            <img src="diagram/id.png" usemap="#id.map">
+            <map name="id.map">
+                <area shape="rect" coords="29,35,79,67" href="#letter" title="letter">
+                <area shape="rect" coords="119,1,171,33" href="#idrest" title="idrest">
+            </map>
             <p>
-
-               <div class="ebnf"><pre><a href="#Params" title="Params" shape="rect">Params</a>   ::= '(' ( <a href="#id" title="id" shape="rect">id</a> ( ',' <a href="#id" title="id" shape="rect">id</a> )* )* ')'</pre></div>
-
+                <pre><a href="#id" title="id" shape="rect">id</a>       ::= <a href="#letter" title="letter" shape="rect">letter</a> <a href="#idrest" title="idrest" shape="rect">idrest</a>*</pre>
             </p>
+            referenced by:
+            <a href="#CallExp" title="CallExp">CallExp</a>
+            <a href="#ExpStmt" title="ExpStmt">ExpStmt</a>
+            <a href="#FuncDec" title="FuncDec">FuncDec</a>
+            <a href="#Params" title="Params">Params</a>
+            <a href="#UnExp" title="UnExp">UnExp</a>
+            <a href="#VarDec" title="VarDec">VarDec</a>
+            <hr>
 
-            <p>referenced by:
-
-               <ul>
-
-                  <li><a href="#CallExp" title="CallExp">CallExp</a></li>
-
-                  <li><a href="#FuncDec" title="FuncDec">FuncDec</a></li>
-
-               </ul>
-
-            </p><br><p style="font-size: 14px; font-weight:bold"><a name="Literal">Literal:</a></p>
-            <img border="0" src="diagram/Literal.png" height="124" width="152" usemap="#Literal.map"><map name="Literal.map">
-               <area shape="rect" coords="49,1,103,33" href="#boollit" title="boollit">
-               <area shape="rect" coords="49,45,93,77" href="#intlit" title="intlit">
-               <area shape="rect" coords="49,89,95,121" href="#strlit" title="strlit"></map>
-
+            <a name="binop">binop:</a>
+            <img src="diagram/binop.png">
             <p>
-
-               <div class="ebnf"><pre><a href="#Literal" title="Literal" shape="rect">Literal</a>  ::= <a href="#boollit" title="boollit" shape="rect">boollit</a>
-                 | <a href="#intlit" title="intlit" shape="rect">intlit</a>
-                 | <a href="#strlit" title="strlit" shape="rect">strlit</a></pre></div>
-
+                <pre><a href="#binop" title="binop" shape="rect">binop</a>    ::= 'or'
+                    | 'and'</pre>
             </p>
+            referenced by:
+            <a href="#BinExp" title="BinExp">BinExp</a>
+            <hr>
 
-            <p>referenced by:
-
-               <ul>
-
-                  <li><a href="#ExpStmt" title="ExpStmt">ExpStmt</a></li>
-
-                  <li><a href="#UnExp" title="UnExp">UnExp</a></li>
-
-               </ul>
-
-            </p><br><p style="font-size: 14px; font-weight:bold"><a name="keywords">keywords:</a></p>
-            <img border="0" src="diagram/keywords.png" height="476" width="152">
-
+            <a name="mulop">mulop:</a>
+            <img src="diagram/mulop.png">
             <p>
-
-               <div class="ebnf"><pre><a href="#keywords" title="keywords" shape="rect">keywords</a> ::= 'if'
-                 | 'else'
-                 | 'elif'
-                 | 'or'
-                 | 'is'
-                 | 'for'
-                 | 'and'
-                 | 'false'
-                 | 'true'
-                 | 'while'
-                 | 'do'</pre></div>
-
+                <pre><a href="#mulop" title="mulop" shape="rect">mulop</a>    ::= '*'
+                    | '/'
+                    | '%'</pre>
             </p>
+            referenced by:
+            <a href="#BinExp4" title="BinExp4">BinExp4</a>
+            <hr>
 
-            <p>no references</p><br><p style="font-size: 14px; font-weight:bold"><a name="idrest">idrest:</a></p>
-            <img border="0" src="diagram/idrest.png" height="80" width="154" usemap="#idrest.map"><map name="idrest.map">
-               <area shape="rect" coords="49,45,105,77" href="#alnum" title="alnum"></map>
-
+            <a name="addop">addop:</a>
+            <img src="diagram/addop.png">
             <p>
-
-               <div class="ebnf"><pre><a href="#idrest" title="idrest" shape="rect">idrest</a>   ::= '_'
-                 | <a href="#alnum" title="alnum" shape="rect">alnum</a></pre></div>
-
+                <pre><a href="#addop" title="addop" shape="rect">addop</a>    ::= '+'
+                    | '-'</pre>
             </p>
+            referenced by:
+            <a href="#BinExp3" title="BinExp3">BinExp3</a>
+            <hr>
 
-            <p>referenced by:
-
-               <ul>
-
-                  <li><a href="#id" title="id">id</a></li>
-
-               </ul>
-
-            </p><br><p style="font-size: 14px; font-weight:bold"><a name="id">id:</a></p>
-            <img border="0" src="diagram/id.png" height="70" width="220" usemap="#id.map"><map name="id.map">
-               <area shape="rect" coords="29,35,79,67" href="#letter" title="letter">
-               <area shape="rect" coords="119,1,171,33" href="#idrest" title="idrest"></map>
-
+            <a name="relop">relop:</a>
+            <img src="diagram/relop.png">
             <p>
-
-               <div class="ebnf"><pre><a href="#id" title="id" shape="rect">id</a>       ::= <a href="#letter" title="letter" shape="rect">letter</a> <a href="#idrest" title="idrest" shape="rect">idrest</a>*</pre></div>
-
+                <pre><a href="#relop" title="relop" shape="rect">relop</a>    ::= '=='
+                    | '&gt;'
+                    | '&lt;'
+                    | '&lt;='
+                    | '&gt;='
+                    | '~='</pre>
             </p>
+            referenced by:
 
-            <p>referenced by:
+            <a href="#BinExp2" title="BinExp2">BinExp2</a>
+            <hr>
 
-               <ul>
-
-                  <li><a href="#CallExp" title="CallExp">CallExp</a></li>
-
-                  <li><a href="#ExpStmt" title="ExpStmt">ExpStmt</a></li>
-
-                  <li><a href="#FuncDec" title="FuncDec">FuncDec</a></li>
-
-                  <li><a href="#Params" title="Params">Params</a></li>
-
-                  <li><a href="#UnExp" title="UnExp">UnExp</a></li>
-
-                  <li><a href="#VarDec" title="VarDec">VarDec</a></li>
-
-               </ul>
-
-            </p><br><p style="font-size: 14px; font-weight:bold"><a name="binop">binop:</a></p>
-            <img border="0" src="diagram/binop.png" height="80" width="142">
-
+            <a name="unaop">unaop:</a>
+            <img src="diagram/unaop.png">
             <p>
-
-               <div class="ebnf"><pre><a href="#binop" title="binop" shape="rect">binop</a>    ::= 'or'
-                 | 'and'</pre></div>
-
+                <pre><a href="#unaop" title="unaop" shape="rect">unaop</a>    ::= '-'
+                    | '~'
+                    | '++'
+                    | '--'</pre>
             </p>
+            referenced by:
+            <a href="#UnExp" title="UnExp">UnExp</a>
+            <hr>
 
-            <p>referenced by:
-
-               <ul>
-
-                  <li><a href="#BinExp" title="BinExp">BinExp</a></li>
-
-               </ul>
-
-            </p><br><p style="font-size: 14px; font-weight:bold"><a name="mulop">mulop:</a></p>
-            <img border="0" src="diagram/mulop.png" height="124" width="132">
-
+            <a name="boollit">boollit:</a>
+            <img src="diagram/boollit.png">
             <p>
-
-               <div class="ebnf"><pre><a href="#mulop" title="mulop" shape="rect">mulop</a>    ::= '*'
-                 | '/'
-                 | '%'</pre></div>
-
+                <pre><a href="#boollit" title="boollit" shape="rect">boollit</a>  ::= 'false'
+                    | 'true'</pre>
             </p>
+            referenced by:
+            <a href="#Literal" title="Literal">Literal</a>
+            <hr>
 
-            <p>referenced by:
-
-               <ul>
-
-                  <li><a href="#BinExp4" title="BinExp4">BinExp4</a></li>
-
-               </ul>
-
-            </p><br><p style="font-size: 14px; font-weight:bold"><a name="addop">addop:</a></p>
-            <img border="0" src="diagram/addop.png" height="80" width="128">
-
+            <a name="intlit">intlit:</a>
+            <img src="diagram/intlit.png" usemap="#intlit.map">
+            <map name="intlit.map">
+                <area shape="rect" coords="49,17,93,49" href="#digit" title="digit">
+            </map>
             <p>
-
-               <div class="ebnf"><pre><a href="#addop" title="addop" shape="rect">addop</a>    ::= '+'
-                 | '-'</pre></div>
-
+                <pre><a href="#intlit" title="intlit" shape="rect">intlit</a>   ::= <a href="#digit" title="digit" shape="rect">digit</a>+</pre>
             </p>
+            referenced by:
+            <a href="#Literal" title="Literal">Literal</a>
+            <hr>
 
-            <p>referenced by:
-
-               <ul>
-
-                  <li><a href="#BinExp3" title="BinExp3">BinExp3</a></li>
-
-               </ul>
-
-            </p><br><p style="font-size: 14px; font-weight:bold"><a name="relop">relop:</a></p>
-            <img border="0" src="diagram/relop.png" height="256" width="138">
-
+            <a name="strlit">strlit:</a></p>
+            <img src="diagram/strlit.png" usemap="#strlit.map">
+            <map name="strlit.map">
+                <area shape="rect" coords="95,1,141,33" href="#char" title="char">
+            </map>
             <p>
-
-               <div class="ebnf"><pre><a href="#relop" title="relop" shape="rect">relop</a>    ::= '=='
-                 | '&gt;'
-                 | '&lt;'
-                 | '&lt;='
-                 | '&gt;='
-                 | '~='</pre></div>
-
+                <pre><a href="#strlit" title="strlit" shape="rect">strlit</a>   ::= '"' <a href="#char" title="char" shape="rect">char</a>* '"'</pre>
             </p>
+            referenced by:
+            <a href="#Literal" title="Literal">Literal</a>
+            <hr>
 
-            <p>referenced by:
-
-               <ul>
-
-                  <li><a href="#BinExp2" title="BinExp2">BinExp2</a></li>
-
-               </ul>
-
-            </p><br><p style="font-size: 14px; font-weight:bold"><a name="unaop">unaop:</a></p>
-            <img border="0" src="diagram/unaop.png" height="168" width="138">
-
+            <a name="char">char:</a>
+            <img src="diagram/char.png" usemap="#char.map">
+            <map name="char.map">
+                <area shape="rect" coords="49,1,111,33" href="#escape" title="escape">
+                <area shape="rect" coords="49,45,91,77" href="#any" title="any">
+            </map>
             <p>
-
-               <div class="ebnf"><pre><a href="#unaop" title="unaop" shape="rect">unaop</a>    ::= '-'
-                 | '~'
-                 | '++'
-                 | '--'</pre></div>
-
+                <pre><a href="#char" title="char" shape="rect">char</a>     ::= <a href="#escape" title="escape" shape="rect">escape</a>
+                    | <a href="#any" title="any" shape="rect">any</a></pre>
             </p>
+            referenced by:
+            <a href="#strlit" title="strlit">strlit</a>
+            <hr>
 
-            <p>referenced by:
-
-               <ul>
-
-                  <li><a href="#UnExp" title="UnExp">UnExp</a></li>
-
-               </ul>
-
-            </p><br><p style="font-size: 14px; font-weight:bold"><a name="boollit">boollit:</a></p>
-            <img border="0" src="diagram/boollit.png" height="80" width="148">
-
+            <a name="escape">escape:</a>
+            <img src="diagram/escape.png" usemap="#escape.map">
+            <map name="escape.map">
+                <area shape="rect" coords="105,133,161,165" href="#coded" title="coded">
+            </map>
             <p>
-
-               <div class="ebnf"><pre><a href="#boollit" title="boollit" shape="rect">boollit</a>  ::= 'false'
-                 | 'true'</pre></div>
-
+                <pre><a href="#escape" title="escape" shape="rect">escape</a>   ::= '\\' ( 'r' | 'n' | "'" | <a href="#coded" title="coded" shape="rect">coded</a> )</pre>
             </p>
+            referenced by:
+            <a href="#char" title="char">char</a>
+            <hr>
 
-            <p>referenced by:
-
-               <ul>
-
-                  <li><a href="#Literal" title="Literal">Literal</a></li>
-
-               </ul>
-
-            </p><br><p style="font-size: 14px; font-weight:bold"><a name="intlit">intlit:</a></p>
-            <img border="0" src="diagram/intlit.png" height="52" width="142" usemap="#intlit.map"><map name="intlit.map">
-               <area shape="rect" coords="49,17,93,49" href="#digit" title="digit"></map>
-
+            <a name="coded">coded:</a>
+            <img src="diagram/coded.png" usemap="#coded.map">
+            <map name="coded.map">
+                <area shape="rect" coords="77,1,143,33" href="#hexDigit" title="hexDigit">
+                <area shape="rect" coords="163,1,229,33" href="#hexDigit" title="hexDigit">
+                <area shape="rect" coords="249,1,315,33" href="#hexDigit" title="hexDigit">
+                <area shape="rect" coords="335,1,401,33" href="#hexDigit" title="hexDigit">
+            </map>
             <p>
-
-               <div class="ebnf"><pre><a href="#intlit" title="intlit" shape="rect">intlit</a>   ::= <a href="#digit" title="digit" shape="rect">digit</a>+</pre></div>
-
+                <pre><a href="#coded" title="coded" shape="rect">coded</a>    ::= 'u' <a href="#hexDigit" title="hexDigit" shape="rect">hexDigit</a> <a href="#hexDigit" title="hexDigit" shape="rect">hexDigit</a> <a href="#hexDigit" title="hexDigit" shape="rect">hexDigit</a> <a href="#hexDigit" title="hexDigit" shape="rect">hexDigit</a></pre>
             </p>
+            referenced by:
+            <a href="#escape" title="escape">escape</a>
+            <hr>
 
-            <p>referenced by:
+            <table border="0" class="signature">
+                <tr>
+                    <td style="width: 100%">&nbsp;</td>
+                    <td valign="top">
+                        <nobr class="signature"><a name="Railroad-Diagram-Generator" class="signature" title="http://www.bottlecaps.de/rr/ui" href="http://www.bottlecaps.de/rr/ui" target="_blank">Railroad Diagram Generator</a></nobr>
+                    </td>
+                    <td><a name="Railroad-Diagram-Generator" title="http://www.bottlecaps.de/rr/ui" href="http://www.bottlecaps.de/rr/ui" target="_blank">
+                        <img border="0" src="diagram/rr-1.46.1459.png" height="16" width="16"></a></td>
 
-               <ul>
-
-                  <li><a href="#Literal" title="Literal">Literal</a></li>
-
-               </ul>
-
-            </p><br><p style="font-size: 14px; font-weight:bold"><a name="strlit">strlit:</a></p>
-            <img border="0" src="diagram/strlit.png" height="70" width="236" usemap="#strlit.map"><map name="strlit.map">
-               <area shape="rect" coords="95,1,141,33" href="#char" title="char"></map>
-
-            <p>
-
-               <div class="ebnf"><pre><a href="#strlit" title="strlit" shape="rect">strlit</a>   ::= '"' <a href="#char" title="char" shape="rect">char</a>* '"'</pre></div>
-
-            </p>
-
-            <p>referenced by:
-
-               <ul>
-
-                  <li><a href="#Literal" title="Literal">Literal</a></li>
-
-               </ul>
-
-            </p><br><p style="font-size: 14px; font-weight:bold"><a name="char">char:</a></p>
-            <img border="0" src="diagram/char.png" height="80" width="160" usemap="#char.map"><map name="char.map">
-               <area shape="rect" coords="49,1,111,33" href="#escape" title="escape">
-               <area shape="rect" coords="49,45,91,77" href="#any" title="any"></map>
-
-            <p>
-
-               <div class="ebnf"><pre><a href="#char" title="char" shape="rect">char</a>     ::= <a href="#escape" title="escape" shape="rect">escape</a>
-                 | <a href="#any" title="any" shape="rect">any</a></pre></div>
-
-            </p>
-
-            <p>referenced by:
-
-               <ul>
-
-                  <li><a href="#strlit" title="strlit">strlit</a></li>
-
-               </ul>
-
-            </p><br><p style="font-size: 14px; font-weight:bold"><a name="escape">escape:</a></p>
-            <img border="0" src="diagram/escape.png" height="168" width="210" usemap="#escape.map"><map name="escape.map">
-               <area shape="rect" coords="105,133,161,165" href="#coded" title="coded"></map>
-
-            <p>
-
-               <div class="ebnf"><pre><a href="#escape" title="escape" shape="rect">escape</a>   ::= '\\' ( 'r' | 'n' | "'" | <a href="#coded" title="coded" shape="rect">coded</a> )</pre></div>
-
-            </p>
-
-            <p>referenced by:
-
-               <ul>
-
-                  <li><a href="#char" title="char">char</a></li>
-
-               </ul>
-
-            </p><br><p style="font-size: 14px; font-weight:bold"><a name="coded">coded:</a></p>
-            <img border="0" src="diagram/coded.png" height="36" width="430" usemap="#coded.map"><map name="coded.map">
-               <area shape="rect" coords="77,1,143,33" href="#hexDigit" title="hexDigit">
-               <area shape="rect" coords="163,1,229,33" href="#hexDigit" title="hexDigit">
-               <area shape="rect" coords="249,1,315,33" href="#hexDigit" title="hexDigit">
-               <area shape="rect" coords="335,1,401,33" href="#hexDigit" title="hexDigit"></map>
-
-            <p>
-
-               <div class="ebnf"><pre><a href="#coded" title="coded" shape="rect">coded</a>    ::= 'u' <a href="#hexDigit" title="hexDigit" shape="rect">hexDigit</a> <a href="#hexDigit" title="hexDigit" shape="rect">hexDigit</a> <a href="#hexDigit" title="hexDigit" shape="rect">hexDigit</a> <a href="#hexDigit" title="hexDigit" shape="rect">hexDigit</a></pre></div>
-
-            </p>
-
-            <p>referenced by:
-
-               <ul>
-
-                  <li><a href="#escape" title="escape">escape</a></li>
-
-               </ul>
-
-            </p><br><hr>
-
-            <p>
-
-               <table border="0" class="signature">
-
-                  <tr>
-
-                     <td style="width: 100%">&nbsp;</td>
-
-                     <td valign="top">
-
-                        <nobr class="signature">... generated by <a name="Railroad-Diagram-Generator" class="signature" title="http://www.bottlecaps.de/rr/ui" href="http://www.bottlecaps.de/rr/ui" target="_blank">Railroad Diagram Generator</a></nobr>
-
-                     </td>
-
-                     <td><a name="Railroad-Diagram-Generator" title="http://www.bottlecaps.de/rr/ui" href="http://www.bottlecaps.de/rr/ui" target="_blank">
-                           <img border="0" src="diagram/rr-1.46.1459.png" height="16" width="16"></a></td>
-
-                  </tr>
-
-               </table>
-
-            </p>
-    </div>
+                </tr>
+            </table>
+        </div>
 
 
     <div id="example" class="tab-pane fade">
