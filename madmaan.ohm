@@ -17,9 +17,9 @@ madmaan {
             | BinExp4
   BinExp4   = BinExp4 mulop BinExp4  -- mulop
   			| UnExp
-  UnExp     = CallExp
-            | Literal
-            | (unaop)? id               -- neg
+  UnExp     = CallExp                          --calle
+            | Literal                          --lit
+            | (unaop)? id (unaop)?             --withOp
   CallExp   = id Params
   Params    = "(" (id ("," id)*)* ")"
   Literal   = boollit | intlit | strlit
