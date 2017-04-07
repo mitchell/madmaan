@@ -1,139 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>madmaan | programming language</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/skeleton.css">
-  <link rel="icon" type="image/png" href="images/favicon.png">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <style>
-    .carousel-inner > .item > img,
-    .carousel-inner > .item > a > img {
-        /*width: 70%;*/
-        width: auto;
-        margin: auto;
-    }
-  </style>
-  <style type ="text/css">
-  .syntaxdiagrams > div {
-    font: bold 16px monospace;
-  }
-  svg.railroad-diagram path {
-      stroke-width: 3;
-      stroke: black;
-      fill: rgba(0,0,0,0);
-  }
-  svg.railroad-diagram text {
-      font: bold 14px monospace;
-      text-anchor: middle;
-  }
-  svg.railroad-diagram text.diagram-text {
-      font-size: 12px;
-  }
-  svg.railroad-diagram text.diagram-arrow {
-      font-size: 16px;
-  }
-  svg.railroad-diagram text.label {
-      text-anchor: start;
-  }
-  svg.railroad-diagram text.comment {
-      font: italic 12px monospace;
-  }
-  svg.railroad-diagram rect {
-      stroke-width: 3;
-      stroke: black;
-      fill: hsl(120,100%,90%);
-  }
-  svg.railroad-diagram path.diagram-text {
-      stroke-width: 3;
-      stroke: black;
-      fill: white;
-      cursor: help;
-  }
-  svg.railroad-diagram g.diagram-text:hover path.diagram-text {
-      fill: #eee;
-  }
-  img {
-    text-align: center;
-    max-width: 100%;
-    height: auto;
-    width: auto;
-  }
-  .nav-tabs{
-  font-size: 16px;
-  font-weight: bold;
-  }
-  </style>
+    <meta charset="utf-8">
+    <title>madmaan | programming language</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-  <script type="text/javascript" src="railroad-diagrams.js"></script>
-  <div>
-    <!-- Nav Tabs -->
-    <ul class="nav nav-tabs">
-      <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
-      <li><a data-toggle="tab" href="#about">About</a></li>
-      <li><a data-toggle="tab" href="#syntax">Syntax</a></li>
-      <li><a data-toggle="tab" href="#example">Example Programs</a></li>
-    </ul>
-  </div>
-  <div class="tab-content">
-    <div id="home" class="tab-pane fade in active">
-      <div class="container" style="max-width: 800px">
-        <div class="row">
-          <div class= "twelve columns" style="margin-top: 0%">
-            <h1><img src= "images/madmaan.jpg" img id=madmaan alt ="madmaanlogo"></img></h1>
-          </div>
+    <!-- Navigation Bar -->
+    <div class="topnav" id="myTopnav">
+        <a data-toggle="tab" href="#home">Home</a>
+        <a data-toggle="tab" href="#about">About</a>
+        <a data-toggle="tab" href="#syntax">Syntax</a>
+        <a data-toggle="tab" href="#example">Example Programs</a>
+    </div>
+
+    <div class="tab-content">
+
+        <div id="home">
+            <img  id="background" class="stretch" src= "images/madmaan.jpg" img id=madmaan alt ="madmaanlogo"></img>
         </div>
-      </div>
-    </div>
-    <div id="about" class="tab-pane fade">
-    <div class="w3-container" style="max-width: 800px">
-      <h2> </h2>
-      <p style = "font-size:20px">
-        Madmaan is a dynamically and strong typed language that simplifies JavaScript's
-        syntax and looks mad, MAN. Hate semi-colons? Well, try out exclamation marks!
-        Does using "!" for "not" not make sense? Okay, use "NOT" instead, MAN. Plus,
-        we know how ugly { } can be. SO. NO. CURLY. BRACKETS, MAN.
-        This language explodes(compiles) into JavaScript, now go get MAD, MAAN.
-      </p>
-      <p style = "font-size:20px">
-        madmaan is a programming language born from the minds of 7 students who
-        are in a constant search to acquire more street cred (and also perhaps a decent GPA).
-        Mitchell, Alex, Daniel Mondo, Arash, Anthony and Nick based madmaan off of
-        Javascript, striving to make it easier to read. Also, we understand that writing
-        code may not be the most exciting or pleasing thing you could do with a computer
-        therefore we also decided to make the language more "fun" to write.
-      </p>
-      <p style = "font-size:20px">
-        The idea of making madmaan sound like a disgrunt- I mean "mad" per- I mean "man"
-        came after we thought of the name, which if you look closely was based off of
-        the first letters of each of our names combined (those absolute madmen!).
-      </p>
-      </div>
-    </div>
+
+        <div id="about" class="tab-pane fade">
+            <p>
+                Madmaan is a dynamically and strong typed language that simplifies JavaScript's
+                syntax and looks mad, MAN. Hate semi-colons? Well, try out exclamation marks!
+                Does using "!" for "not" not make sense? Okay, use "NOT" instead, MAN. Plus,
+                we know how ugly { } can be. SO. NO. CURLY. BRACKETS, MAN.
+                This language explodes(compiles) into JavaScript, now go get MAD, MAAN.
+            </p>
+            <p>
+                madmaan is a programming language born from the minds of 7 students who
+                are in a constant search to acquire more street cred (and also perhaps a decent GPA).
+                Mitchell, Alex, Daniel Mondo, Arash, Anthony and Nick based madmaan off of
+                Javascript, striving to make it easier to read. Also, we understand that writing
+                code may not be the most exciting or pleasing thing you could do with a computer
+                therefore we also decided to make the language more "fun" to write.
+            </p>
+            <p>
+                The idea of making madmaan sound like a disgrunt- I mean "mad" per- I mean "man"
+                came after we thought of the name, which if you look closely was based off of
+                the first letters of each of our names combined (those absolute madmen!).
+            </p>
+        </div>
+
     <div id="syntax" class="tab-pane fade">
       <div class="w3-container" style="max-width: 800px">
         <div class="row">
+
           <div class="twelve columns" style="margin-top: 5%">
 
-            <p style="font-size: 14px; font-weight:bold"><a name="Program">Program:</a></p>
-            <img border="0" src="diagram/Program.png" height="36" width="108" usemap="#Program.map"><map name="Program.map">
-               <area shape="rect" coords="29,1,79,33" href="#Body" title="Body"></map>
-
+            <a name="Program">Program:</a>
+            <hr>
+            <img border="0" src="diagram/Program.png" height="36" width="108" usemap="#Program.map">
+            <map name="Program.map">
+                <area shape="rect" coords="29,1,79,33" href="#Body" title="Body">
+            </map>
             <p>
-
-               <div class="ebnf"><pre><a href="#Program" title="Program" shape="rect">Program</a>  ::= <a href="#Body" title="Body" shape="rect">Body</a></pre></div>
-
+                <div class="ebnf"><pre><a href="#Program" title="Program" shape="rect">Program</a>  ::= <a href="#Body" title="Body" shape="rect">Body</a></pre></div>
             </p>
+            <p>no references</p>
 
-            <p>no references</p><br><p style="font-size: 14px; font-weight:bold"><a name="Body">Body:</a></p>
+
+
+
+            <p style="font-size: 14px; font-weight:bold"><a name="Body">Body:</a></p>
             <img border="0" src="diagram/Body.png" height="52" width="192" usemap="#Body.map"><map name="Body.map">
                <area shape="rect" coords="49,17,99,49" href="#Stmt" title="Stmt"></map>
 
@@ -830,6 +770,8 @@
         </div>
       </div>
     </div>
+
+
     <div id="example" class="tab-pane fade">
       <div class="container" style="max-width: auto">
         <center><h3>Left is madmaan syntax whilst right is Javascript</h3></center>
