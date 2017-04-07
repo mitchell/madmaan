@@ -52,7 +52,7 @@ const semantics = grammar.createSemantics().addOperation('ast', {
 const parse = (infile) => {
   const match = grammar.match(infile);
   if (match.succeeded()) {
-    return semantics(match).ast().toString();
+    return semantics(match).ast();
   }
   return match.message;
 };

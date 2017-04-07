@@ -16,7 +16,7 @@ switch (argv._[0]) {
   case 'parse': {
     const inFile = fs.readFileSync(argv._[1], 'utf8');
     const ast = parse(inFile);
-    console.log(ast); // eslint-disable-line no-console
+    console.log(ast.toString()); // eslint-disable-line no-console
     break;
   }
   default:
