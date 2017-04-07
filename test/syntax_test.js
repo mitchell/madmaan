@@ -3,7 +3,7 @@ const ohm = require('ohm-js');
 const assert = require('assert');
 
 function parse(string) {
-  const grammar = ohm.grammar(fs.readFileSync('./madmaan.ohm'));
+  const grammar = ohm.grammar(fs.readFileSync('./syntax/madmaan.ohm'));
   return grammar.match(string);
 }
 

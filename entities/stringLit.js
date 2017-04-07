@@ -4,7 +4,8 @@ class StringLit {
   }
 
   toString() {
-    return `(StringLit : ${this.theString})`;
+    const theStringJoined = this.theString.join('');
+    return `(StringLit : ${theStringJoined})`;
   }
 }
 

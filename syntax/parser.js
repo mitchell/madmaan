@@ -47,7 +47,7 @@ const semantics = grammar.createSemantics().addOperation('ast', {
   strlit(fQuote, s, sQuote) { return new StringLit(s.ast()); },
   boollit(b) { return new BoolLit(this.sourceString); },
   CallExp: (id, params) => new FuncCall(id.sourceString, params.ast()),
-  _terminal() { return this.sourceString.join(); },
+  _terminal() { return this.sourceString; },
 });
 
 const parse = (infile) => {
