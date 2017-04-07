@@ -3,12 +3,15 @@ class Body {
     this.statements = statements;
   }
   toString() {
-    let s = `(Body`;
+    let s = '(Body';
     this.statements.forEach((x) => {
       s = `${s} ${x.toString()}`;
     });
     s = `${s})`;
     return s;
+  }
+  analyze(context) {
+    this.statements.forEach(s => s.analyze(context));
   }
 }
 

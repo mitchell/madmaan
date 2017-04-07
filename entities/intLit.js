@@ -9,6 +9,8 @@ class IntLit extends ExpStmt {
   toString() {
     return `(IntLit : ${this.theInt.toString()})`;
   }
+  analyze() { // eslint-disable-line class-methods-use-this
+  }
 }
 
 module.exports = IntLit;

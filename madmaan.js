@@ -2,7 +2,7 @@ const parse = require('./syntax/parser.js');
 const fs = require('fs');
 
 const argv = require('yargs')
-  .usage('Usage: $0 <command> [file]')
+  .usage('Usage: $0 <command> file')
   .command('parse', 'Parses program into an AST.')
   .boolean('v')
   .describe('v', 'Print version of the program.')
@@ -22,6 +22,6 @@ switch (argv._[0]) {
     break;
 }
 
-if (argv.v === true) {
-  console.log('v1.0.0'); // eslint-disable-line no-console
+if (argv.v) {
+  console.log('v0.2.1'); // eslint-disable-line no-console
 }
