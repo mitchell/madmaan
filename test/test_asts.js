@@ -17,7 +17,13 @@ describe('madmaan ast', () => {
 
   it('while x < 2 do x + 1!!', () => {
     const ast = parse('while x < 2 do x + 1!!').toString();
-    const expected = '(Program (Body (While showMe, (Params ), (Body (StringLit : Hello World!)))))';
+    const expected = '(Program (Body (While (RelOp : (x), <, (IntLit : 2)) (Body (Add : (x) + (IntLit : 1))))))';
+    assert.equal(ast, expected);
+  });
+
+  it('for x is 10! x < 10! x++! 2 + 2!!', () => {
+    const ast = parse('for x is 10! x < 10! x++! 2 + 2!!').toString();
+    const expected = '(Program (Body (While (RelOp : (x), <, (IntLit : 2)) (Body (Add : (x) + (IntLit : 1))))))';
     assert.equal(ast, expected);
   });
 });

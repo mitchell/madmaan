@@ -8,7 +8,12 @@ class UnExpId extends UnExp {
   }
 
   toString() {
-    return `(${this.negate.toString()}, ${this.id.toString()})`;
+    const val = this.negate.toString().length;
+    if (val === 0) {
+        return `(${this.id.toString()})`;
+    } else {
+        return `(${this.negate.toString()}, ${this.id.toString()})`;
+    }
   }
 }
 

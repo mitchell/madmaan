@@ -9,7 +9,7 @@ class BinExpRel extends BinExp {
   }
 
   toString() {
-    return `(${this.firstExp}, ${this.relop}, ${this.secExp})`;
+    return `(RelOp : ${this.firstExp}, ${this.relop}, ${this.secExp})`;
   }
 }
 
