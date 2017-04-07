@@ -43,16 +43,17 @@ const semantics = grammar.createSemantics().addOperation('ast', {
                 new UnExpId(unaop.sourceString, id.sourceString, unaopEnd.sourceString),
   UnExp_calle: callexp => new UnExpCall(callexp.ast()),
   UnExp_lit: lit => new UnExpLit(lit.ast()),
-  intlit: n => new IntLit(n.sourceString),
-  strlit: (fQuote, s, sQuote) => new StringLit(s.sourceString),
-  boollit: b => new BoolLit(b.sourceString),
+  intlit(n) { return new IntLit(this.sourceString); },
+  strlit(fQuote, s, sQuote) { return new StringLit(s.ast()); },
+  boollit(b) { return new BoolLit(this.sourceString); },
   CallExp: (id, params) => new FuncCall(id.sourceString, params.ast()),
+  _terminal() { return this.sourceString.join(); },
 });
 
 const parse = (infile) => {
   const match = grammar.match(infile);
   if (match.succeeded()) {
-    return semantics(match).ast().toString();
+    return semantics(match).ast();
   }
   return match.message;
 };

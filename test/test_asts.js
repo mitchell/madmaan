@@ -1,14 +1,15 @@
 const assert = require('assert');
+const util = require('util');
 const parse = require('../syntax/parser.js');
 
 /* eslint-disable no-undef */
-/* eslint-disable no-console*/
+/* eslint-disable no-console */
 describe('madmaan ast', () => {
   it('x is 4!', () => {
-    const ast = parse('x is 4!').toString();
-    const expected = '(Program (Body (VarDec x, (IntLit : 4))))';
-    assert.equal(ast, expected);
+    const ast = parse('x is 4!');
     console.log(ast);
+    const expected = '(Program (Body (VarDec x, (IntLit : 4))))';
+    assert.equal(ast.toString(), expected);
   });
 
   it('10 * 10!', () => {
@@ -19,10 +20,10 @@ describe('madmaan ast', () => {
   });
 
   it('showMe() => "Hello World!"!!', () => {
-    const ast = parse('showMe() => "Hello World!"!!').toString();
+    const ast = parse('showMe() => "Hello World!"!!');
+    console.log(util.inspect(ast, { depth: 8 }));
     const expected = '(Program (Body (FuncDec showMe, (Params ), (Body (StringLit : Hello World!)))))';
-    assert.equal(ast, expected);
-    console.log(ast);
+    assert.equal(ast.toString(), expected);
   });
 
   it('while x < 2 do x + 1!!', () => {
