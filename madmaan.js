@@ -1,3 +1,4 @@
+
 const parse = require('./syntax/parser.js');
 const fs = require('fs');
 

@@ -9,7 +9,7 @@ class Params {
 
   toString() {
     let list = '(Params ';
-    for (let i = 0; i < this.restParams.length; i += 1) {
+    for (let i = 0; i < this.restParams.length - 1; i += 1) {
       list = `${list}${this.restParams[i].toString()}`;
     }
     list = `${list})`;

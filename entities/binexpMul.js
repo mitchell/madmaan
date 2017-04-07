@@ -9,7 +9,7 @@ class BinExpMul extends BinExp {
   }
 
   toString() {
-    return `(${this.firstExp}, ${this.mulop}, ${this.secExp})`;
+    return `(${this.firstExp}, ${this.binop}, ${this.secExp})`;
   }
 }
 

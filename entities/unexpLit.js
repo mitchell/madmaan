@@ -7,7 +7,7 @@ class UnExpLit extends UnExp {
   }
 
   toString() {
-    return `(${this.literal})`;
+    return `${this.literal}`;
   }
 }
 

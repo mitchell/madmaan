@@ -16,6 +16,7 @@ const Params = require('../entities/params.js');
 const IntLit = require('../entities/intLit.js');
 const BoolLit = require('../entities/boolLit.js');
 const StringLit = require('../entities/stringLit.js');
+const FuncCall = require('../entities/callexp.js');
 
 const ohm = require('ohm-js');
 const fs = require('fs');
@@ -32,16 +33,20 @@ const semantics = grammar.createSemantics().addOperation('ast', {
   IfStmt: (_1, expStmt, _2, body) => new IfStmt(expStmt.ast(), body.ast()),
   WhileStmt: (_1, expStmt, _3, body) => new WhileStmt(expStmt.ast(), body.ast()),
   ForStmt: (_1, vardec, _2, binexp2, _3, binexp3, _4, body) =>
-    new ForStmt(vardec.ast(), binexp2.ast(), binexp3.ast(), body.ast()),
+            new ForStmt(vardec.ast(), binexp2.ast(), binexp3.ast(), body.ast()),
   BinExp3_addop: (fExp, op, sExp) => new BinExpAdd(fExp.ast(), op.sourceString, sExp.ast()),
   BinExp4_mulop: (fExp, op, sExp) => new BinExpMul(fExp.ast(), op.sourceString, sExp.ast()),
   BinExp_binop: (fExp, op, sExp) => new BinExpOperator(fExp.ast(), op.sourceString, sExp.ast()),
   BinExp2_relop: (fExp, op, sExp) => new BinExpRel(fExp.ast(), op.sourceString, sExp.ast()),
   Params: (cp, id, comma, _rest, op) => new Params(id.sourceString, _rest.sourceString),
-  UnExp_neg: (unaop, id) => new UnExpId(unaop.ast(), id.sourceString),
+  UnExp_withOp: (unaop, id, unaopEnd) =>
+                new UnExpId(unaop.sourceString, id.sourceString, unaopEnd.sourceString),
+  UnExp_calle: callexp => new UnExpCall(callexp.ast()),
+  UnExp_lit: lit => new UnExpLit(lit.ast()),
   intlit: n => new IntLit(n.sourceString),
   strlit: (fQuote, s, sQuote) => new StringLit(s.sourceString),
   boollit: b => new BoolLit(b.sourceString),
+  CallExp: (id, params) => new FuncCall(id.sourceString, params.ast()),
 });
 
 const parse = (infile) => {
