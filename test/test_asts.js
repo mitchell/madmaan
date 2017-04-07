@@ -1,5 +1,5 @@
 const assert = require('assert');
-const parse = require('../madmaan.js');
+const parse = require('../syntax/parser.js');
 
 /* eslint-disable no-undef */
 /* eslint-disable no-console*/
