@@ -112,7 +112,7 @@ multiply is (a, b) =>                          let multiply = (a, b) => {
 !!                                             }   
 
 ````
-##Comparison Operators
+## Comparison Operators
 ````
 Equal (==)
 a == b!                                                     a == b;
@@ -126,7 +126,7 @@ a > b!                                                       a > b;
 Less than or equal to (<=)
 a <= b!                                                       a <= b;
 ````
-##Logical Operators
+## Logical Operators
 ````
 NOT (~)
 ~x                                                             !x
@@ -144,7 +144,7 @@ b is "dog"!                                                   var b = "dog";
 c is true!                                                    var c = true;
 d is false!                                                   var d = false;
 ````
-##Arrays
+## Arrays
 ````
 cars = ["Saab, "Volvo", "BMW"]!                               var cars = ["Saab", "Volvo", "BMW"];
 points = create Array(40)!                                    var points =  new Array(40);
