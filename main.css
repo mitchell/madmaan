@@ -2,7 +2,7 @@
     background-color: white;
     opacity: 0.9;
 
-    width: 95%;
+    width: 97%;
     margin: auto;
     padding: 15px;
     border: 0.1px solid #ff7f7f;
@@ -17,6 +17,20 @@
     z-index: -1;
 }
 
+#example {
+    background-color: white;
+    opacity: 0.9;
+
+    width: 97%;
+    margin: auto;
+    padding: 15px;
+    border: 0.1px solid #ff7f7f;
+}
+
+#example img {
+    width: 90%;
+}
+
 .stretch {
     width: 100%;
     height: 100%;
@@ -26,7 +40,7 @@
     background-color: white;
     opacity: 0.9;
 
-    width: 95%;
+    width: 97%;
     margin: auto;
     padding: 15px;
     border: 0.1px solid #ff7f7f;
@@ -59,12 +73,4 @@
 
 .tab-pane p {
     font-size: 20px
-}
-
-
-.carousel-inner > .item > img,
-.carousel-inner > .item > a > img {
-    /*width: 70%;*/
-    width: auto;
-    margin: auto;
 }
