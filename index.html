@@ -13,13 +13,20 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 
     <script src="railroad-diagrams.js"></script>
 </head>
 
 <body>
     <!-- Navigation Bar -->
-    <div class="topnav" id="myTopnav">
+    <div class="topnav">
+        <button id="demo-menu-lower-left"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">more_vert</i>
+        </button>
         <a data-toggle="tab" href="#home">Home</a>
         <a data-toggle="tab" href="#about">About</a>
         <a data-toggle="tab" href="#syntax">Syntax</a>
@@ -27,6 +34,14 @@
     </div>
 
     <div class="tab-content">
+        <!-- Left aligned menu below button -->
+        <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect"
+        for="demo-menu-lower-left">
+            <li class="mdl-menu__item">Some Action</li>
+            <li class="mdl-menu__item mdl-menu__item--full-bleed-divider">Another Action</li>
+            <li disabled class="mdl-menu__item">Disabled Action</li>
+            <li class="mdl-menu__item">Yet Another Action</li>
+        </ul>
 
         <div id="home">
             <img  id="background" class="stretch" src= "images/madmaan.jpg" img id=madmaan alt ="madmaanlogo"></img>
