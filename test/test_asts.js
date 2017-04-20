@@ -32,6 +32,7 @@ describe('madmaan ast', () => {
   it('for x is 10! x < 10! x++! 2 + 2!!', () => {
     const ast = parse('for x is 10! x < 10! x++! 2 + 2!!').toString();
     const expected = '(Program (Body (for (VarDec x, (IntLit : 10)) (RelOp : (x), <, (IntLit : 10)) (x, ++,) (Body (Add : (IntLit : 2) + (IntLit : 2))))))';
+    console.log(ast);
     assert.equal(ast, expected);
   });
 
@@ -44,12 +45,13 @@ describe('madmaan ast', () => {
   it('x(a, b, c)!', () => {
     const ast = parse('x(a, b, c)!').toString();
     const expected = '(Program (Body ((x, (Params a, b, c)))))';
+    console.log(ast);
     assert.equal(ast, expected);
   });
 
   it('true or false or true and false or x < 1!', () => {
     const ast = parse('true or false or true and false or x < 1!').toString();
-    const expected = '(Program (Body ((BoolLit : true), or, ((BoolLit : false), or, ((BoolLit : true), and, ((BoolLit : false), or, (RelOp : (x), <, (IntLit : 1))))))))';
+    const expected = '(Program (Body (((((BoolLit : true), or, (BoolLit : false)), or, (BoolLit : true)), and, (BoolLit : false)), or, (RelOp : (x), <, (IntLit : 1)))))';
     assert.equal(ast, expected);
   });
 
