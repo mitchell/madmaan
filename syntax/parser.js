@@ -32,21 +32,23 @@ const semantics = grammar.createSemantics().addOperation('ast', {
   VarDec: (id, is, expStmt) => new VarDec(id.sourceString, expStmt.ast()),
   IfStmt: (_1, expStmt, _2, body) => new IfStmt(expStmt.ast(), body.ast()),
   WhileStmt: (_1, expStmt, _3, body) => new WhileStmt(expStmt.ast(), body.ast()),
-  ForStmt: (_1, vardec, _2, binexp2, _3, binexp3, _4, body) =>
-            new ForStmt(vardec.ast(), binexp2.ast(), binexp3.ast(), body.ast()),
+  ForStmt(_1, vardec, _2, binexp2, _3, binexp3, _4, body) {
+    return new ForStmt(vardec.ast(), binexp2.ast(), binexp3.ast(), body.ast());
+  },
   BinExp3_addop: (fExp, op, sExp) => new BinExpAdd(fExp.ast(), op.sourceString, sExp.ast()),
   BinExp4_mulop: (fExp, op, sExp) => new BinExpMul(fExp.ast(), op.sourceString, sExp.ast()),
   BinExp_binop: (fExp, op, sExp) => new BinExpOperator(fExp.ast(), op.sourceString, sExp.ast()),
   BinExp2_relop: (fExp, op, sExp) => new BinExpRel(fExp.ast(), op.sourceString, sExp.ast()),
   Params: (cp, id, comma, _rest, op) => new Params(id.sourceString, _rest.sourceString),
-  UnExp_withOp: (unaop, id, unaopEnd) =>
-                new UnExpId(unaop.sourceString, id.sourceString, unaopEnd.sourceString),
-  UnExp_calle: callexp => new UnExpCall(callexp.ast()),
-  UnExp_lit: lit => new UnExpLit(lit.ast()),
+  UnExp_withOp(unaop, id, unaopEnd) {
+    return new UnExpId(unaop.ast(), id.sourceString, unaopEnd.ast());
+  },
+  UnExp_calle(callexp) { return new UnExpCall(callexp.ast()); },
+  UnExp_lit(lit) { return new UnExpLit(lit.ast()); },
   intlit(n) { return new IntLit(this.sourceString); },
   strlit(fQuote, s, sQuote) { return new StringLit(s.ast()); },
   boollit(b) { return new BoolLit(this.sourceString); },
-  CallExp: (id, params) => new FuncCall(id.sourceString, params.ast()),
+  CallExp(id, params) { return new FuncCall(id.sourceString, params.ast()); },
   _terminal() { return this.sourceString; },
 });
 

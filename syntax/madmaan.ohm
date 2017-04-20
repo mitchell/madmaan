@@ -9,14 +9,14 @@ madmaan {
   WhileStmt = "while" ExpStmt "do" Body
   VarDec    = id "is" ExpStmt
   FuncDec  = id Params "=>" Body
-  BinExp    = BinExp binop BinExp    -- binop
+  BinExp    = BinExp binop BinExp2    -- binop
             | BinExp2
   BinExp2   = BinExp3 relop BinExp3  -- relop
             | BinExp3
-  BinExp3   = BinExp3 addop BinExp3  -- addop
+  BinExp3   = BinExp3 addop BinExp4  -- addop
             | BinExp4
-  BinExp4   = BinExp4 mulop BinExp4  -- mulop
-  			| UnExp
+  BinExp4   = BinExp4 mulop UnExp  -- mulop
+  			    | UnExp
   UnExp     = CallExp                          --calle
             | Literal                          --lit
             | (unaop)? id (unaop)?             --withOp
@@ -31,7 +31,7 @@ madmaan {
   mulop     = "*" | "/" | "%"
   addop     = "+" | "-"
   relop     = "==" | ">" | "<" | "<=" | ">=" | "~="
-  unaop     = "-" | "~" | "++" | "--"
+  unaop     = "--" | "~" | "++" | "-"
   boollit   = "false" | "true"
   intlit    = digit+
   strlit    = "\"" char* "\""
