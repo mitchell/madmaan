@@ -10,6 +10,11 @@
 
 // const FunctionDeclaration = require('../ast/function-declaration');
 // const Parameter = require('../ast/parameter');
+const error = require('../error');
+//const VariableDefinition = require('./entities/variabledefinition');
+//const FunctionDefinition = require('./entities/functiondefinition');
+const Type = require('../entities/type');
+//const Arg = require('./entities/arg');
 
 class Context {
   constructor({ parent = null, currentFunction = null, inLoop = false } = {}) {

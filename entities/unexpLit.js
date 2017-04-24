@@ -9,6 +9,10 @@ class UnExpLit extends UnExp {
   toString() {
     return `${this.literal}`;
   }
+
+  analyze() {
+    //console.log('went in here');
+  }
 }
 
 module.exports = UnExpLit;

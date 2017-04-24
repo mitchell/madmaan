@@ -5,6 +5,12 @@ const parse = require('../syntax/parser.js');
 /* eslint-disable no-undef */
 /* eslint-disable no-console */
 describe('madmaan ast', () => {
+  it('2 + 2!', () => {
+    const ast = parse('2 + 2!');
+    const expected = '(Program (Body (Add : (IntLit : 2) + (IntLit : 2))))';
+    assert.equal(ast.toString(), expected);
+  });
+
   it('x is 4!', () => {
     const ast = parse('x is 4!');
     const expected = '(Program (Body (VarDec x, (IntLit : 4))))';

@@ -8,7 +8,7 @@ class Program {
     return `(Program ${this.block.toString()})`;
   }
   analyze(context = Context.INITIAL) {
-    this.block.analyze(context);
+    return this.block.analyze(context);
   }
 }
 
