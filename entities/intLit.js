@@ -1,4 +1,5 @@
 const ExpStmt = require('./exp.js');
+const Type = require('./type.js');
 
 class IntLit extends ExpStmt {
   constructor(theInt) {
@@ -9,7 +10,9 @@ class IntLit extends ExpStmt {
   toString() {
     return `(IntLit : ${this.theInt.toString()})`;
   }
-  analyze() { // eslint-disable-line class-methods-use-this
+
+  analyze(context) {
+    this.type = Type.INT;
   }
 }
 
