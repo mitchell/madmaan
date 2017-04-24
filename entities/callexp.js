@@ -5,7 +5,7 @@ class CallExp {
   }
 
   toString() {
-    return `(${this.id}, ${this.params})`;
+    return `(FuncCall ${this.id}, ${this.params})`;
   }
 }
 

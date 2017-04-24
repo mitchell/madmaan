@@ -1,19 +1,13 @@
 class Params {
   constructor(pOne, restParams) {
-    if (restParams.length === 0) {
-      this.restParams = pOne;
-    } else {
-      this.restParams = pOne.length === 0 ? [] : pOne.concat(restParams[0]);
-    }
+    this.params = pOne.concat((restParams.length > 0) ? restParams[0] : restParams);
   }
 
   toString() {
-    let list = '(Params ';
-    for (let i = 0; i < this.restParams.length - 1; i += 1) {
-      list = `${list}${this.restParams[i].toString()}`;
+    if (this.params.length === 0) {
+      return `(Parameters ${this.params})`;
     }
-    list = `${list})`;
-    return list;
+    return `(Parameters ${this.params.join(', ')})`;
   }
 }
 

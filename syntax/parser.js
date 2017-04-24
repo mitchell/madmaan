@@ -13,6 +13,7 @@ const UnExpCall = require('../entities/unexpCall.js');
 const UnExpLit = require('../entities/unexpLit.js');
 const UnExpId = require('../entities/unexpId.js');
 const Params = require('../entities/params.js');
+const Param = require('../entities/param.js');
 const IntLit = require('../entities/intLit.js');
 const BoolLit = require('../entities/boolLit.js');
 const StringLit = require('../entities/stringLit.js');
@@ -21,25 +22,32 @@ const FuncCall = require('../entities/callexp.js');
 const ohm = require('ohm-js');
 const fs = require('fs');
 
+/*function unpack(a) {
+  return a.length === 0 ? 0 : a[0];
+}*/
+
 /* eslint-disable no-unused-vars */
 
 const grammar = ohm.grammar(fs.readFileSync('./syntax/madmaan.ohm'));
 
 const semantics = grammar.createSemantics().addOperation('ast', {
-  Program: body => new Program(body.ast()),
-  Body: (statements, _) => new Body(statements.ast()),
-  FuncDec: (id, params, arr, body) => new FuncDec(id.sourceString, params.ast(), body.ast()),
-  VarDec: (id, is, expStmt) => new VarDec(id.sourceString, expStmt.ast()),
-  IfStmt: (_1, expStmt, _2, body) => new IfStmt(expStmt.ast(), body.ast()),
-  WhileStmt: (_1, expStmt, _3, body) => new WhileStmt(expStmt.ast(), body.ast()),
+  Program(body) { return new Program(body.ast()); },
+  Body(statements, _) { return new Body(statements.ast()); },
+  FuncDec(id, params, arr, body) { return new FuncDec(id.sourceString, params.ast(), body.ast()); },
+  VarDec(id, is, expStmt) { return new VarDec(id.sourceString, expStmt.ast()); },
+  IfStmt(_1, expStmt, _2, body) { return new IfStmt(expStmt.ast(), body.ast()); },
+  WhileStmt(_1, expStmt, _3, body) { return new WhileStmt(expStmt.ast(), body.ast()); },
   ForStmt(_1, vardec, _2, binexp2, _3, binexp3, _4, body) {
     return new ForStmt(vardec.ast(), binexp2.ast(), binexp3.ast(), body.ast());
   },
-  BinExp3_addop: (fExp, op, sExp) => new BinExpAdd(fExp.ast(), op.sourceString, sExp.ast()),
-  BinExp4_mulop: (fExp, op, sExp) => new BinExpMul(fExp.ast(), op.sourceString, sExp.ast()),
-  BinExp_binop: (fExp, op, sExp) => new BinExpOperator(fExp.ast(), op.sourceString, sExp.ast()),
-  BinExp2_relop: (fExp, op, sExp) => new BinExpRel(fExp.ast(), op.sourceString, sExp.ast()),
-  Params: (cp, id, comma, _rest, op) => new Params(id.sourceString, _rest.sourceString),
+  BinExp3_addop(fExp, op, sExp) { return new BinExpAdd(fExp.ast(), op.sourceString, sExp.ast()); },
+  BinExp4_mulop(fExp, op, sExp) { return new BinExpMul(fExp.ast(), op.sourceString, sExp.ast()); },
+  BinExp_binop(fExp, op, sExp) {
+    return new BinExpOperator(fExp.ast(), op.sourceString, sExp.ast());
+  },
+  BinExp2_relop(fExp, op, sExp) { return new BinExpRel(fExp.ast(), op.sourceString, sExp.ast()); },
+  Params(op, param, comma, _rest, cp) { return new Params(param.ast(), _rest.ast()); },
+  Param(id) { return new Param(id.sourceString); },
   UnExp_withOp(unaop, id, unaopEnd) {
     return new UnExpId(unaop.ast(), id.sourceString, unaopEnd.ast());
   },
