@@ -26,6 +26,7 @@ class BinExpRel extends BinExp {
     if (this.secExp.length > 0) {
       for (let i = 0; i < this.secExp.length; i += 1) {
         this.secExp[i].analyze(context);
+        console.log('Relop: ' + this.relop[0].operator);
         if (['==', '>', '<', '<=', '>=', '~='].includes(this.relop[0].operator)) {
           if (!(Type.isNumber(this.firstExp.type.literal)) || !(Type.isNumber(this.secExp[i].type.literal))) {
             throw Error('Wrong operands, expected numbers');
