@@ -31,7 +31,7 @@ madmaan {
   binop     = "or" | "and"
   mulop     = "*" | "/" | "%"
   addop     = "+" | "-"
-  relop     = "==" | "<=" | ">=" | ">" | "<" | "~="
+  relop     = "==" | ">=" | "<=" | "<" | ">" | "~="
   unaop     = "--" | "~" | "++" | "-"
   boollit   = "false" | "true"
   intlit    = digit+
