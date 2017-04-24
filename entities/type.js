@@ -54,6 +54,13 @@ class Type {
   }
 }
 
+Type.isNumber = (literal) => {
+  if (literal === 'int' || literal === 'float') {
+    return true;
+  }
+  return false;
+};
+
 Type.INT = new Type('int');
 Type.FLOAT = new Type('float');
 Type.BOOL = new Type('boolean');

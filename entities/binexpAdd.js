@@ -24,9 +24,13 @@ class BinExpAdd extends BinExp {
         this.secExp[i].analyze(context);
         if (['+'].includes(this.binOp[0].operator)) {
           if (!(Type.isNumber(this.firstExp.type.literal)) || !(Type.isNumber(this.secExp[i].type.literal))) {
-            throw Error('Numbers: Invalid operands expected numbers');
+            throw Error('Wrong operands, not numbers');
           }
-          this.type = Type.INT;
+          if (this.firstExp.type.literal === 'float' || this.secExp[i].type.literal === 'float') {
+            this.type = Type.FLOAT;
+          } else {
+            this.type = Type.INT;
+          }
         }
       }
     }
