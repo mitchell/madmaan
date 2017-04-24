@@ -14,6 +14,7 @@ class IntLit extends ExpStmt {
   analyze(context) {
     console.log('inside intlit analyze');
     this.type = Type.INT;
+    return this.type;
   }
 }
 

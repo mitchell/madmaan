@@ -7,7 +7,8 @@ class FloatLit {
   }
 
   analyze(context) {
-    return Type.FLOAT;
+    this.type = Type.FLOAT;
+    return this.type;
   }
 
   toString() {

@@ -11,7 +11,9 @@ class UnExpLit extends UnExp {
   }
 
   analyze() {
-    //console.log('went in here');
+    console.log('inside unexpLit');
+    this.type = this.literal.analyze();
+    return this.type;
   }
 }
 

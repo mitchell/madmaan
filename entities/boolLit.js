@@ -11,6 +11,7 @@ class BoolLit {
 
   analyze(context) {
     this.type = Type.BOOL;
+    return this.type;
   }
 }
 

@@ -15,7 +15,11 @@ class BinExpRel extends BinExp {
   }
 
   analyze(context) {
+    console.log('Went into relOp');
+
+    console.log('First exp type: ' + this.firstExp.type);
     this.firstExp.analyze(context);
+    console.log('analyzed firstExp');
     if (this.firstExp.name) {
       this.type = context.lookupVariable(this.firstExp.name).type;
     }

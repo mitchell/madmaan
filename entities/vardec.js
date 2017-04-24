@@ -1,3 +1,5 @@
+const Type = require('./type.js');
+
 class VarDec {
   constructor(id, expStmt) {
     this.id = id;
@@ -7,8 +9,12 @@ class VarDec {
     return `(VarDec ${this.id.toString()}, ${this.expStmt.toString()})`;
   }
   analyze(context) {
+    console.log('Added to context');
     context.addVariable(this.id);
-    this.expStmt.analyze(context);
+    this.type = this.expStmt.analyze(context);
+    console.log('The type is: ' + this.type);
+    console.log('Passed adding to contxt');
+
   }
 }
 

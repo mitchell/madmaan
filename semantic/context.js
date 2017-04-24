@@ -8,8 +8,8 @@
  * variables defined in this scope, and the parent context.
  */
 
-// const FunctionDeclaration = require('../ast/function-declaration');
-// const Parameter = require('../ast/parameter');
+const FuncDec = require('../entities/funcdec');
+const Params = require('../entities/params');
 const error = require('../error');
 //const VariableDefinition = require('./entities/variabledefinition');
 //const FunctionDefinition = require('./entities/functiondefinition');
@@ -66,15 +66,15 @@ class Context {
     }
   }
 
-  // assertIsFunction(entity) { // eslint-disable-line class-methods-use-this
-  //   if (entity.constructor !== FunctionDeclaration) {
-  //     throw new Error(`${entity.id} is not a function`);
-  //   }
-  // }
+  assertIsFunction(entity) { // eslint-disable-line class-methods-use-this
+    if (entity.constructor !== FuncDec) {
+      throw new Error(`${entity.id} is not a function`);
+    }
+  }
 }
 
 Context.INITIAL = new Context();
-// new FunctionDeclaration('print', [new Parameter('_', null)], null).analyze(Context.INITIAL);
-// new FunctionDeclaration('sqrt', [new Parameter('_', null)], null).analyze(Context.INITIAL);
+/*new FuncDec('print', [new Params('_', '')], null).analyze(Context.INITIAL);
+new FuncDec('sqrt', [new Params('_', '')], null).analyze(Context.INITIAL);*/
 
 module.exports = Context;
