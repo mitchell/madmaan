@@ -1,3 +1,5 @@
+#! /usr/bin/env node
+
 /*
  * A Madmaan Compiler
  *
@@ -15,7 +17,7 @@
  *     JavaScript code to standard output.
  *
  * ./madmaan.js -o <filename>
- *     optimizes the intermediate code before generating target JavaScript.
+ *     optimizes the intermediate code before ge    nerating target JavaScript.
  *
  * Output of the AST and decorated AST uses the object inspection functionality
  * built into Node.js.
