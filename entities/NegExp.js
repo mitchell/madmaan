@@ -1,14 +1,14 @@
 const UnExp = require('./unexp.js');
 
 class NegExp extends UnExp {
-  constructor(Op, id) {
+  constructor(firstOp, id) {
     super();
-    this.Op = Op;
+    this.firstOp = Op;
     this.id = id;
   }
 
   toString() {
-    return `(${this.Op.toString()} ${this.id.toString()})`;
+    return `(${this.firstOp.toString()} ${this.id.toString()})`;
   }
 
   analyze(context) {
