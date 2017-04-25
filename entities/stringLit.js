@@ -12,6 +12,7 @@ class StringLit {
 
   analyze(context) {
     this.type = Type.STRING;
+    return this.type;
   }
 }
 

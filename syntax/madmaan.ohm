@@ -20,6 +20,8 @@ madmaan {
   UnExp     = CallExp                                        -- calle
             | Literal                                        -- lit
             | (unaop)? id (unaop)?                           -- withOp
+            | (boolOp)? id                                   -- not
+            | (negOp)? id                                    -- unaryNeg
   CallExp   = id Params
   Params    = "(" (Param ("," Param)*)* ")"
   Param     = id
@@ -32,7 +34,9 @@ madmaan {
   mulop     = "*" | "/" | "%"
   addop     = "+" | "-"
   relop     = "==" | ">=" | "<=" | "<" | ">" | "~="
-  unaop     = "--" | "~" | "++" | "-"
+  unaop     = "--" | "++"
+  negOp     = "-"
+  boolOp    = "~"
   boollit   = "false" | "true"
   intlit    = digit+
   strlit    = "\"" char* "\""

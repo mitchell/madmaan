@@ -22,9 +22,10 @@ class UnExpId extends UnExp {
 
   analyze(context) {
     //context.addVariable(this.id);
-    if (context.lookup(this.id)) {
+    /*if (context.lookup(this.id)) {
         context.addVariable(this.id);
-    }
+    }*/    
+    return context.lookup(this.id).type;
   }
 }
 
