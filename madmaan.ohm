@@ -1,0 +1,44 @@
+madmaan {
+  Program   = Body
+  Body      = (Stmt "!")
+  Stmt      = VarDec | IfStmt | WhileStmt | ExpStmt | ForStmt
+  ExpStmt   = BinExp | FuncExp | UnExp | CallExp | Literal | id
+  ForStmt   = "for" VarDec "!" ExpStmt "!" ExpStmt "!" Body "!"
+  IfStmt    = "if" ExpStmt "then" Body "!"
+  WhileStmt = "while" ExpStmt "do" Body "!"
+  VarDec    = id "is" ExpStmt
+  FuncExp   = Params "=>" Body "!"
+  BinExp    = BinExp binop BinExp    -- binop
+            | BinExp2
+  BinExp2   = BinExp3 relop BinExp3  -- relop
+            | BinExp3
+  BinExp3   = BinExp3 addop BinExp3  -- addop
+            | BinExp4
+  BinExp4   = BinExp4 mulop BinExp4  -- mulop
+  			    | UnExp
+  UnExp     = unaop ExpStmt  -- neg
+            | BinExp
+            | FuncExp
+            | UnExp
+            | CallExp
+            | Literal
+            | id
+  CallExp   = id(Params)
+  Params    = "(" (id ("," id)*)* ")"
+  Literal   = boollit | intlit | strlit
+  keywords  = ("if" | "else" | "elif" | "or" | "is" | "for"
+            | "and" | "false" | "true" | "while" | "do") ~idrest
+  idrest    = "_" | alnum
+  id        = ~keywords letter idrest*
+  binop     = "or" | "and"
+  mulop     = "*" | "/" | "%"
+  addop     = "+" | "-"
+  relop     = "==" | ">" | "<" | "<=" | ">=" | "~="
+  unaop     = "-" | "~" | "++" | "--"
+  boollit   = "false" | "true"
+  intlit    = digit+
+  strlit    = "\"" char* "\""
+  char      = ~"'" ~"\"" (escape | any)
+  escape    = "\\" ("r" | "n" | "'" | "\"" | coded)
+  coded     = "u" hexDigit hexDigit hexDigit hexDigit
+}

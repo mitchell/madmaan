@@ -18,6 +18,9 @@ const IntLit = require('../entities/intLit.js');
 const BoolLit = require('../entities/boolLit.js');
 const StringLit = require('../entities/stringLit.js');
 const FuncCall = require('../entities/callexp.js');
+const NotExp = require('../entities/NotExp.js');
+const NegExp = require('../entities/NegExp.js');
+
 
 const ohm = require('ohm-js');
 const fs = require('fs');
