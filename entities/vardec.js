@@ -16,7 +16,7 @@ class VarDec {
     // console.log('Added to context');
     if (this.expStmt instanceof UnExpId) {
       this.expStmt = context.lookup(this.expStmt.id);
-      console.log("yitties");
+      // console.log("yitties");
     }
     this.type = this.expStmt.analyze(context);
     context.addVariable(this.id, this.expStmt);
