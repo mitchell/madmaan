@@ -56,6 +56,7 @@ const semantics = grammar.createSemantics().addOperation('ast', {
   },
   UnExp_calle(callexp) { return new UnExpCall(callexp.ast()); },
   UnExp_lit(lit) { return new UnExpLit(lit.ast()); },
+  UnExp_negation(negOp, id) { return new NegExp(negOp.ast(), id.ast()); },
   intlit(n) { return new IntLit(this.sourceString); },
   strlit(fQuote, s, sQuote) { return new StringLit(s.ast()); },
   boollit(b) { return new BoolLit(this.sourceString); },

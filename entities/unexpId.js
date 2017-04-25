@@ -25,7 +25,8 @@ class UnExpId extends UnExp {
     /*if (context.lookup(this.id)) {
         context.addVariable(this.id);
     }*/
-    console.log('bloop');
+    // console.log('bloop');
+    // console.log(this.id);
     return context.lookup(this.id).type;
   }
 }

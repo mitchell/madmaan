@@ -10,10 +10,11 @@ class VarDec {
     return `(VarDec ${this.id.toString()}, ${this.expStmt.toString()})`;
   }
   analyze(context) {
-    console.log('Added to context');
+    // console.log('Added to context');
     this.type = this.expStmt.analyze(context);
     context.addVariable(this.id, this.expStmt);
-    console.log('The type is: ' + this.type);
+    // console.log(this.id + ' is: ' + this.type);
+    // console.log(this.id + ' is: ' + this.expStmt);
   }
 }
 

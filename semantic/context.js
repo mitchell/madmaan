@@ -44,17 +44,17 @@ class Context {
   }
 
   addVariable(entity, type) {
-    console.log(entity);
+    // console.log(entity);
     if (entity in this.variables) {
       throw new Error(`Identitier ${entity} already declared in this scope`);
     }
     this.variables[entity] = type;
-    console.log(this.variables);
+    // console.log(this.variables);
   }
 
   lookup(id) {
-    console.log(id);
-    console.log("is " + id + " stored? " + (id in this.variables));
+    // console.log(id);
+    // console.log("is " + id + " stored? " + (id in this.variables));
     if (id in this.variables) {
       return this.variables[id];
     } else if (this.parent === null) {
