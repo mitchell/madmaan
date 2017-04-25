@@ -21,67 +21,61 @@
  const StringLit = require('../entities/stringLit.js');
  const FuncCall = require('../entities/callexp.js');
 
-const indentPadding = 2;
-let indentLevel = 0;
+ const indentPadding = 2;
+ let indentLevel = 0;
 
-function genStatementList(statements) {
-  indentLevel += 1;
-  statements.forEach(statement => statement.gen());
-  indentLevel -= 1;
-}
+ function genStatementList(statements) {
+   indentLevel += 1;
+   statements.forEach(statement => statement.gen());
+   indentLevel -= 1;
+ }
 
-function emit(line) {
-  console.log(`${' '.repeat(indentPadding * indentLevel)}${line}`);
-}
+ function emit(line) {
+   console.log(`${' '.repeat(indentPadding * indentLevel)}${line}`);
+ }
 
-function makeOp(op) {
-  return { '~': '!', and: '&&', or: '||', '==': '===', '!=': '!==' }[op] || op;
-}
+ function makeOp(op) {
+   return { '~': '!', and: '&&', or: '||', '==': '===', '!=': '!==' }[op] || op;
+ }
 
-const jsName = (() => {
-  let lastId = 0;
-  const map = new Map();
-  return (v) => {
-    if (!(map.has(v))) {
-      map.set(v, ++lastId); // eslint-disable-line no-plusplus
-    }
-    return `${v.id}_${map.get(v)}`;
-  };
-})();
+ const jsName = (() => {
+   let lastId = 0;
+   const map = new Map();
+   return (v) => {
+     if (!(map.has(v))) {
+       map.set(v, ++lastId); // eslint-disable-line no-plusplus
+     }
+     return `${v.id}_${map.get(v)}`;
+   };
+ })();
 
-function bracketIfNecessary(a) {
-  if (a.length === 1) {
-    return `${a}`;
-  }
-  return `[${a.join(', ')}]`;
-}
+ function bracketIfNecessary(a) {
+   if (a.length === 1) {
+     return `${a}`;
+   }
+   return `[${a.join(', ')}]`;
+ }
 
-function generateLibraryFunctions() {
-  function generateLibraryStub(name, params, body) {
-    const entity = Context.INITIAL.declarations[name];
-    emit(`function ${jsName(entity)}(${params}) {${body}}`);
-  }
+ function generateLibraryFunctions() {
+   function generateLibraryStub(name, params, body) {
+     const entity = Context.INITIAL.declarations[name];
+     emit(`function ${jsName(entity)}(${params}) {${body}}`);
+   }
   // This is sloppy. There should be a better way to do this.
-  generateLibraryStub('showMe', '_', 'console.log(_);');
-}
+   generateLibraryStub('showMe', '_', 'console.log(_);');
+ }
 
-Object.assign(Program.prototype, {
-  gen() {
-    return `(${this.block})`;
-  },
-});
+ Object.assign(Program.prototype, {
+   gen() {
+     return `(${this.block})`;
+   },
+ });
 
-Object.assign(Body.prototype, {
-  gen() {
-    return `(${this.statements})`;
-  },
-});
-
-Object.assign(Statement.prototype, {
-  gen() {
-    return `(${this.statement})`;
-  },
-})
+ Object.assign(Body.prototype, {
+   gen() {
+     return `(${this.statements})`;
+   },
+ });
 
 // Object.assign(AssignmentStatement.prototype, {
 //   gen() {
@@ -91,11 +85,11 @@ Object.assign(Statement.prototype, {
 //   },
 // });
 //
-Object.assign(BinaryExpression.prototype, {
-  gen() {
-    return `(${this.left.gen()} ${makeOp(this.op)} ${this.right.gen()})`;
-  },
-});
+ // Object.assign(BinaryExpression.prototype, {
+ //   gen() {
+ //     return `(${this.left.gen()} ${makeOp(this.op)} ${this.right.gen()})`;
+ //   },
+ // });
 //
 // Object.assign(BooleanLiteral.prototype, {
 //   gen() { return `${this.value}`; },
