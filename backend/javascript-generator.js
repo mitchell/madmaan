@@ -7,18 +7,18 @@
  const IfStmt = require('../entities/ifstmt.js');
  const WhileStmt = require('../entities/whilestmt.js');
  const ForStmt = require('../entities/forstmt.js');
- const BinExpAdd = require('../entities/binexpAdd.js');
- const BinExpMul = require('../entities/binexpMul.js');
- const BinExpOperator = require('../entities/binexpOperator.js');
- const BinExpRel = require('../entities/binexpRel.js');
- const UnExpCall = require('../entities/unexpCall.js');
- const UnExpLit = require('../entities/unexpLit.js');
- const UnExpId = require('../entities/unexpId.js');
- const Params = require('../entities/params.js');
- const Param = require('../entities/param.js');
- const IntLit = require('../entities/intLit.js');
- const BoolLit = require('../entities/boolLit.js');
- const StringLit = require('../entities/stringLit.js');
+ const BinExpAdd = require('../entities/binexpAdd.js'); // WIP
+ const BinExpMul = require('../entities/binexpMul.js'); // WIP
+ const BinExpOperator = require('../entities/binexpOperator.js'); // WIP
+ const BinExpRel = require('../entities/binexpRel.js'); // WIP
+ // const UnExpCall = require('../entities/unexpCall.js');
+ // const UnExpLit = require('../entities/unexpLit.js');
+ // const UnExpId = require('../entities/unexpId.js');
+ // const Params = require('../entities/params.js');
+ // const Param = require('../entities/param.js');
+ // const IntLit = require('../entities/intLit.js');
+ // const BoolLit = require('../entities/boolLit.js');
+ // const StringLit = require('../entities/stringLit.js');
  const FuncCall = require('../entities/callexp.js');
 
  const indentPadding = 2;
@@ -31,7 +31,7 @@
  }
 
  function emit(line) {
-   console.log(`${' '.repeat(indentPadding * indentLevel)}${line}`);
+   console.log(`${' '.repeat(indentPadding * indentLevel)}${line}`);            //eslint-disable-line
  }
 
  function makeOp(op) {
@@ -85,25 +85,41 @@
    },
  });
 
- // VER 1 - FuncDec
- // Object.assign(FuncDec.prototype, {
- //   gen() {
- //     return `(${this.id}, ${this.params}, ${this.body})`;
- //   },
- // });
-
  Object.assign(VarDec.prototype, {
    gen() {
-     emit(`let ${jsName(this.id)} = (${this.exp.gen()});`);
+     emit(`let ${jsName(this.id)} = (${this.expStmt.gen()});`);
    },
  });
 
- // VER 1 - VarDec
- // Object.assign(VarDec.prototype, {
- //   gen() {
- //     return `(${this.id}, ${this.expStmt})`;
- //   },
- // });
+ Object.assign(IfStmt.prototype, {
+   gen() {
+     console.log('TODO');
+   },
+ });
+
+ Object.assign(WhileStmt.prototype, {
+   gen() {
+     emit(`while (${this.expStmt.gen()}) {`);
+
+     indentLevel += 1;
+     this.body.gen();
+     indentLevel -= 1;
+
+     emit('}');
+   },
+ });
+
+ Object.assign(ForStmt.prototype, {
+   gen() {
+     emit(`for (${this.decl.gen(true)}; ${this.condition.gen()}; ${this.incDec.gen(true)}) {`);
+
+     indentLevel += 1;
+     this.body.gen();
+     indentLevel -= 1;
+
+     emit('}');
+   },
+ });
 
  Object.assign(BinExpAdd.prototype, {
    gen() {
@@ -129,117 +145,56 @@
    },
  });
 
-//
-// Object.assign(BooleanLiteral.prototype, {
-//   gen() { return `${this.value}`; },
-// });
-//
-// Object.assign(BreakStatement.prototype, {
-//   gen() { return 'break;'; },
-// });
-//
-// Object.assign(CallStatement.prototype, {
-//   gen() { emit(`${this.call.gen()};`); },
-// });
-//
-// Object.assign(Call.prototype, {
-//   gen() {
-//     const fun = this.callee.referent;
-//     const params = {};
-//     const args = Array(this.args.length).fill(undefined);
-//     fun.params.forEach((p, i) => { params[p.id] = i; });
-//     this.args.forEach((a, i) => { args[a.isPositionalArgument ? i : params[a.id]] = a; });
-//     return `${jsName(fun)}(${args.map(a => (a ? a.gen() : 'undefined')).join(', ')})`;
-//   },
-// });
-//
-// Object.assign(FunctionDeclaration.prototype, {
-//   gen() { return this.function.gen(); },
-// });
-//
-// Object.assign(FunctionObject.prototype, {
-//   gen() {
-//     emit(`function ${jsName(this)}(${this.params.map(p => p.gen()).join(', ')}) {`);
-//     genStatementList(this.body);
-//     emit('}');
-//   },
-// });
-//
-// Object.assign(IdentifierExpression.prototype, {
-//   gen() { return this.referent.gen(); },
-// });
-//
-// Object.assign(IfStatement.prototype, {
-//   gen() {
-//     this.cases.forEach((c, index) => {
-//       const prefix = index === 0 ? 'if' : '} else if';
-//       emit(`${prefix} (${c.test.gen()}) {`);
-//       genStatementList(c.body);
-//     });
-//     if (this.alternate) {
-//       emit('} else {');
-//       genStatementList(this.alternate);
-//     }
-//     emit('}');
-//   },
-// });
-//
-// Object.assign(NumericLiteral.prototype, {
-//   gen() { return `${this.value}`; },
-// });
-//
-// Object.assign(Parameter.prototype, {
-//   gen() {
-//     let translation = jsName(this);
-//     if (this.defaultExpression) {
-//       translation += ` = ${this.defaultExpression.gen()}`;
-//     }
-//     return translation;
-//   },
-// });
-//
-// Object.assign(ReturnStatement.prototype, {
-//   gen() {
-//     if (this.returnValue) {
-//       emit(`return ${this.returnValue.gen()};`);
-//     } else {
-//       emit('return;');
-//     }
-//   },
-// });
-//
-// Object.assign(StringLiteral.prototype, {
-//   gen() { return `${this.value}`; },
-// });
-//
-// Object.assign(SubscriptedExpression.prototype, {
-//   gen() {
-//     const base = this.variable.gen();
-//     const subscript = this.subscript.gen();
-//     return `${base}[${subscript}]`;
-//   },
-// });
-//
-// Object.assign(UnaryExpression.prototype, {
-//   gen() { return `(${makeOp(this.op)} ${this.operand.gen()})`; },
-// });
-//
-// Object.assign(VariableDeclaration.prototype, {
-//   gen() {
-//     const variables = this.variables.map(v => v.gen());
-//     const initializers = this.initializers.map(i => i.gen());
-//     emit(`let ${bracketIfNecessary(variables)} = ${bracketIfNecessary(initializers)};`);
-//   },
-// });
-//
-// Object.assign(Variable.prototype, {
-//   gen() { return jsName(this); },
-// });
-//
-// Object.assign(WhileStatement.prototype, {
-//   gen() {
-//     emit(`while (${this.test.gen()}) {`);
-//     genStatementList(this.body);
-//     emit('}');
-//   },
-// });
+ // Object.assign(UnExpCall.prototype, {
+ //   gen() {
+ //     console.log('TODO');
+ //   },
+ // });
+ //
+ // Object.assign(UnExpLit.prototype, {
+ //   gen() {
+ //     console.log('TODO');
+ //   },
+ // });
+ //
+ // Object.assign(UnExpId.prototype, {
+ //   gen() {
+ //     console.log('TODO');
+ //   },
+ // });
+ //
+ // Object.assign(Params.prototype, {
+ //   gen() {
+ //     console.log('TODO');
+ //   },
+ // });
+ //
+ // Object.assign(Param.prototype, {
+ //   gen() {
+ //     console.log('TODO');
+ //   },
+ // });
+ //
+ // Object.assign(IntLit.prototype, {
+ //   gen() {
+ //     console.log('TODO');
+ //   },
+ // });
+ //
+ // Object.assign(BoolLit.prototype, {
+ //   gen() {
+ //     console.log('TODO');
+ //   },
+ // });
+ //
+ // Object.assign(StringLit.prototype, {
+ //   gen() {
+ //     console.log('TODO');
+ //   },
+ // });
+
+ Object.assign(FuncCall.prototype, {
+   gen() {
+     emit(`${this.id}_(${this.args.gen()})`);
+   },
+ });
