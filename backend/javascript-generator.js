@@ -79,23 +79,32 @@
 
  Object.assign(FuncDec.prototype, {
    gen() {
-     return `(${this.id}, ${this.params}, ${this.body})`;
+     emit(`function ${jsName(this.id)}(${this.params.map(p => p.gen()).join(', ')}) {`);
+     genStatementList(this.body);
+     emit('}');
    },
  });
 
+ // VER 1 - FuncDec
+ // Object.assign(FuncDec.prototype, {
+ //   gen() {
+ //     return `(${this.id}, ${this.params}, ${this.body})`;
+ //   },
+ // });
+
  Object.assign(VarDec.prototype, {
    gen() {
-     return `(${this.id}, ${this.expStmt})`;
+     emit(`let ${jsName(this.id)} = (${this.exp.gen()});`);
    },
  });
-// Object.assign(AssignmentStatement.prototype, {
-//   gen() {
-//     const targets = this.targets.map(t => t.gen());
-//     const sources = this.sources.map(s => s.gen());
-//     emit(`${bracketIfNecessary(targets)} = ${bracketIfNecessary(sources)};`);
-//   },
-// });
-//
+
+ // VER 1 - VarDec
+ // Object.assign(VarDec.prototype, {
+ //   gen() {
+ //     return `(${this.id}, ${this.expStmt})`;
+ //   },
+ // });
+
  Object.assign(BinExpAdd.prototype, {
    gen() {
      return `(${this.firstExp} ${this.binop} ${this.secExp})`;
@@ -119,6 +128,7 @@
      return `(${this.firstExp}, ${this.relop}, ${this.secExp})`;
    },
  });
+
 //
 // Object.assign(BooleanLiteral.prototype, {
 //   gen() { return `${this.value}`; },
