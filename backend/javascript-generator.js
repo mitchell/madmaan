@@ -77,6 +77,17 @@
    },
  });
 
+ Object.assign(FuncDec.prototype, {
+   gen() {
+     return `(${this.id}, ${this.params}, ${this.body})`;
+   },
+ });
+
+ Object.assign(VarDec.prototype, {
+   gen() {
+     return `(${this.id}, ${this.expStmt})`;
+   },
+ });
 // Object.assign(AssignmentStatement.prototype, {
 //   gen() {
 //     const targets = this.targets.map(t => t.gen());
@@ -85,11 +96,29 @@
 //   },
 // });
 //
- // Object.assign(BinaryExpression.prototype, {
- //   gen() {
- //     return `(${this.left.gen()} ${makeOp(this.op)} ${this.right.gen()})`;
- //   },
- // });
+ Object.assign(BinExpAdd.prototype, {
+   gen() {
+     return `(${this.firstExp} ${this.binop} ${this.secExp})`;
+   },
+ });
+
+ Object.assign(BinExpMul.prototype, {
+   gen() {
+     return `(${this.firstExp}, ${this.binop}, ${this.secExp})`;
+   },
+ });
+
+ Object.assign(BinExpOperator.prototype, {
+   gen() {
+     return `(${this.firstExp}, ${this.binop}, ${this.secExp})`;
+   },
+ });
+
+ Object.assign(BinExpRel.prototype, {
+   gen() {
+     return `(${this.firstExp}, ${this.relop}, ${this.secExp})`;
+   },
+ });
 //
 // Object.assign(BooleanLiteral.prototype, {
 //   gen() { return `${this.value}`; },
