@@ -1,28 +1,57 @@
-
-const parse = require('./syntax/parser.js');
-const fs = require('fs');
+/*
+ * A Madmaan Compiler
+ *
+ * This is a command line application that compiles a PlainScript program from
+ * a file. There are three options:
+ *
+ * ./madmaan.js -a <filename>
+ *     writes out the AST and stops
+ *
+ * ./madmaan.js -i <filename>
+ *     writes the decorated AST then stops
+ *
+ * ./madmaan.js <filename>
+ *     compiles the PlainScript program to JavaScript, writing the generated
+ *     JavaScript code to standard output.
+ *
+ * ./madmaan.js -o <filename>
+ *     optimizes the intermediate code before generating target JavaScript.
+ *
+ * Output of the AST and decorated AST uses the object inspection functionality
+ * built into Node.js.
+ */
 
 const argv = require('yargs')
-  .usage('Usage: $0 <command> file')
-  .command('parse', 'Parses program into an AST.')
-  .boolean('v')
-  .describe('v', 'Print version of the program.')
-  .alias('v', 'version')
-  .help('h', 'Show help.')
-  .alias('h', 'help')
+  .usage('$0 [-a] [-o] [-i] filename')
+  .boolean(['a', 'o', 'i'])
+  .describe('a', 'show abstract syntax tree after parsing then stop')
+  .describe('o', 'do optimizations')
+  .describe('i', 'generate and show the decorated abstract syntax tree then stop')
+  .demand(1)
   .argv;
 
-switch (argv._[0]) {
-  case 'parse': {
-    const inFile = fs.readFileSync(argv._[1], 'utf8');
-    const ast = parse(inFile);
-    console.log(ast); // eslint-disable-line no-console
-    break;
-  }
-  default:
-    break;
-}
+const fs = require('fs');
+const util = require('util');
+const parse = require('./syntax/parser');
+require('./backend/javascript-generator');
 
-if (argv.v) {
-  console.log('v0.2.1'); // eslint-disable-line no-console
-}
+fs.readFile(argv._[0], 'utf-8', (err, text) => {
+  if (err) {
+    console.error(err);
+    return;
+  }
+  let program = parse(text);
+  if (argv.a) {
+    console.log(util.inspect(program, { depth: null }));
+    return;
+  }
+  program.analyze();
+  if (argv.o) {
+    program = program.optimize();
+  }
+  if (argv.i) {
+    console.log(util.inspect(program, { depth: null }));
+    return;
+  }
+  program.gen();
+});
