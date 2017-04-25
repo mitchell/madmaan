@@ -1,25 +1,25 @@
 
- const Context = require('../semantic/context');
- const Program = require('../entities/program.js');
- const Body = require('../entities/body.js');
- const FuncDec = require('../entities/funcdec.js');
- const VarDec = require('../entities/vardec.js');
- const IfStmt = require('../entities/ifstmt.js');
- const WhileStmt = require('../entities/whilestmt.js');
- const ForStmt = require('../entities/forstmt.js');
- const BinExpAdd = require('../entities/binexpAdd.js');
- const BinExpMul = require('../entities/binexpMul.js');
- const BinExpOperator = require('../entities/binexpOperator.js');
- const BinExpRel = require('../entities/binexpRel.js');
- const UnExpCall = require('../entities/unexpCall.js');
- const UnExpLit = require('../entities/unexpLit.js');
- const UnExpId = require('../entities/unexpId.js');
- const Params = require('../entities/params.js');
- const Param = require('../entities/param.js');
- const IntLit = require('../entities/intLit.js');
- const BoolLit = require('../entities/boolLit.js');
- const StringLit = require('../entities/stringLit.js');
- const FuncCall = require('../entities/callexp.js');
+ const Context = require('./semantic/context');
+ const Program = require('./entities/program.js');
+ const Body = require('./entities/body.js');
+ const FuncDec = require('./entities/funcdec.js');
+ const VarDec = require('./entities/vardec.js');
+ const IfStmt = require('./entities/ifstmt.js');
+ const WhileStmt = require('./entities/whilestmt.js');
+ const ForStmt = require('./entities/forstmt.js');
+ const BinExpAdd = require('./entities/binexpAdd.js');
+ const BinExpMul = require('./entities/binexpMul.js');
+ const BinExpOperator = require('./entities/binexpOperator.js');
+ const BinExpRel = require('./entities/binexpRel.js');
+ const UnExpCall = require('./entities/unexpCall.js');
+ const UnExpLit = require('./entities/unexpLit.js');
+ const UnExpId = require('./entities/unexpId.js');
+ const Params = require('./entities/params.js');
+ const Param = require('./entities/param.js');
+ const IntLit = require('./entities/intLit.js');
+ const BoolLit = require('./entities/boolLit.js');
+ const StringLit = require('./entities/stringLit.js');
+ const FuncCall = require('./entities/callexp.js');
 
 const indentPadding = 2;
 let indentLevel = 0;
@@ -35,7 +35,7 @@ function emit(line) {
 }
 
 function makeOp(op) {
-  return { ~: '!', and: '&&', or: '||', '==': '===', '!=': '!==' }[op] || op;
+  return { '~': '!', and: '&&', or: '||', '==': '===', '!=': '!==' }[op] || op;
 }
 
 const jsName = (() => {
@@ -91,9 +91,11 @@ Object.assign(Statement.prototype, {
 //   },
 // });
 //
-// Object.assign(BinaryExpression.prototype, {
-//   gen() { return `(${this.left.gen()} ${makeOp(this.op)} ${this.right.gen()})`; },
-// });
+Object.assign(BinaryExpression.prototype, {
+  gen() {
+    return `(${this.left.gen()} ${makeOp(this.op)} ${this.right.gen()})`;
+  },
+});
 //
 // Object.assign(BooleanLiteral.prototype, {
 //   gen() { return `${this.value}`; },
