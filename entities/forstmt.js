@@ -15,11 +15,18 @@ class ForStmt {
   analyze(context) {
     const innerContext = context.createChildContextForLoop();
     this.decl.analyze(innerContext);
+
     const conditionType = this.condition.analyze(innerContext);
-    if (!conditionType.type.literal !== 'bool') {
+
+    if (!conditionType.boolCheck()) {
       throw new Error('Expected boolean condition');
     }
-    this.iterator.analyze(innerContext);
+
+    const incDecType = this.incDec.analyze(innerContext);
+
+    if (!incDecType.intCheck()) {
+      throw new Error('Expected boolean condition');
+    }
     this.body.analyze(innerContext);
   }
 }

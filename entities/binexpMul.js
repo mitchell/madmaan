@@ -15,28 +15,29 @@ class BinExpMul extends BinExp {
   }
 
   analyze(context) {
-    this.firstExp.analyze(context);
-    if (this.firstExp.name) {
-      this.type = context.lookupVariable(this.firstExp.name).type;
-    }
-    if (this.secExp.length > 0) {
-      for (let i = 0; i < this.secExp.length; i += 1) {
-        this.secExp[i].analyze(context);
-        if (['*', '/', '%'].includes(this.binOp[0].operator)) {
-          if (!(Type.isNumber(this.firstExp.type.literal)) || !(Type.isNumber(this.secExp[i].type.literal))) {
-            throw Error('Wrong operands, not numbers');
-          }
-          if (this.firstExp.type.literal === 'float' || this.secExp[i].type.literal === 'float') {
-            this.type = Type.FLOAT;
-          } else {
-            this.type = Type.INT;
-          }
+    this.firstExp.type = this.firstExp.analyze(context);
+
+    if (this.secExp.toString().length > 0) { // gotta ensure that somethings there
+      this.secExp.type = this.secExp.analyze(context);
+      if (['*', '/', '%'].includes(this.binop)) {
+        const isNumber = this.firstExp.type.mustBeInt('expect int', 'line 40') || this.firstExp.type.mustBeFloat('expect float', 'line 40');
+        const isNumberTwo = this.secExp.type.mustBeInt('expect int', 'line 40') || this.secExp.type.mustBeFloat('expect float', 'line 40');
+
+        if (!isNumber || !isNumberTwo) {
+          throw Error('Wrong operands, expected numbers');
+        }
+
+        const isFloat = this.firstExp.type.mustBeFloat('expect float', 'line 64');
+        const isFloatTwo = this.secExp.type.mustBeFloat('expect float', 'line 64');
+
+        if (isFloat || isFloatTwo) {
+          this.type = Type.FLOAT;
+        } else {
+          this.type = Type.INT;
         }
       }
     }
-    if (!this.type) {
-      this.type = this.firstExp.type;
-    }
+    return this.type;
   }
 }
 

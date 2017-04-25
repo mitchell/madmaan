@@ -15,28 +15,30 @@ class BinExpAdd extends BinExp {
   }
 
   analyze(context) {
-    this.firstExp.analyze(context);
-    if (this.firstExp.name) {
-      this.type = context.lookupVariable(this.firstExp.name).type;
-    }
-    if (this.secExp.length > 0) {
-      for (let i = 0; i < this.secExp.length; i += 1) {
-        this.secExp[i].analyze(context);
-        if (['+'].includes(this.binOp[0].operator)) {
-          if (!(Type.isNumber(this.firstExp.type.literal)) || !(Type.isNumber(this.secExp[i].type.literal))) {
-            throw Error('Wrong operands, not numbers');
-          }
-          if (this.firstExp.type.literal === 'float' || this.secExp[i].type.literal === 'float') {
-            this.type = Type.FLOAT;
-          } else {
-            this.type = Type.INT;
-          }
+    this.firstExp.type = this.firstExp.analyze(context);
+
+    if (this.secExp.toString().length > 0) { // gotta ensure that somethings there
+      this.secExp.type = this.secExp.analyze(context);
+      if (['+', '-'].includes(this.binop)) {
+        const isNumber = this.firstExp.type.intCheck() || this.firstExp.type.floatCheck();
+        const isNumberTwo = this.secExp.type.intCheck() || this.secExp.type.floatCheck();
+
+
+        if (!isNumber || !isNumberTwo) {
+          throw Error('Wrong operands, expected numbers');
+        }
+
+        const isFloat = this.firstExp.type.floatCheck();
+        const isFloatTwo = this.secExp.type.floatCheck();
+
+        if (isFloat || isFloatTwo) {
+          this.type = Type.FLOAT;
+        } else {
+          this.type = Type.INT;
         }
       }
     }
-    if (!this.type) {
-      this.type = this.firstExp.type;
-    }
+    return this.type;
   }
 }
 

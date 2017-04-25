@@ -7,28 +7,32 @@ class Type {
     this.type = type;
   }
 
-  mustBeInt(message, location) {
-    return this.mustBeCompatibleWith(Type.INT, message);
+  intCheck() {
+    return this.type === 'int';
   }
 
-  mustBeFloat(message, location) {
-    return this.mustBeCompatibleWith(Type.FLOAT, message);
+  floatCheck() {
+    return this.type === 'float';
   }
 
-  mustBeBool(message, location) {
-    return this.mustBeCompatibleWith(Type.BOOL, message);
+  numberCheck() {
+    return this.type === 'float' || this.type === 'int';
   }
 
-  mustBeString(message, location) {
-    return this.mustBeCompatibleWith(Type.STRING, message);
+  boolCheck() {
+    return this.type === 'bool';
   }
 
-  mustBeChar(message, location) {
-    return this.mustBeCompatibleWith(Type.CHAR, message);
+  stringCheck() {
+    return this.type === 'string';
   }
 
-  mustBeObject(message, location) {
-    return this.mustBeCompatibleWith(Type.OBJECT, message);
+  charCheck() {
+    return this.type === 'char';
+  }
+
+  objectCheck() {
+    return this.type === 'object';
   }
 
   mustBeCompatibleWith(otherType, message, location) {
@@ -50,20 +54,13 @@ class Type {
   }
 
   toString() {
-    return (`(Type ${this.type})`);
+    return this.type;
   }
 }
 
-Type.isNumber = (literal) => {
-  if (literal === 'int' || literal === 'float') {
-    return true;
-  }
-  return false;
-};
-
 Type.INT = new Type('int');
 Type.FLOAT = new Type('float');
-Type.BOOL = new Type('boolean');
+Type.BOOL = new Type('bool');
 Type.STRING = new Type('string');
 Type.CHAR = new Type('char');
 Type.OBJECT = new Type('object');

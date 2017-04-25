@@ -21,7 +21,7 @@ madmaan {
             | Literal                                        -- lit
             | (unaop)? id (unaop)?                           -- withOp
             | (boolOp)? id                                   -- not
-            | (negOp)? id                                    -- unaryNeg
+            | (negOp)? id                                    -- negation
   CallExp   = id Params
   Params    = "(" (Param ("," Param)*)* ")"
   Param     = id
