@@ -6,7 +6,7 @@ madmaan {
   ExpStmt   = BinExp | UnExp | CallExp | Literal | id
   ForStmt   = "for" VarDec "!" BinExp2 "!" BinExp3 "!" Body
   IfStmt    = "if" ExpStmt "then" Body
-  WhileStmt = "while" ExpStmt "do" Body
+  WhileStmt = "while" BinExp2 "do" Body
   VarDec    = id "is" ExpStmt
   FuncDec   = id Params "=>" Body
   BinExp    = BinExp binop BinExp2                           -- binop
