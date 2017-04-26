@@ -56,7 +56,7 @@
 
  Object.assign(Program.prototype, {
    gen() {
-     `(${this.block.gen()})`;
+     this.block.gen();
    },
  });
 
@@ -75,9 +75,13 @@
  });
 
  Object.assign(VarDec.prototype, {
-   gen() {
-     emit(`let ${(this.id)} = ${this.expStmt.gen()};`);
-     //return jsName(this.id);
+   gen(embedded) {
+     const translation = `let ${(this.id)} = ${this.expStmt.gen()}`;
+     if (embedded) {
+       return translation;
+     }
+     emit(`${translation};`);
+     return undefined;
    },
  });
 
@@ -101,7 +105,7 @@
 
  Object.assign(ForStmt.prototype, {
    gen() {
-     emit(`for(${this.decl.gen(true)} ${this.condition.gen()}; ${this.incDec.gen(true)}) {`);
+     emit(`for(${this.decl.gen(true)}; ${this.condition.gen()}; ${this.incDec.gen(true)}) {`);
 
      indentLevel += 1;
      this.body.gen();
