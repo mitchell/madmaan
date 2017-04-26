@@ -101,7 +101,7 @@
 
  Object.assign(ForStmt.prototype, {
    gen() {
-     emit(`for (${this.decl.gen(true)}; ${this.condition.gen()}; ${this.incDec.gen(true)}) {`);
+     emit(`for(${this.decl.gen(true)} ${this.condition.gen()}; ${this.incDec.gen(true)}) {`);
 
      indentLevel += 1;
      this.body.gen();
@@ -125,13 +125,13 @@
 
  Object.assign(BinExpOperator.prototype, {
    gen() {
-     return `(${this.firstExp}, ${this.binop}, ${this.secExp})`;
+     return `${this.firstExp} ${this.binop} ${this.secExp}`;
    },
  });
 
  Object.assign(BinExpRel.prototype, {
    gen() {
-     return `(${this.firstExp}, ${this.relop}, ${this.secExp})`;
+     return `${this.firstExp.gen()} ${this.relop} ${this.secExp.gen()}`;
    },
  });
 
@@ -142,20 +142,22 @@
  // });
  //
  Object.assign(UnExpLit.prototype, {
-    gen() {
-      return this.literal.gen();
-    },
+   gen() {
+     return this.literal.gen();
+   },
  });
- //
+
  Object.assign(UnExpId.prototype, {
-    gen() {
-        if (this.secondOpLength === 0 && this.firstOpLength !== 0) {
-          return `${this.firstOp.toString()}, ${this.id.toString()}`;
-      } else if (this.firstOpLength === 0 && this.secondOpLength !== 0) {
-          return `${this.id.toString()}, ${this.secondOp.toString()}`;
-        }
-        return `${this.id.toString()}`;
-    },
+   gen() {
+     const firstOpLength = this.firstOp.toString().length;
+     const secondOpLength = this.secondOp.toString().length;
+     if (secondOpLength === 0 && firstOpLength !== 0) {
+       return `${this.firstOp.toString()}, ${this.id.toString()}`;
+     } else if (firstOpLength === 0 && secondOpLength !== 0) {
+       return `${this.id.toString()}${this.secondOp.toString()}`;
+     }
+     return `${this.id.toString()}`;
+   },
  });
  //
  // Object.assign(Params.prototype, {
@@ -171,9 +173,9 @@
  // });
  //
  Object.assign(IntLit.prototype, {
-    gen() {
-      return parseInt(this.theInt, 10);
-    },
+   gen() {
+     return parseInt(this.theInt, 10);
+   },
  });
  //
  // Object.assign(BoolLit.prototype, {

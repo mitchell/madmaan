@@ -2,9 +2,9 @@ madmaan {
   Program   = Body
   Body      = (Stmt "!")+
   Stmt      = Decl | IfStmt | WhileStmt | ExpStmt | ForStmt
+  ForStmt   = "for" VarDec "!" BinExp2 "!" BinExp3 "!" Body
   Decl      = FuncDec | VarDec
   ExpStmt   = BinExp | UnExp | CallExp | Literal | id
-  ForStmt   = "for" VarDec "!" BinExp2 "!" BinExp3 "!" Body
   IfStmt    = "if" ExpStmt "then" Body
   WhileStmt = "while" BinExp2 "do" Body
   VarDec    = id "is" ExpStmt
