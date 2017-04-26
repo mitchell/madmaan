@@ -13,7 +13,7 @@
  const BinExpRel = require('../entities/binexpRel.js'); // WIP
  // const UnExpCall = require('../entities/unexpCall.js');
  const UnExpLit = require('../entities/unexpLit.js');
- // const UnExpId = require('../entities/unexpId.js');
+ const UnExpId = require('../entities/unexpId.js');
  // const Params = require('../entities/params.js');
  // const Param = require('../entities/param.js');
  const IntLit = require('../entities/intLit.js');
@@ -56,7 +56,7 @@
 
  Object.assign(Program.prototype, {
    gen() {
-     `(${this.block.gen()})`;
+     this.block.gen();
    },
  });
 
@@ -75,9 +75,13 @@
  });
 
  Object.assign(VarDec.prototype, {
-   gen() {
-     emit(`let ${(this.id)} = ${this.expStmt.gen()};`);
-     //return jsName(this.id);
+   gen(embedded) {
+     const translation = `let ${(this.id)} = ${this.expStmt.gen()}`;
+     if (embedded) {
+       return translation;
+     }
+     emit(`${translation};`);
+     return undefined;
    },
  });
 
@@ -101,7 +105,7 @@
 
  Object.assign(ForStmt.prototype, {
    gen() {
-     emit(`for (${this.decl.gen(true)}; ${this.condition.gen()}; ${this.incDec.gen(true)}) {`);
+     emit(`for(${this.decl.gen(true)}; ${this.condition.gen()}; ${this.incDec.gen(true)}) {`);
 
      indentLevel += 1;
      this.body.gen();
@@ -125,13 +129,13 @@
 
  Object.assign(BinExpOperator.prototype, {
    gen() {
-     return `(${this.firstExp}, ${this.binop}, ${this.secExp})`;
+     return `${this.firstExp} ${this.binop} ${this.secExp}`;
    },
  });
 
  Object.assign(BinExpRel.prototype, {
    gen() {
-     return `(${this.firstExp}, ${this.relop}, ${this.secExp})`;
+     return `${this.firstExp.gen()} ${this.relop} ${this.secExp.gen()}`;
    },
  });
 
@@ -142,16 +146,23 @@
  // });
  //
  Object.assign(UnExpLit.prototype, {
-    gen() {
-      return this.literal.gen();
-    },
+   gen() {
+     return this.literal.gen();
+   },
  });
- //
- // Object.assign(UnExpId.prototype, {
- //   gen() {
- //     console.log('TODO');
- //   },
- // });
+
+ Object.assign(UnExpId.prototype, {
+   gen() {
+     const firstOpLength = this.firstOp.toString().length;
+     const secondOpLength = this.secondOp.toString().length;
+     if (secondOpLength === 0 && firstOpLength !== 0) {
+       return `${this.firstOp.toString()}, ${this.id.toString()}`;
+     } else if (firstOpLength === 0 && secondOpLength !== 0) {
+       return `${this.id.toString()}${this.secondOp.toString()}`;
+     }
+     return `${this.id.toString()}`;
+   },
+ });
  //
  // Object.assign(Params.prototype, {
  //   gen() {
@@ -166,9 +177,9 @@
  // });
  //
  Object.assign(IntLit.prototype, {
-    gen() {
-      return parseInt(this.theInt, 10);
-    },
+   gen() {
+     return parseInt(this.theInt, 10);
+   },
  });
  //
  // Object.assign(BoolLit.prototype, {
