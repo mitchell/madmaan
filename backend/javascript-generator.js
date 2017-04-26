@@ -13,7 +13,7 @@
  const BinExpRel = require('../entities/binexpRel.js'); // WIP
  // const UnExpCall = require('../entities/unexpCall.js');
  const UnExpLit = require('../entities/unexpLit.js');
- // const UnExpId = require('../entities/unexpId.js');
+ const UnExpId = require('../entities/unexpId.js');
  // const Params = require('../entities/params.js');
  // const Param = require('../entities/param.js');
  const IntLit = require('../entities/intLit.js');
@@ -147,11 +147,16 @@
     },
  });
  //
- // Object.assign(UnExpId.prototype, {
- //   gen() {
- //     console.log('TODO');
- //   },
- // });
+ Object.assign(UnExpId.prototype, {
+    gen() {
+        if (this.secondOpLength === 0 && this.firstOpLength !== 0) {
+          return `${this.firstOp.toString()}, ${this.id.toString()}`;
+      } else if (this.firstOpLength === 0 && this.secondOpLength !== 0) {
+          return `${this.id.toString()}, ${this.secondOp.toString()}`;
+        }
+        return `${this.id.toString()}`;
+    },
+ });
  //
  // Object.assign(Params.prototype, {
  //   gen() {
