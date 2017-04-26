@@ -12,7 +12,7 @@
  const BinExpOperator = require('../entities/binexpOperator.js'); // WIP
  const BinExpRel = require('../entities/binexpRel.js'); // WIP
  // const UnExpCall = require('../entities/unexpCall.js');
-  const UnExpLit = require('../entities/unexpLit.js');
+ const UnExpLit = require('../entities/unexpLit.js');
  // const UnExpId = require('../entities/unexpId.js');
  // const Params = require('../entities/params.js');
  // const Param = require('../entities/param.js');
@@ -37,17 +37,6 @@
  function makeOp(op) {
    return { '~': '!', and: '&&', or: '||', '==': '===', '!=': '!==', '!': ';' }[op] || op;
  }
-
- const jsName = (() => {
-   let lastId = 0;
-   const map = new Map();
-   return (v) => {
-     if (!(map.has(v))) {
-       map.set(v, ++lastId); // eslint-disable-line no-plusplus
-     }
-     return `${v.id}_${map.get(v)}`;
-   };
- })();
 
  function bracketIfNecessary(a) {
    if (a.length === 1) {
@@ -87,7 +76,7 @@
 
  Object.assign(VarDec.prototype, {
    gen() {
-     emit(`let ${jsName(this.id)} = (${this.expStmt.gen()});`);
+     emit(`let ${(this.id)} = ${this.expStmt.gen()};`);
      //return jsName(this.id);
    },
  });
