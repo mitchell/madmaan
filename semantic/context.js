@@ -49,7 +49,6 @@ class Context {
       throw new Error(`Identitier ${entity} already declared in this scope`);
     }
     this.variables[entity] = type;
-    console.log(this.variables);
   }
 
   lookup(id) {

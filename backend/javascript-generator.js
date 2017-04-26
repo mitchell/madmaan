@@ -12,11 +12,11 @@
  const BinExpOperator = require('../entities/binexpOperator.js'); // WIP
  const BinExpRel = require('../entities/binexpRel.js'); // WIP
  // const UnExpCall = require('../entities/unexpCall.js');
- // const UnExpLit = require('../entities/unexpLit.js');
+  const UnExpLit = require('../entities/unexpLit.js');
  // const UnExpId = require('../entities/unexpId.js');
  // const Params = require('../entities/params.js');
  // const Param = require('../entities/param.js');
- // const IntLit = require('../entities/intLit.js');
+ const IntLit = require('../entities/intLit.js');
  // const BoolLit = require('../entities/boolLit.js');
  // const StringLit = require('../entities/stringLit.js');
  const FuncCall = require('../entities/callexp.js');
@@ -35,7 +35,7 @@
  }
 
  function makeOp(op) {
-   return { '~': '!', and: '&&', or: '||', '==': '===', '!=': '!==' }[op] || op;
+   return { '~': '!', and: '&&', or: '||', '==': '===', '!=': '!==', '!': ';' }[op] || op;
  }
 
  const jsName = (() => {
@@ -67,13 +67,13 @@
 
  Object.assign(Program.prototype, {
    gen() {
-     return `(${this.block})`;
+     `(${this.block.gen()})`;
    },
  });
 
  Object.assign(Body.prototype, {
    gen() {
-     return `(${this.statements})`;
+     this.statements.forEach(s => s.gen());
    },
  });
 
@@ -88,6 +88,7 @@
  Object.assign(VarDec.prototype, {
    gen() {
      emit(`let ${jsName(this.id)} = (${this.expStmt.gen()});`);
+     //return jsName(this.id);
    },
  });
 
@@ -123,13 +124,13 @@
 
  Object.assign(BinExpAdd.prototype, {
    gen() {
-     return `(${this.firstExp} ${this.binop} ${this.secExp})`;
+     emit(`${this.firstExp.gen()} ${this.binop} ${this.secExp.gen()};`);
    },
  });
 
  Object.assign(BinExpMul.prototype, {
    gen() {
-     return `(${this.firstExp}, ${this.binop}, ${this.secExp})`;
+     emit(`${this.firstExp.gen()} ${this.binop} ${this.secExp.gen()};`);
    },
  });
 
@@ -151,11 +152,11 @@
  //   },
  // });
  //
- // Object.assign(UnExpLit.prototype, {
- //   gen() {
- //     console.log('TODO');
- //   },
- // });
+ Object.assign(UnExpLit.prototype, {
+    gen() {
+      return this.literal.gen();
+    },
+ });
  //
  // Object.assign(UnExpId.prototype, {
  //   gen() {
@@ -175,11 +176,11 @@
  //   },
  // });
  //
- // Object.assign(IntLit.prototype, {
- //   gen() {
- //     console.log('TODO');
- //   },
- // });
+ Object.assign(IntLit.prototype, {
+    gen() {
+      return parseInt(this.theInt, 10);
+    },
+ });
  //
  // Object.assign(BoolLit.prototype, {
  //   gen() {
