@@ -68,7 +68,7 @@
 
  Object.assign(FuncDec.prototype, {
    gen() {
-     emit(`function ${jsName(this.id)}(${this.params.map(p => p.gen()).join(', ')}) {`);
+     emit(`function ${(this.id)}(${this.params.map(p => p.gen()).join(', ')}) {`);
      genStatementList(this.body);
      emit('}');
    },
