@@ -1,0 +1,27 @@
+if x == 1 then
+  "hello"!
+!
+
+if x == 2 then
+  "hello"!
+elif x == 3 then
+  "get out"!
+!
+
+if x == 4 then
+  "hello"!
+elif x == 5 then
+  "get out"!
+else 
+  "dude srsly"!
+!
+
+if x == 6 then
+  "hello"!
+elif x == 7 then
+  "get out"!
+elif x == 8 then
+  "dude srsly"!
+else
+  "or else"!
+!
