@@ -14,11 +14,11 @@
  // const UnExpCall = require('../entities/unexpCall.js');
  const UnExpLit = require('../entities/unexpLit.js');
  const UnExpId = require('../entities/unexpId.js');
- // const Params = require('../entities/params.js');
- // const Param = require('../entities/param.js');
+ const Params = require('../entities/params.js');
+ const Param = require('../entities/param.js');
  const IntLit = require('../entities/intLit.js');
  // const BoolLit = require('../entities/boolLit.js');
- // const StringLit = require('../entities/stringLit.js');
+ const StringLit = require('../entities/stringLit.js');
  const FuncCall = require('../entities/callexp.js');
 
  const indentPadding = 2;
@@ -68,8 +68,8 @@
 
  Object.assign(FuncDec.prototype, {
    gen() {
-     emit(`function ${(this.id)}(${this.params.map(p => p.gen()).join(', ')}) {`);
-     genStatementList(this.body);
+     emit(`function ${(this.id)}(${this.params.gen()}) {`);
+     genStatementList(this.body.statements);
      emit('}');
    },
  });
@@ -164,18 +164,18 @@
    },
  });
  //
- // Object.assign(Params.prototype, {
- //   gen() {
- //     console.log('TODO');
- //   },
- // });
+ Object.assign(Params.prototype, {
+   gen() {
+    return `${this.params.map(p => p.gen()).join(', ')}`;
+   },
+ });
  //
- // Object.assign(Param.prototype, {
- //   gen() {
- //     console.log('TODO');
- //   },
- // });
- //
+ Object.assign(Param.prototype, {
+   gen() {
+     return this.id;
+   },
+ });
+
  Object.assign(IntLit.prototype, {
    gen() {
      return parseInt(this.theInt, 10);
@@ -188,11 +188,11 @@
  //   },
  // });
  //
- // Object.assign(StringLit.prototype, {
- //   gen() {
- //     console.log('TODO');
- //   },
- // });
+ Object.assign(StringLit.prototype, {
+   gen() {
+     emit(`"${this.theString.join('')}";`);
+   },
+ });
 
  Object.assign(FuncCall.prototype, {
    gen() {

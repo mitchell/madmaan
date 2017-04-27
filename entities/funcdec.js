@@ -5,7 +5,6 @@ class FuncDec {
   constructor(id, params, body) {
     this.id = id;
     this.params = params;
-    console.log(this.params);
     this.body = body;
   }
 
