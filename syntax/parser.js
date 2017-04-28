@@ -3,6 +3,7 @@ const Body = require('../entities/body.js');
 const FuncDec = require('../entities/funcdec.js');
 const VarDec = require('../entities/vardec.js');
 const IfStmt = require('../entities/ifstmt.js');
+const ElseIf = require('../entities/elseif.js');
 const WhileStmt = require('../entities/whilestmt.js');
 const ForStmt = require('../entities/forstmt.js');
 const BinExpAdd = require('../entities/binexpAdd.js');
@@ -38,9 +39,10 @@ const semantics = grammar.createSemantics().addOperation('ast', {
   Body(statements, _) { return new Body(statements.ast()); },
   FuncDec(id, params, arr, body) { return new FuncDec(id.sourceString, params.ast(), body.ast()); },
   VarDec(id, is, expStmt) { return new VarDec(id.sourceString, expStmt.ast()); },
-  IfStmt(_1, expStmt, _2, body, _3, expStmt2, _4, body2, _5, body3) {
-    return new IfStmt(expStmt.ast(), body.ast(), expStmt2, body2.ast(), body3.ast());
+  IfStmt(_1, expStmt, _2, body, elifCases, elseCase, elseBody) {
+    return new IfStmt(expStmt.ast(), body.ast(), elifCases.ast(), elseCase.ast(), elseBody.ast());
   },
+  ElseIf(_1, expStmt, _2, body) { return new ElseIf(expStmt.ast(), body.ast()); },
   WhileStmt(_1, expStmt, _3, body) { return new WhileStmt(expStmt.ast(), body.ast()); },
   ForStmt(_1, vardec, _2, binexp2, _3, binexp3, _4, body) {
     return new ForStmt(vardec.ast(), binexp2.ast(), binexp3.ast(), body.ast());

@@ -5,7 +5,8 @@ madmaan {
   ForStmt   = "for" VarDec "!" BinExp2 "!" BinExp3 "!" Body
   Decl      = FuncDec | VarDec
   ExpStmt   = BinExp | UnExp | CallExp | Literal | id
-  IfStmt    = "if" ExpStmt "then" Body ("elif" ExpStmt "then" Body)* ("else" Body)?
+  IfStmt    = "if" ExpStmt "then" Body (ElseIf)* ("else" Body)?
+  ElseIf    = "elif" ExpStmt "then" Body
   WhileStmt = "while" BinExp2 "do" Body
   VarDec    = id "is" ExpStmt
   FuncDec   = id Params "=>" Body
