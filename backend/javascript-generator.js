@@ -7,17 +7,17 @@
  const IfStmt = require('../entities/ifstmt.js');
  const WhileStmt = require('../entities/whilestmt.js');
  const ForStmt = require('../entities/forstmt.js');
- const BinExpAdd = require('../entities/binexpAdd.js'); // WIP
- const BinExpMul = require('../entities/binexpMul.js'); // WIP
- const BinExpOperator = require('../entities/binexpOperator.js'); // WIP
- const BinExpRel = require('../entities/binexpRel.js'); // WIP
+ const BinExpAdd = require('../entities/binexpAdd.js');
+ const BinExpMul = require('../entities/binexpMul.js');
+ const BinExpOperator = require('../entities/binexpOperator.js');
+ const BinExpRel = require('../entities/binexpRel.js');
  // const UnExpCall = require('../entities/unexpCall.js');
  const UnExpLit = require('../entities/unexpLit.js');
  const UnExpId = require('../entities/unexpId.js');
  const Params = require('../entities/params.js');
  const Param = require('../entities/param.js');
  const IntLit = require('../entities/intLit.js');
- // const BoolLit = require('../entities/boolLit.js');
+ const BoolLit = require('../entities/boolLit.js');
  const StringLit = require('../entities/stringLit.js');
  const FuncCall = require('../entities/callexp.js');
 
@@ -145,6 +145,7 @@
  //   },
  // });
  //
+
  Object.assign(UnExpLit.prototype, {
    gen() {
      return this.literal.gen();
@@ -163,13 +164,13 @@
      return `${this.id.toString()}`;
    },
  });
- //
+
  Object.assign(Params.prototype, {
    gen() {
-    return `${this.params.map(p => p.gen()).join(', ')}`;
+     return `${this.params.map(p => p.gen()).join(', ')}`;
    },
  });
- //
+
  Object.assign(Param.prototype, {
    gen() {
      return this.id;
@@ -181,13 +182,13 @@
      return parseInt(this.theInt, 10);
    },
  });
- //
- // Object.assign(BoolLit.prototype, {
- //   gen() {
- //     console.log('TODO');
- //   },
- // });
- //
+
+ Object.assign(BoolLit.prototype, {
+   gen() {
+     emit(`${this.theBool.toString()};`);
+   },
+ });
+
  Object.assign(StringLit.prototype, {
    gen() {
      emit(`"${this.theString.join('')}";`);
