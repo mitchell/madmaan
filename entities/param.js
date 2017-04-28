@@ -5,7 +5,7 @@ class Param {
   }
 
   analyze(context) {
-    // Nothing to analyze. Intentionally left blank.
+    // Nothing to analyze.
   }
 
   toString() {

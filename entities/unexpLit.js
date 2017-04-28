@@ -1,4 +1,5 @@
 const UnExp = require('./unexp.js');
+const Type = require('./type.js');
 
 class UnExpLit extends UnExp {
   constructor(literal) {
@@ -10,7 +11,7 @@ class UnExpLit extends UnExp {
     return `${this.literal}`;
   }
 
-  analyze() {
+  analyze(context) {
     this.type = this.literal.analyze();
     return this.type;
   }

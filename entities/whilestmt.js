@@ -15,8 +15,6 @@ class WhileStmt {
       throw new Error('Expected boolean condition');
     }
     this.body.analyze(bodyContext);
-    // const bodyContext = context.createChildContextForLoop();
-    // this.body.forEach(s => s.analyze(bodyContext));
   }
 }
 

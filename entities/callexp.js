@@ -1,3 +1,5 @@
+const Type = require('./type');
+
 class CallExp {
   constructor(id, params) {
     this.id = id;

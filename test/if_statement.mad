@@ -12,7 +12,7 @@ if x == 4 then
   "hello"!
 elif x == 5 then
   "get out"!
-else 
+else
   "dude srsly"!
 !
 

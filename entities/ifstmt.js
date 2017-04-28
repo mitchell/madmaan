@@ -1,3 +1,5 @@
+const Type = require('./type.js');
+
 class IfStmt {
   constructor(ifCase, ifBody, elifCases, elseCase, elseBody) {
     this.ifCase = ifCase;
@@ -11,7 +13,6 @@ class IfStmt {
 
     if (this.elifCases.length > 0) {
       if (this.elseCase.length > 0) {
-        console.log('in here');
         return `(IfStmt ${this.ifCase} ${this.ifBody} ${result} Else ${this.elseCase} ${this.elseBody})`;
       }
       return `(IfStmt ${this.ifCase} ${this.ifBody} ${result})`;
@@ -21,11 +22,18 @@ class IfStmt {
     } return `(IfStmt ${this.ifCase} ${this.ifBody})`;
   }
   analyze(context) {
-    const expType = this.expStmt.analyze(context);
+    const expType = this.ifCase.analyze(context);
     if (!expType.boolCheck()) {
       throw new Error('Expected boolean condition');
     }
-    this.body.analyze(context);
+
+    this.ifBody.analyze(context);
+    this.elifCases.forEach(s => s.analyze(context));
+    if (this.elseCase.length > 0) {
+      if (this.elseBody.length > 0) {
+        this.elseBody.forEach(s => s.analyze(context));
+      }
+    }
   }
 }
 

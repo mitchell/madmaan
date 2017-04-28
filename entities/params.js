@@ -12,9 +12,6 @@ class Params {
     }
     return `(Parameters ${this.params.join(', ')})`;
   }
-
-  analyze(context) {
-  }
 }
 
 module.exports = Params;

@@ -1,3 +1,5 @@
+const Type = require('./type.js');
+
 class Body {
   constructor(statements) {
     this.statements = statements;

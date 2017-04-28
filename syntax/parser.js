@@ -26,10 +26,6 @@ const NegExp = require('../entities/NegExp.js');
 const ohm = require('ohm-js');
 const fs = require('fs');
 
-/*function unpack(a) {
-  return a.length === 0 ? 0 : a[0];
-}*/
-
 /* eslint-disable no-unused-vars */
 
 const grammar = ohm.grammar(fs.readFileSync('./syntax/madmaan.ohm'));
