@@ -34,18 +34,18 @@
    console.log(`${' '.repeat(indentPadding * indentLevel)}${line}`);            //eslint-disable-line
  }
 
- function makeOp(op) {
+ function makeOp(op) {//eslint-disable-line
    return { '~': '!', and: '&&', or: '||', '==': '===', '!=': '!==', '!': ';' }[op] || op;
  }
 
- function bracketIfNecessary(a) {
+ function bracketIfNecessary(a) {//eslint-disable-line
    if (a.length === 1) {
      return `${a}`;
    }
    return `[${a.join(', ')}]`;
  }
 
- function generateLibraryFunctions() {
+ function generateLibraryFunctions() {//eslint-disable-line
    function generateLibraryStub(name, params, body) {
      const entity = Context.INITIAL.declarations[name];
      emit(`function ${jsName(entity)}(${params}) {${body}}`);
@@ -87,7 +87,20 @@
 
  Object.assign(IfStmt.prototype, {
    gen() {
-     console.log('TODO');
+     emit(`if (${this.expStmt.gen()}) {`);
+
+     indentLevel += 1;
+     this.body.gen();
+     indentLevel -= 1;
+
+     emit('}');
+
+     if (this.elifCases.length > 0) {
+       this.elifCases.forEach(elifCases => elifCases.gen());
+     }
+     if (this.elseCase.length > 0) {
+       this.elseCase[0].gen();
+     }
    },
  });
 
