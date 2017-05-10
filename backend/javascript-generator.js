@@ -99,7 +99,7 @@
        this.elifCases.forEach(elifCases => elifCases.gen());
      }
      if (this.elseCase.length > 0) {
-       this.elseCase[0].gen();
+       this.elseBody[0].gen();
      }
    },
  });
